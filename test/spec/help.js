@@ -4,18 +4,18 @@ var expect = require('chai').expect
   , argv = require('../argv');
 
 describe('linkdown:', function() {
-  var stdout;
+  //var stdout;
 
-  beforeEach(function(done) {
-    stdout = process.stdout.write;
-    process.stdout.write = function noop(){}
-    done();
-  })
+  //beforeEach(function(done) {
+    //stdout = process.stdout.write;
+    //process.stdout.write = function noop(){}
+    //done();
+  //})
 
-  afterEach(function(done) {
-    process.stdout.write = stdout;
-    done();
-  })
+  //afterEach(function(done) {
+    //process.stdout.write = stdout;
+    //done();
+  //})
 
   it('should print help with no arguments', function(done) {
     var cli = linkdown(pkg, pkg.name)
