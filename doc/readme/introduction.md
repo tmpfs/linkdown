@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/tmpfs/linkdown.svg?v=1)](https://travis-ci.org/tmpfs/linkdown)
-[![npm version](http://img.shields.io/npm/v/linkdown.svg?v=1)](https://npmjs.org/package/linkdown)
-[![Coverage Status](https://coveralls.io/repos/tmpfs/linkdown/badge.svg?branch=master&service=github&v=2)](https://coveralls.io/github/tmpfs/linkdown?branch=master)
+[![Build Status](https://travis-ci.org/tmpfs/linkdown.svg?v=2)](https://travis-ci.org/tmpfs/linkdown)
+[![npm version](http://img.shields.io/npm/v/linkdown.svg?v=2)](https://npmjs.org/package/linkdown)
+[![Coverage Status](https://coveralls.io/repos/tmpfs/linkdown/badge.svg?branch=master&service=github&v=3)](https://coveralls.io/github/tmpfs/linkdown?branch=master)
 
 Link manipulation tool.
 

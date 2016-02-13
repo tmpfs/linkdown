@@ -18,9 +18,9 @@ Table of Contents
 Linkdown
 ========
 
-[<img src="https://travis-ci.org/tmpfs/linkdown.svg?v=1" alt="Build Status">](https://travis-ci.org/tmpfs/linkdown)
-[<img src="http://img.shields.io/npm/v/linkdown.svg?v=1" alt="npm version">](https://npmjs.org/package/linkdown)
-[<img src="https://coveralls.io/repos/tmpfs/linkdown/badge.svg?branch=master&service=github&v=2" alt="Coverage Status">](https://coveralls.io/github/tmpfs/linkdown?branch=master).
+[<img src="https://travis-ci.org/tmpfs/linkdown.svg?v=2" alt="Build Status">](https://travis-ci.org/tmpfs/linkdown)
+[<img src="http://img.shields.io/npm/v/linkdown.svg?v=2" alt="npm version">](https://npmjs.org/package/linkdown)
+[<img src="https://coveralls.io/repos/tmpfs/linkdown/badge.svg?branch=master&service=github&v=3" alt="Coverage Status">](https://coveralls.io/github/tmpfs/linkdown?branch=master).
 
 Link manipulation tool.
 
@@ -66,7 +66,7 @@ Usage: linkdown <command>
 where <command> is one of:
     help, info, i
 
-linkdown@1.0.0 /home/muji/git/linkdown
+linkdown@1.0.2 /home/muji/git/linkdown
 ```
 
 ## Developer
