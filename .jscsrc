@@ -14,7 +14,7 @@
     "excludeFiles": [
       "db/app",
       "node_modules",
-      "www/public/assets/js",
+      "lib/linkdownc.js",
       "coverage",
       "target"
     ]
