@@ -64,8 +64,8 @@
     "clean": "npm run clean-man && rm -rf ./coverage",
     "manual": "npm run clean-man && NODE_ENV=devel manpage --output ./doc/man ./bin/linkdown",
     "readme": "mdp --force -v",
-    "test": "NODE_ENV=test mocha ${SPEC:-test/spec}",
-    "cover": "NODE_ENV=test istanbul cover _mocha -- ${SPEC:-test/spec}"
+    "test": "NODE_ENV=test mocha test/global ${SPEC:-test/spec}",
+    "cover": "NODE_ENV=test istanbul cover _mocha -- test/global ${SPEC:-test/spec}"
   },
   "mdp": {
     "title": "Linkdown",
