@@ -1,1 +1,1 @@
-Perform operations on website links.
+Link manipulation tool.

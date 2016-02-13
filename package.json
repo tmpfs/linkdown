@@ -80,18 +80,19 @@
         "inc": [
           "introduction.md",
           "install.md",
-          "manual.md",
-          "developer.md"
+          "manual.md"
         ]
       },
       {
-        "title": "Help",
-        "bin": "linkdown --help",
+        "title": "Usage",
+        "bin": "linkdown",
+        "stderr": true,
         "type": "code",
         "trim": true
       },
       {
         "inc": [
+          "developer.md",
           "license.md"
         ]
       }
