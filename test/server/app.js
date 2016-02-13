@@ -16,6 +16,14 @@ app.get('/', function(req, res) {
   res.render('index');
 });
 
+/**
+ *  Redirect to another page.
+ */
+app.get('/redirect', function(req, res) {
+  res.redirect('/');
+});
+
+
 app.all('*', wildcard);
 app.use(errorView);
 
