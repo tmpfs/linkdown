@@ -3,7 +3,6 @@ Table of Contents
 
 * [Linkdown](#linkdown)
   * [Install](#install)
-  * [Usage](#usage)
   * [Manual](#manual)
   * [Guide](#guide)
     * [Info](#info)
@@ -39,17 +38,6 @@ But may be used to perform arbitrary operations on the links crawled from a doma
 
 ```
 npm i -g linkdown
-```
-
-## Usage
-
-```
-Usage: linkdown <command>
-
-where <command> is one of:
-    help, info, i
-
-linkdown@1.0.2 /home/muji/git/linkdown
 ```
 
 ## Manual
