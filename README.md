@@ -16,6 +16,10 @@ Table of Contents
 Linkdown
 ========
 
+[<img src="https://travis-ci.org/tmpfs/linkdown.svg?v=1" alt="Build Status">](https://travis-ci.org/tmpfs/linkdown)
+[<img src="http://img.shields.io/npm/v/linkdown.svg?v=1" alt="npm version">](https://npmjs.org/package/linkdown)
+[<img src="https://coveralls.io/repos/tmpfs/linkdown/badge.svg?branch=master&service=github&v=2" alt="Coverage Status">](https://coveralls.io/github/tmpfs/linkdown?branch=master).
+
 Link manipulation tool.
 
 It crawls a URL, finds all links and operates on the links.
