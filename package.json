@@ -43,6 +43,7 @@
     "cli-regexp": "~0.1.2",
     "cli-types": "~0.1.2",
     "cli-util": "~1.1.27",
+    "nenv": "~0.5.1",
     "simplecrawler": "~0.6.1",
     "ttycolor": "~0.9.0"
   },
