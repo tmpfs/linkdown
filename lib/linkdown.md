@@ -6,6 +6,7 @@ Link manipulation tool.
 ## Commands
 
 * `info: info, i`: Print link information.
+* `validate: validate, v`: Validate HTML pages with the nu validator.
 
 ## Options
 
