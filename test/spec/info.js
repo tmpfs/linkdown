@@ -5,6 +5,18 @@ var expect = require('chai').expect
 
 describe('linkdown:', function() {
 
+  it('should error on no url', function(done) {
+    var cli = linkdown(pkg, pkg.name)
+      , args = argv(['info']);
+    cli.program.on('error', function(err) {
+      expect(err).to.be.instanceof(Error);
+      expect(err.code).to.be.a('number');
+      expect(err.code).to.be.gt(0);
+      done();
+    })
+    cli.parse(args);
+  });
+
   it('should print link summary', function(done) {
     var cli = linkdown(pkg, pkg.name)
       , args = argv(['info', process.env.URL]);

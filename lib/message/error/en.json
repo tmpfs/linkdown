@@ -1,12 +1,7 @@
 [
   {
-    "key": "ETOO_FEW_ARGUMENTS",
-    "description": "Not enough arguments supplied to a command",
-    "message": "not enough arguments, requires %s"
-  },
-  {
-    "key": "EREGEXP_COMPILE",
-    "description": "Pattern compile error",
-    "message": "pattern %s it not a valid regular expression"
+    "key": "EURL",
+    "description": "User did not supply url command line argument",
+    "message": "url is required"
   }
 ]
