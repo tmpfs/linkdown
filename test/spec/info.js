@@ -1,7 +1,8 @@
 var expect = require('chai').expect
   , linkdown = require('../../lib/linkdown')
   , pkg = require('../../package.json')
-  , argv = require('../argv');
+  , argv = require('../argv')
+  , error = require('../error');
 
 describe('linkdown:', function() {
 
@@ -9,9 +10,17 @@ describe('linkdown:', function() {
     var cli = linkdown(pkg, pkg.name)
       , args = argv(['info']);
     cli.program.on('error', function(err) {
-      expect(err).to.be.instanceof(Error);
-      expect(err.code).to.be.a('number');
-      expect(err.code).to.be.gt(0);
+      error.url(err, this.errors);
+      done();
+    })
+    cli.parse(args);
+  });
+
+  it('should error on invalid protocol', function(done) {
+    var cli = linkdown(pkg, pkg.name)
+      , args = argv(['info', '//example.com']);
+    cli.program.on('error', function(err) {
+      error.protocol(err, this.errors);
       done();
     })
     cli.parse(args);

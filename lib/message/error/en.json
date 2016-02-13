@@ -3,5 +3,11 @@
     "key": "EURL",
     "description": "User did not supply url command line argument",
     "message": "url is required"
+  },
+  {
+    "key": "EINVALID_PROTOCOL",
+    "description": "Invalid URL protocol",
+    "message": "invalid protocol, expected %s or %s"
   }
+
 ]
