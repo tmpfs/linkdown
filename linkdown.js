@@ -2,7 +2,7 @@ module.exports = {
   validate: {
     // time to sleep between validation calls
     // no sleep will get your fans going and pausing
-    // a while gives a change to see the errors
+    // a while gives a chance to see the errors
     sleep: {
       pass: 0.5,
       fail: 5
@@ -24,8 +24,6 @@ module.exports = {
     // decrease interval and concurrency as normally
     // executing against local server, adjust for your needs
     interval: 200,
-    maxConcurrency: 25,
-    // increase in case we have a slow validation (unlikely)
-    listenerTTL: 30000
+    maxConcurrency: 25
   }
 }
