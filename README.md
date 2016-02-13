@@ -4,10 +4,10 @@ Table of Contents
 * [Linkdown](#linkdown)
   * [Install](#install)
   * [Manual](#manual)
+  * [Usage](#usage)
   * [Guide](#guide)
     * [Info](#info)
     * [Configuration](#configuration)
-  * [Usage](#usage)
   * [Developer](#developer)
     * [Test](#test)
     * [Cover](#cover)
@@ -45,6 +45,17 @@ npm i -g linkdown
 
 Run `linkdown help` for the program manual, use `linkdown help <cmd>` for individual command man pages.
 
+## Usage
+
+```
+Usage: linkdown <command>
+
+where <command> is one of:
+    help, info, i
+
+linkdown@1.0.2 /home/muji/git/linkdown
+```
+
 ## Guide
 
 ### Info
@@ -65,17 +76,6 @@ The [default configuration](https://github.com/tmpfs/linkdown/blob/master/linkdo
 
 ```
 linkdown info http://example.com -c /path/to/conf.js
-```
-
-## Usage
-
-```
-Usage: linkdown <command>
-
-where <command> is one of:
-    help, info, i
-
-linkdown@1.0.2 /home/muji/git/linkdown
 ```
 
 ## Developer

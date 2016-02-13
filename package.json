@@ -78,8 +78,7 @@
         "inc": [
           "introduction.md",
           "install.md",
-          "manual.md",
-          "guide.md"
+          "manual.md"
         ]
       },
       {
@@ -91,6 +90,7 @@
       },
       {
         "inc": [
+          "guide.md",
           "developer.md",
           "license.md"
         ]
