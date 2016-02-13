@@ -1,7 +1,9 @@
-function argv(args) {
-  args.push('--no-color');
-  if(!process.env.DEBUG) {
-    args.push('--silent'); 
+function argv(args, bypass) {
+  if(!bypass) {
+    args.push('--no-color');
+    if(!process.env.DEBUG) {
+      args.push('--silent'); 
+    }
   }
   return args;
 }

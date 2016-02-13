@@ -14,4 +14,13 @@ describe('linkdown:', function() {
     });
   });
 
+  it('should print link summary with --depth', function(done) {
+    var cli = linkdown(pkg, pkg.name)
+      , args = argv(['info', process.env.URL, '--depth=1']);
+    cli.parse(args, function complete(res) {
+      expect(res.errors.list.length).to.eql(0);
+      done(); 
+    });
+  });
+
 });
