@@ -19,5 +19,6 @@ function err(key) {
 
 err.url = err('EURL');
 err.protocol = err('EINVALID_PROTOCOL');
+err.confload = err('ECONF_LOAD');
 
 module.exports = err;

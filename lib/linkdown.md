@@ -9,9 +9,9 @@ Link manipulation tool.
 
 ## Options
 
-* `json: -j, --json`: Print output as JSON.
-* `--log-level=[level]`: Set the log level.
-* `--depth=[int]`: Maximum depth to recurse.
+* `conf: -c, --conf=[file...]`: Load crawler configuration files.
+* `logLevel: --log-level=[level]`: Set the log level.
+* `depth: --depth=[int]`: Maximum depth to recurse.
 
 ## Example
 

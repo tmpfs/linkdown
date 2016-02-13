@@ -8,6 +8,10 @@
     "key": "EINVALID_PROTOCOL",
     "description": "Invalid URL protocol",
     "message": "invalid protocol, expected %s or %s"
+  },
+  {
+    "key": "ECONF_LOAD",
+    "description": "Failed to require() configuration file",
+    "message": "configuration file parse error: %s"
   }
-
 ]
