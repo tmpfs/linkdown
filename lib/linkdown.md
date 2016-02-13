@@ -11,6 +11,7 @@ Link manipulation tool.
 
 * `json: -j, --json`: Print output as JSON.
 * `--depth=[int]`: Maximum depth to recurse.
+* `--silent`: Suppress log messages.
 
 ## Example
 
