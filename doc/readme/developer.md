@@ -8,6 +8,10 @@ To run the test suite:
 npm test
 ```
 
+* `PORT`: Port for the mock web server, default `8080`.
+* `URL`: URL for the mock web server, default `http://localhost:8080`.
+* `DEBUG`: When set do not suppress program output.
+
 ### Cover
 
 To generate code coverage run:
