@@ -18,7 +18,7 @@ Link manipulation tool.
 Print links:
 
 ```
-$0 info
+$0 info http://example.com
 ```
 
 ## See

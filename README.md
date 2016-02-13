@@ -4,6 +4,8 @@ Table of Contents
 * [Linkdown](#linkdown)
   * [Install](#install)
   * [Manual](#manual)
+  * [Guide](#guide)
+    * [Info](#info)
   * [Usage](#usage)
   * [Developer](#developer)
     * [Test](#test)
@@ -41,6 +43,16 @@ npm i -g linkdown
 ## Manual
 
 Run `linkdown help` for the program manual, use `linkdown help <cmd>` for individual command man pages.
+
+## Guide
+
+### Info
+
+Print link status codes, URLs and buffer lengths:
+
+```
+linkdown info http://example.com
+```
 
 ## Usage
 

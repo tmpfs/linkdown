@@ -6,7 +6,7 @@ linkdown
 .SP
 linkdown <command> [\-jh] [\-\-color|\-\-no\-color] [\-j|\-\-json]
 .br
-         [\-h|\-\-help] [\-\-version] [\-\-depth==<int>] <args>
+         [\-\-silent] [\-h|\-\-help] [\-\-version] [\-\-depth==<int>] <args>
 .SH "DESCRIPTION"
 .PP
 Link manipulation tool.
@@ -28,13 +28,15 @@ Link manipulation tool.
 .IP "\[ci]" 4
 \fB\-\-depth==[int]\fR: Maximum depth to recurse.
 .IP "\[ci]" 4
+\fB\-\-silent\fR: Suppress log messages.
+.IP "\[ci]" 4
 \fB\-\-version\fR: Print version and exit.
 .EL
 .SH "EXAMPLE"
 .PP
 Print links:
 
-  linkdown info
+  linkdown info http://example.com
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/tmpfs/linkdown/issues.
