@@ -6,7 +6,9 @@ linkdown
 .SP
 linkdown <command> [\-jh] [\-\-color|\-\-no\-color] [\-j|\-\-json]
 .br
-         [\-\-silent] [\-h|\-\-help] [\-\-version] [\-\-depth==<int>] <args>
+         [\-h|\-\-help] [\-\-version] [\-\-log\-level==<level>]
+.br
+         [\-\-depth==<int>] <args>
 .SH "DESCRIPTION"
 .PP
 Link manipulation tool.
@@ -26,9 +28,9 @@ Link manipulation tool.
 .IP "\[ci]" 4
 \fB\-\-[no]\-color\fR: Enable or disable terminal colors.
 .IP "\[ci]" 4
-\fB\-\-depth==[int]\fR: Maximum depth to recurse.
+\fB\-\-log\-level==[level]\fR: Set the log level.
 .IP "\[ci]" 4
-\fB\-\-silent\fR: Suppress log messages.
+\fB\-\-depth==[int]\fR: Maximum depth to recurse.
 .IP "\[ci]" 4
 \fB\-\-version\fR: Print version and exit.
 .EL

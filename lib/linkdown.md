@@ -10,8 +10,8 @@ Link manipulation tool.
 ## Options
 
 * `json: -j, --json`: Print output as JSON.
+* `--log-level=[level]`: Set the log level.
 * `--depth=[int]`: Maximum depth to recurse.
-* `--silent`: Suppress log messages.
 
 ## Example
 

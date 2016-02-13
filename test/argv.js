@@ -2,7 +2,7 @@ function argv(args, bypass) {
   if(!bypass) {
     args.push('--no-color');
     if(!process.env.DEBUG) {
-      args.push('--silent'); 
+      args.push('--log-level=none'); 
     }
   }
   return args;
