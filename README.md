@@ -3,8 +3,8 @@ Table of Contents
 
 * [Linkdown](#linkdown)
   * [Install](#install)
-  * [Manual](#manual)
   * [Usage](#usage)
+  * [Manual](#manual)
   * [Guide](#guide)
     * [Info](#info)
     * [Configuration](#configuration)
@@ -41,10 +41,6 @@ But may be used to perform arbitrary operations on the links crawled from a doma
 npm i -g linkdown
 ```
 
-## Manual
-
-Run `linkdown help` for the program manual, use `linkdown help <cmd>` for individual command man pages.
-
 ## Usage
 
 ```
@@ -55,6 +51,10 @@ where <command> is one of:
 
 linkdown@1.0.2 /home/muji/git/linkdown
 ```
+
+## Manual
+
+Run `linkdown help` for the program manual, use `linkdown help <cmd>` for individual command man pages. You can view quick help on commands and options with `linkdown -h` or `linkdown -help`.
 
 ## Guide
 
