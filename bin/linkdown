@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+
+var program = require('../lib/linkdown');
+program(require('../package.json')).parse();

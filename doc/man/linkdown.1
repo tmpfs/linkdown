@@ -1,0 +1,43 @@
+.TH "LINKDOWN" "1" "February 2016" "linkdown 1.0.0" "User Commands"
+.SH "NAME"
+linkdown
+.SH "USAGE"
+
+.SP
+linkdown <command> [\-jh] [\-\-color|\-\-no\-color] [\-j|\-\-json]
+.br
+         [\-h|\-\-help] [\-\-version] [\-\-depth==<int>] <args>
+.SH "DESCRIPTION"
+.PP
+Link manipulation tool.
+.SH "COMMANDS"
+.BL
+.IP "\[ci]" 4
+\fBinfo, i\fR: Print link information.
+.IP "\[ci]" 4
+\fBhelp\fR: Show help for commands.
+.EL
+.SH "OPTIONS"
+.BL
+.IP "\[ci]" 4
+\fB\-j, \-\-json\fR: Print output as JSON.
+.IP "\[ci]" 4
+\fB\-h, \-\-help\fR: Display this help and exit.
+.IP "\[ci]" 4
+\fB\-\-[no]\-color\fR: Enable or disable terminal colors.
+.IP "\[ci]" 4
+\fB\-\-depth==[int]\fR: Maximum depth to recurse.
+.IP "\[ci]" 4
+\fB\-\-version\fR: Print version and exit.
+.EL
+.SH "EXAMPLE"
+.PP
+Print links:
+
+  linkdown info
+.SH "BUGS"
+.PP
+Report bugs to https://github.com/tmpfs/linkdown/issues.
+.SH "SEE ALSO"
+.PP
+${see_also}

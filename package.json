@@ -1,0 +1,98 @@
+{
+  "name": "linkdown",
+  "version": "1.0.0",
+  "description": "Link manipulation tool",
+  "author": "muji",
+  "preferGlobal": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tmpfs/linkdown"
+  },
+  "bugs": {
+    "url": "https://github.com/tmpfs/linkdown/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/tmpfs/linkdown/blob/master/LICENSE"
+    }
+  ],
+  "directories": {
+    "bin": "./bin",
+    "man": "./doc/man"
+  },
+  "keywords": [
+    "cli",
+    "crawl",
+    "links",
+    "validate",
+    "sitemap"
+  ],
+  "dependencies": {
+    "circular": "~1.0.5",
+    "cli-command": "~0.8.300",
+    "cli-compiler": "~0.1.35",
+    "cli-fs": "~1.0.4",
+    "cli-help": "~0.1.1",
+    "cli-interface": "~1.0.19",
+    "cli-logger": "~0.5.40",
+    "cli-mid-color": "~1.0.10",
+    "cli-mid-logger": "~1.0.10",
+    "cli-mid-manual": "~1.0.15",
+    "cli-regexp": "~0.1.2",
+    "cli-types": "~0.1.2",
+    "cli-util": "~1.1.27",
+    "simplecrawler": "~0.6.1",
+    "ttycolor": "~0.9.0"
+  },
+  "devDependencies": {
+    "chai": "~3.5.0",
+    "coveralls": "~2.11.6",
+    "istanbul": "~0.4.2",
+    "mocha": "~2.4.5"
+  },
+  "engine": [
+    "node >= 0.12.x"
+  ],
+  "scripts": {
+    "lint": "jshint . && jscs .",
+    "docs": "npm run manual && npm run readme",
+    "clean-man": "rm -fv ./doc/man/*.1",
+    "clean": "npm run clean-man && rm -rf ./coverage",
+    "manual": "npm run clean-man && NODE_ENV=devel manpage --output ./doc/man ./bin/linkdown",
+    "readme": "mdp --force -v",
+    "test": "NODE_ENV=test mocha ${SPEC:-test/spec}",
+    "cover": "NODE_ENV=test istanbul cover _mocha -- ${SPEC:-test/spec}"
+  },
+  "mdp": {
+    "title": "Linkdown",
+    "pedantic": true,
+    "include": "doc/readme",
+    "require": "lib",
+    "links": "links.md",
+    "toc": "Table of Contents",
+    "base": "https://github.com/tmpfs/linkdown",
+    "partial": [
+      {
+        "inc": [
+          "introduction.md",
+          "install.md",
+          "manual.md",
+          "developer.md"
+        ]
+      },
+      {
+        "title": "Help",
+        "bin": "linkdown --help",
+        "type": "code",
+        "trim": true
+      },
+      {
+        "inc": [
+          "license.md"
+        ]
+      }
+    ]
+  }
+}
