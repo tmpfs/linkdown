@@ -30,10 +30,8 @@
     "sitemap"
   ],
   "dependencies": {
-    "circular": "~1.0.5",
     "cli-command": "~0.8.301",
     "cli-compiler": "~0.1.35",
-    "cli-fs": "~1.0.4",
     "cli-help": "~1.0.2",
     "cli-interface": "~1.0.19",
     "cli-logger": "~0.5.40",
