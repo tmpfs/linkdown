@@ -5,19 +5,9 @@ var expect = require('chai').expect
 
 describe('linkdown:', function() {
 
-  beforeEach(function(done) {
-    process.env.CLI_TOOLKIT_SUPPRESS_HELP = 1;
-    done();
-  })
-
-  afterEach(function(done) {
-    delete process.env.CLI_TOOLKIT_SUPPRESS_HELP;
-    done();
-  })
-
-  it('should print help ', function(done) {
+  it('should print command help with no arguments', function(done) {
     var cli = linkdown(pkg, pkg.name)
-      , args = argv(['-h'], true);
+      , args = argv([], true);
     cli.parse(args, function complete(res) {
       expect(res.errors.list.length).to.eql(0);
       done(); 
