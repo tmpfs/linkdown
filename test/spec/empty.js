@@ -3,7 +3,7 @@ var expect = require('chai').expect
   , pkg = require('../../package.json')
   , argv = require('../argv');
 
-describe('linkdown:', function() {
+describe('help:', function() {
 
   it('should print command help with no arguments', function(done) {
     var cli = linkdown(pkg, pkg.name)

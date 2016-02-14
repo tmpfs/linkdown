@@ -4,7 +4,7 @@ var expect = require('chai').expect
   , argv = require('../argv')
   , error = require('../error');
 
-describe('linkdown:', function() {
+describe('info:', function() {
 
   it('should error on no url', function(done) {
     var cli = linkdown(pkg, pkg.name)

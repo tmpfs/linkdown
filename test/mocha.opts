@@ -3,5 +3,5 @@
 --bail
 --check-leaks
 --reporter list
---timeout 60000
+--timeout 120000
 -A

@@ -3,7 +3,7 @@ var expect = require('chai').expect
   , pkg = require('../../package.json')
   , argv = require('../argv');
 
-describe('linkdown:', function() {
+describe('help:', function() {
 
   beforeEach(function(done) {
     process.env.CLI_TOOLKIT_SUPPRESS_HELP = 1;

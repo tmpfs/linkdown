@@ -4,7 +4,7 @@ var expect = require('chai').expect
   , argv = require('../argv')
   , error = require('../error');
 
-describe('linkdown:', function() {
+describe('info:', function() {
 
   it('should error on missing conf file', function(done) {
     var cli = linkdown(pkg, pkg.name)
@@ -16,7 +16,6 @@ describe('linkdown:', function() {
     })
     cli.parse(args);
   });
-
 
   it('should use configuration file', function(done) {
     var cli = linkdown(pkg, pkg.name)

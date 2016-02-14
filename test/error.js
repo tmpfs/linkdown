@@ -21,4 +21,9 @@ err.url = err('EURL');
 err.protocol = err('EINVALID_PROTOCOL');
 err.confload = err('ECONF_LOAD');
 
+err.nojar = err('ENU_VALIDATOR_JAR');
+err.jar = err('ENOJAR');
+err.java = err('EJAVA');
+err.format = err('EINVALID_FORMAT');
+
 module.exports = err;
