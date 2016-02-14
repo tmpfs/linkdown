@@ -78,8 +78,8 @@ Print link status codes, URLs and buffer lengths.
 linkdown info http://example.com
 ```
 
-<div class="highlight highlight-source-shell""><code><span style="color:#FFF"><span style="color:#FFF"><span style="color:#859900"> INFO</span></span></span><span style="color:#0AA"> |</span><span style="color:#FFF"> <span style="color:#FFF"><span style="color:#859900">200</span></span></span><span style="color:#FFF"> <span style="color:#FFF">http://example.com/</span></span><span style="color:#FFF"> (<span style="color:#FFF"><b><span style="color:#FFF">1270</span></b></span></span><span style="color:#FFF"> bytes)</span>
-</code></div>
+<pre class="highlight highlight-source-shell""><code><span style="color:#FFF"><span style="color:#FFF"><span style="color:#859900"> INFO</span></span></span><span style="color:#0AA"> |</span><span style="color:#FFF"> <span style="color:#FFF"><span style="color:#859900">200</span></span></span><span style="color:#FFF"> <span style="color:#FFF">http://example.com/</span></span><span style="color:#FFF"> (<span style="color:#FFF"><b><span style="color:#FFF">1270</span></b></span></span><span style="color:#FFF"> bytes)</span>
+</code></pre>
 
 ### Validate
 
@@ -95,9 +95,9 @@ When the validate command encounters errors they are printed to screen in a form
 linkdown validate http://example.com
 ```
 
-<div class="highlight highlight-source-shell""><code><span style="color:#FFF"><span style="color:#FFF"><span style="color:#859900"> INFO</span></span></span><span style="color:#0AA"> |</span><span style="color:#FFF"> <span style="color:#FFF"><span style="color:#859900">200</span></span></span><span style="color:#FFF"> <span style="color:#FFF">http://example.com/</span></span><span style="color:#FFF"> (<span style="color:#FFF"><b><span style="color:#FFF">1270</span></b></span></span><span style="color:#FFF"> bytes)</span>
+<pre class="highlight highlight-source-shell""><code><span style="color:#FFF"><span style="color:#FFF"><span style="color:#859900"> INFO</span></span></span><span style="color:#0AA"> |</span><span style="color:#FFF"> <span style="color:#FFF"><span style="color:#859900">200</span></span></span><span style="color:#FFF"> <span style="color:#FFF">http://example.com/</span></span><span style="color:#FFF"> (<span style="color:#FFF"><b><span style="color:#FFF">1270</span></b></span></span><span style="color:#FFF"> bytes)</span>
 <span style="color:#FFF"><span style="color:#FFF"><span style="color:#859900"> INFO</span></span></span><span style="color:#0AA"> |</span><span style="color:#FFF"> validation passed <span style="color:#859900">http://example.com/</span></span><span style="color:#FFF"></span>
-</code></div>
+</code></pre>
 
 ## Developer
 

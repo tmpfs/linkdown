@@ -40,9 +40,9 @@ sections.forEach(function(section) {
 
       var contents = fs.readFileSync(tmp);
 
-      process.stdout.write('<div class="highlight highlight-source-shell""><code>')
+      process.stdout.write('<pre class="highlight highlight-source-shell""><code>')
       process.stdout.write(convert.toHtml('' + contents));
-      process.stdout.write('</code></div>')
+      process.stdout.write('</code></pre>')
 
       fs.unlinkSync(tmp);
 

@@ -12,7 +12,7 @@
     "disallowSpaceBeforeBlockStatements": false,
     "disallowSpacesInsideObjectBrackets": null,
     "excludeFiles": [
-      "db/app",
+      "doc/readme",
       "node_modules",
       "lib/linkdownc.js",
       "coverage",
