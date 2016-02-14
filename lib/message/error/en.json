@@ -15,6 +15,11 @@
     "message": "configuration file parse error: %s"
   },
   {
+    "key": "EINVALID_FORMAT",
+    "description": "User specified an invalid format for validation output",
+    "message": "invalid format %s, expected %s"
+  },
+  {
     "key": "EJAVA",
     "description": "Attempt to validate java installed",
     "message": "executable %s not found (%s)"
