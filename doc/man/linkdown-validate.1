@@ -4,23 +4,35 @@ linkdown-validate
 .SH "USAGE"
 
 .SP
-linkdown validate [\-\-errors\-only] [\-\-jar==<file>] <args>
+linkdown validate [\-\-errors\-only] [\-\-format==<fmt>]
 .br
-linkdown v [\-\-errors\-only] [\-\-jar==<file>] <args>
+         [\-\-jar==<file>] <args>
+.br
+linkdown v [\-\-errors\-only] [\-\-format==<fmt>] [\-\-jar==<file>]
+.br
+         <args>
 .SH "DESCRIPTION"
 .PP
 Validate HTML pages with the nu validator.
 .SH "OPTIONS"
 .BL
 .IP "\[ci]" 4
+\fB\-\-format==[fmt]\fR: Validator output format.
+.IP "\[ci]" 4
 \fB\-\-jar==[file]\fR: Path to the validator jar file.
 .IP "\[ci]" 4
 \fB\-\-errors\-only\fR: Proxied to the validator.
 .EL
 .PP
-This command will fetch all pages ending with \fB.htm\fR and \fB.html\fR and URLs with no file extension are assumed to be directories serving HTML pages.
+This command will fetch all pages ending with \fB.htm\fR and \fB.html\fR; URLs with no file extension are assumed to be directories serving HTML pages.
 .PP
-Each downloaded file is written to a temporary file and passed to the validator with the output format set to JSON, the response document is parsed and printed to screen.
+Each downloaded file is written to a temporary file and passed to the validator.
+.PP
+When no \fB\-\-format\fR option is given the output format is set to JSON, the response document is parsed and printed to the screen.
+.PP
+When the \fB\-\-format\fR option is given the raw validator output is printed to stdout, the first line is the remote URL, followed by the validator output followed by a newline.
+.PP
+Because all log messages are sent to stderr this means you can get an easy to parse log file with all validation results using \fBlinkdown v \-\-format json http://example.com > validation.log\fR.
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/tmpfs/linkdown/issues.
