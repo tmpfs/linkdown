@@ -3,12 +3,13 @@ Table of Contents
 
 * [Linkdown](#linkdown)
   * [Install](#install)
+  * [Usage](#usage)
   * [Manual](#manual)
   * [Guide](#guide)
+  * [Guide](#guide-1)
     * [Configuration](#configuration)
     * [Info](#info)
     * [Validate](#validate)
-      * [Example Validation Output](#example-validation-output)
   * [Developer](#developer)
     * [Test](#test)
     * [Cover](#cover)
@@ -42,9 +43,22 @@ But may be used to perform arbitrary operations on the links crawled from a doma
 npm i -g linkdown
 ```
 
+## Usage
+
+```
+Usage: linkdown <command>
+
+where <command> is one of:
+    help, info, i, validate, v
+
+linkdown@1.0.3 /home/muji/git/linkdown
+```
+
 ## Manual
 
 Run `linkdown help` for the program manual, use `linkdown help <cmd>` for individual command man pages. You can view quick help on commands and options with `linkdown -h` or `linkdown -help`.
+
+## Guide
 
 ## Guide
 
@@ -58,17 +72,14 @@ linkdown info http://example.com -c /path/to/conf.js -c /path/to/other/conf.js
 
 ### Info
 
-Print link status codes, URLs and buffer lengths:
+Print link status codes, URLs and buffer lengths.
 
-```
+```shell
 linkdown info http://example.com
 ```
 
-Output:
-
-```
- INFO | 200 http://example.com/ (1270 bytes)
-```
+<pre><code><span style="color:#FFF"><span style="color:#FFF"><span style="color:#0A0"> INFO</span></span></span><span style="color:#0AA"> |</span><span style="color:#FFF"> <span style="color:#FFF"><span style="color:#0A0">200</span></span></span><span style="color:#FFF"> <span style="color:#FFF">http://example.com/</span></span><span style="color:#FFF"> (<span style="color:#FFF"><b><span style="color:#FFF">1270</span></b></span></span><span style="color:#FFF"> bytes)</span>
+</code></pre>
 
 ### Validate
 
@@ -78,44 +89,15 @@ To use this command you should have Java 1.8 installed and [download the validat
 
 You can use the `--jar` option to specify the path to the jar file but it is recommended you set the environment variable `NU_VALIDATOR_JAR` so that there is no need to keep specifying on the command line.
 
-```
+When the validate command encounters errors they are printed to screen in a format that enables easily debugging and fixing the errors much like the online w3 validation service.
+
+```shell
 linkdown validate http://example.com
 ```
 
-Output:
-
-```
- INFO | 200 http://example.com/ (1270 bytes)
- INFO | validation passed http://example.com/
-```
-
-When the validate command encounters errors they are printed to screen in a format that enables easily debugging and fixing the errors much like the online w3 validation service.
-
-#### Example Validation Output
-
-```
-ERROR | validation failed on http://localhost:3000/stars
- HTML |
- HTML | 1) http://localhost:3000/stars
- HTML |
- HTML | From line 2, column 1311; to line 2, column 1315
- HTML |
- HTML | Element “div” not allowed as child of element “label” in this context.
- HTML | (Suppressing further errors from this subtree.)
- HTML |
- HTML |   "chooser"><div><input
- HTML | ------------^
- HTML |
- HTML | 2) http://localhost:3000/stars
- HTML |
- HTML | From line 2, column 1763; to line 2, column 1800
- HTML |
- HTML | Attribute “disabled” not allowed on element “a” at this point.
- HTML |
- HTML |   at-right"><a href="#ok" disabled class="button">Import
- HTML | ------------^
- HTML |
-```
+<pre><code><span style="color:#FFF"><span style="color:#FFF"><span style="color:#0A0"> INFO</span></span></span><span style="color:#0AA"> |</span><span style="color:#FFF"> <span style="color:#FFF"><span style="color:#0A0">200</span></span></span><span style="color:#FFF"> <span style="color:#FFF">http://example.com/</span></span><span style="color:#FFF"> (<span style="color:#FFF"><b><span style="color:#FFF">1270</span></b></span></span><span style="color:#FFF"> bytes)</span>
+<span style="color:#FFF"><span style="color:#FFF"><span style="color:#0A0"> INFO</span></span></span><span style="color:#0AA"> |</span><span style="color:#FFF"> validation passed <span style="color:#0A0">http://example.com/</span></span><span style="color:#FFF"></span>
+</code></pre>
 
 ## Developer
 

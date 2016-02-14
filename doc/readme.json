@@ -1,0 +1,38 @@
+{
+  "title": "Linkdown",
+  "pedantic": true,
+  "include": "doc/readme",
+  "require": "lib",
+  "links": "links.md",
+  "toc": "Table of Contents",
+  "base": "https://github.com/tmpfs/linkdown",
+  "partial": [
+    {
+      "inc": [
+        "introduction.md",
+        "install.md"
+      ]
+    },
+    {
+      "title": "Usage",
+      "bin": "linkdown",
+      "type": "code",
+      "trim": true
+    },
+    {
+      "inc": [
+        "manual.md"
+      ]
+    },
+    {
+      "title": "Guide",
+      "bin": "node doc/readme/guide.js"
+    },
+    {
+      "inc": [
+        "developer.md",
+        "license.md"
+      ]
+    }
+  ]
+}
