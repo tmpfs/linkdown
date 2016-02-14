@@ -41,6 +41,7 @@
     "merge": "~1.2.0",
     "nenv": "~0.5.1",
     "simplecrawler": "~0.6.1",
+    "string-repeater": "~1.0.3",
     "tempfile": "~1.1.1",
     "ttycolor": "~1.0.0"
   },
