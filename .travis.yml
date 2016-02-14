@@ -7,7 +7,7 @@ addons:
     packages:
       - oracle-java8-installer
 before_script:
-  - java -version | grep 1.8
+  - java -version
   - export NU_VALIDATOR_JAR=$PWD/vnu/dist/vnu.jar
   - java -jar $NU_VALIDATOR_JAR --help
 before_install:
