@@ -1,6 +1,9 @@
 language: node_js
-before_install: curl -L -O https://github.com/validator/validator/releases/download/16.1.1/vnu.jar_16.1.1.zip && unzip vnu.jar_16.1.1.zip && unzip -o -d vnu vnu.jar_16.1.1.zip && find .
-install: sudo add-apt-repository ppa:webupd8team/java && sudo apt-get update && sudo apt-get install oracle-java8-installer -y
+before_install:
+  - curl -L -O https://github.com/validator/validator/releases/download/16.1.1/vnu.jar_16.1.1.zip
+  - unzip -o -d vnu vnu.jar_16.1.1.zip
+jdk:
+  - oraclejdk8
 before_script: pwd && ls && java -version && export NU_VALIDATOR_JAR=$PWD/vnu/vnu.jar
 script: npm run cover
 node_js:
