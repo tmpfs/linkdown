@@ -23,6 +23,14 @@ app.get('/redirect', function(req, res) {
   res.redirect('/');
 });
 
+/**
+ *  Bad content length header.
+ */
+app.get('/bad-length', function(req, res) {
+  res.set('Content-Length', '4')
+  res.end('<html></html>');
+});
+
 
 app.all('*', wildcard);
 app.use(errorView);

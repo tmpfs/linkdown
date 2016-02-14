@@ -59,6 +59,7 @@
   ],
   "scripts": {
     "lint": "jshint . && jscs .",
+    "start": "node test/server/index.js",
     "docs": "npm run manual && npm run readme",
     "clean-man": "rm -fv ./doc/man/*.1",
     "clean": "npm run clean-man && rm -rf ./coverage",
