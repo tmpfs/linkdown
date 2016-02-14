@@ -6,7 +6,6 @@ Table of Contents
   * [Usage](#usage)
   * [Manual](#manual)
   * [Guide](#guide)
-  * [Guide](#guide-1)
     * [Configuration](#configuration)
     * [Info](#info)
     * [Validate](#validate)
@@ -60,8 +59,6 @@ Run `linkdown help` for the program manual, use `linkdown help <cmd>` for indivi
 
 ## Guide
 
-## Guide
-
 ### Configuration
 
 The [default configuration](https://github.com/tmpfs/linkdown/blob/master/linkdown.js) file is always loaded, you can load your own configuration file(s) which will be merged with the default. Configuration files should be javascript, for example:
@@ -79,7 +76,7 @@ linkdown info http://example.com
 ```
 
 ```
-<span style="color:#FFF"><span style="color:#FFF"><span style="color:#859900"> INFO</span></span></span><span style="color:#0AA"> |</span><span style="color:#FFF"> <span style="color:#FFF"><span style="color:#859900">200</span></span></span><span style="color:#FFF"> <span style="color:#FFF">http://example.com/</span></span><span style="color:#FFF"> (<span style="color:#FFF"><b><span style="color:#FFF">1270</span></b></span></span><span style="color:#FFF"> bytes)</span>
+ INFO | 200 http://example.com/ (1270 bytes)
 ```
 
 ### Validate
@@ -97,8 +94,8 @@ linkdown validate http://example.com
 ```
 
 ```
-<span style="color:#FFF"><span style="color:#FFF"><span style="color:#859900"> INFO</span></span></span><span style="color:#0AA"> |</span><span style="color:#FFF"> <span style="color:#FFF"><span style="color:#859900">200</span></span></span><span style="color:#FFF"> <span style="color:#FFF">http://example.com/</span></span><span style="color:#FFF"> (<span style="color:#FFF"><b><span style="color:#FFF">1270</span></b></span></span><span style="color:#FFF"> bytes)</span>
-<span style="color:#FFF"><span style="color:#FFF"><span style="color:#859900"> INFO</span></span></span><span style="color:#0AA"> |</span><span style="color:#FFF"> validation passed <span style="color:#859900">http://example.com/</span></span><span style="color:#FFF"></span>
+ INFO | 200 http://example.com/ (1270 bytes)
+ INFO | validation passed http://example.com/
 ```
 
 ## Developer

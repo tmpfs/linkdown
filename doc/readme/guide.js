@@ -2,8 +2,6 @@ var fs = require('fs')
   , execSync = require('child_process').execSync
   , base = __dirname + '/guide'
   , tempfile = require('tempfile')
-  , Convert = require('ansi-to-html')
-  , convert = new Convert()
   , sections = [
     'configuration',
     'info',
@@ -18,9 +16,6 @@ var fs = require('fs')
     ]
   }
 
-// initial heading
-console.log('## Guide');
-console.log('');
 
 sections.forEach(function(section) {
   var contents = '' + fs.readFileSync(base + '/' + section + '.md');
@@ -30,18 +25,19 @@ sections.forEach(function(section) {
       var tmp = tempfile('.ansi');
       var file = fs.openSync(tmp, 'w');
       var opts = {stdio: [0, file, file]};
+
       // command to execute
       console.log('```shell'); 
       console.log(cmd);
       console.log('```'); 
       console.log();
 
-      execSync(cmd + ' --color', opts);
+      execSync(cmd, opts);
 
       var contents = fs.readFileSync(tmp);
 
       process.stdout.write('```\n')
-      process.stdout.write(convert.toHtml('' + contents));
+      process.stdout.write('' + contents);
       process.stdout.write('```\n')
 
       fs.unlinkSync(tmp);
