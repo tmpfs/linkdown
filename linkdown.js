@@ -1,5 +1,6 @@
 module.exports = {
   validate: {
+    contentType: /(text\/html)/,
     // time to sleep between validation calls
     // no sleep will get your fans going and pausing
     // a while gives a chance to see the errors
