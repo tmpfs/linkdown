@@ -1,6 +1,6 @@
 {
   "name": "linkdown",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Link manipulation tool",
   "author": "muji",
   "preferGlobal": true,
