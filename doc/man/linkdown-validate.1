@@ -15,6 +15,10 @@ Validate HTML pages with the nu validator.
 .IP "\[ci]" 4
 \fB\-\-jar==[file]\fR: Path to the validator jar file.
 .EL
+.PP
+This command will fetch all pages ending with \fB.htm\fR and \fB.html\fR and URLs with no file extension are assumed to be directories serving HTML pages.
+.PP
+Each downloaded file is written to a temporary file and passed to the validator with the output format set to JSON, the response document is parsed and printed to screen.
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/tmpfs/linkdown/issues.

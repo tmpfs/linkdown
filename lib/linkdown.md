@@ -21,6 +21,10 @@ Link manipulation tool.
 
 * `jar: --jar=[file]`: Path to the validator jar file.
 
+This command will fetch all pages ending with `.htm` and `.html` and URLs with no file extension are assumed to be directories serving HTML pages.
+
+Each downloaded file is written to a temporary file and passed to the validator with the output format set to JSON, the response document is parsed and printed to screen.
+
 ## Example
 
 Print links:
