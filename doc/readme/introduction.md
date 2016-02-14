@@ -2,9 +2,9 @@
 [![npm version](http://img.shields.io/npm/v/linkdown.svg?v=2)](https://npmjs.org/package/linkdown)
 [![Coverage Status](https://coveralls.io/repos/tmpfs/linkdown/badge.svg?branch=master&service=github&v=3)](https://coveralls.io/github/tmpfs/linkdown?branch=master)
 
-Link manipulation tool.
+Link manipulation tool designed for POSIX systems.
 
-It crawls a URL, finds all links and operates on the links.
+Crawl a URL, find all links and operate on the links.
 
 Designed to be used to:
 

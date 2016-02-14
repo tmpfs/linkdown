@@ -22,9 +22,9 @@ Linkdown
 [<img src="http://img.shields.io/npm/v/linkdown.svg?v=2" alt="npm version">](https://npmjs.org/package/linkdown)
 [<img src="https://coveralls.io/repos/tmpfs/linkdown/badge.svg?branch=master&service=github&v=3" alt="Coverage Status">](https://coveralls.io/github/tmpfs/linkdown?branch=master).
 
-Link manipulation tool.
+Link manipulation tool designed for POSIX systems.
 
-It crawls a URL, finds all links and operates on the links.
+Crawl a URL, find all links and operate on the links.
 
 Designed to be used to:
 

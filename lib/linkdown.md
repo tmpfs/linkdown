@@ -15,6 +15,12 @@ Link manipulation tool.
 * `depth: --depth=[int]`: Maximum depth to recurse.
 * `follow: --[no]-follow`: Follow redirects.
 
+### Validate
+
+#### Options
+
+* `jar: --jar=[file]`: Path to the validator jar file.
+
 ## Example
 
 Print links:

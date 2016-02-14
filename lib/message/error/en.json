@@ -13,5 +13,15 @@
     "key": "ECONF_LOAD",
     "description": "Failed to require() configuration file",
     "message": "configuration file parse error: %s"
+  },
+  {
+    "key": "ENU_VALIDATOR_JAR",
+    "description": "Attempt to validate without a jar file",
+    "message": "no jar file specified, use --jar=[file] or set NU_VALIDATOR_JAR"
+  },
+  {
+    "key": "ENOJAR",
+    "description": "Specified jar file does not exist",
+    "message": "jar file %s does not exist"
   }
 ]
