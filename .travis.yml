@@ -11,8 +11,8 @@ before_script:
   - export NU_VALIDATOR_JAR=$PWD/vnu/dist/vnu.jar
   - java -jar $NU_VALIDATOR_JAR --help
 before_install:
-  - curl -L -O https://github.com/validator/validator/releases/download/16.1.1/vnu.jar_16.1.1.zip
-  - unzip -o -d vnu vnu.jar_16.1.1.zip
+  - curl -L -O https://github.com/validator/validator/releases/download/15.6.29/vnu.jar_15.6.29.zip
+  - unzip -o -d vnu vnu.jar_15.6.29.zip
 script: npm run cover
 node_js:
   - "4.1"
