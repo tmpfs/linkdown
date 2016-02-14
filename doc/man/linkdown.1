@@ -1,4 +1,4 @@
-.TH "LINKDOWN" "1" "February 2016" "linkdown 1.0.3" "User Commands"
+.TH "LINKDOWN" "1" "February 2016" "linkdown 1.0.4" "User Commands"
 .SH "NAME"
 linkdown
 .SH "USAGE"
@@ -15,9 +15,9 @@ Link manipulation tool.
 .SH "COMMANDS"
 .BL
 .IP "\[ci]" 4
-\fBinfo, i\fR: Print link information.
+\fBinfo, i\fR: Print crawl information.
 .IP "\[ci]" 4
-\fBvalidate, v\fR: Validate HTML pages with the nu validator.
+\fBvalidate, v\fR: Validate (X)HTML pages (nu validator).
 .IP "\[ci]" 4
 \fBhelp\fR: Show help for commands.
 .EL
@@ -40,12 +40,9 @@ Link manipulation tool.
 .EL
 .SH "EXAMPLE"
 .PP
-Print links:
+Print crawl information:
 
   linkdown info http://example.com
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/tmpfs/linkdown/issues.
-.SH "SEE ALSO"
-.PP
-${see_also}

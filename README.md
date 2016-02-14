@@ -50,7 +50,7 @@ Usage: linkdown <command>
 where <command> is one of:
     help, info, i, validate, v
 
-linkdown@1.0.3 /home/muji/git/linkdown
+linkdown@1.0.4 /home/muji/git/linkdown
 ```
 
 ## Manual
