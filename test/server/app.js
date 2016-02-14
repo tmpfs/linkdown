@@ -45,6 +45,13 @@ app.get('/validate-error', function(req, res) {
   res.render('validate-error');
 });
 
+/**
+ *  Validation error and warning.
+ */
+app.get('/validate-fail', function(req, res) {
+  res.render('validate-fail');
+});
+
 app.all('*', wildcard);
 app.use(errorView);
 
