@@ -78,8 +78,8 @@ Print link status codes, URLs and buffer lengths.
 linkdown info http://example.com
 ```
 
-<pre><code><span style="color:#FFF"><span style="color:#FFF"><span style="color:#0A0"> INFO</span></span></span><span style="color:#0AA"> |</span><span style="color:#FFF"> <span style="color:#FFF"><span style="color:#0A0">200</span></span></span><span style="color:#FFF"> <span style="color:#FFF">http://example.com/</span></span><span style="color:#FFF"> (<span style="color:#FFF"><b><span style="color:#FFF">1270</span></b></span></span><span style="color:#FFF"> bytes)</span>
-</code></pre>
+<pre><code></span></span><span style="color:#209805;"> INFO<span style="font-weight:normal;opacity:1;color:#fff;background:#000;"><span style="color:#00ffee;"> |</span></span></span> </span><span style="color:#209805;">200<span style="font-weight:normal;opacity:1;color:#fff;background:#000;"></span></span> </span>http://example.com/<span style="font-weight:normal;opacity:1;color:#fff;background:#000;"></span> (</span>[1;39m1270<span style="font-weight:normal;opacity:1;color:#fff;background:#000;"></span></span> bytes)<span style="font-weight:normal;opacity:1;color:#fff;background:#000;">
+</span></code></pre>
 
 ### Validate
 
@@ -95,9 +95,9 @@ When the validate command encounters errors they are printed to screen in a form
 linkdown validate http://example.com
 ```
 
-<pre><code><span style="color:#FFF"><span style="color:#FFF"><span style="color:#0A0"> INFO</span></span></span><span style="color:#0AA"> |</span><span style="color:#FFF"> <span style="color:#FFF"><span style="color:#0A0">200</span></span></span><span style="color:#FFF"> <span style="color:#FFF">http://example.com/</span></span><span style="color:#FFF"> (<span style="color:#FFF"><b><span style="color:#FFF">1270</span></b></span></span><span style="color:#FFF"> bytes)</span>
-<span style="color:#FFF"><span style="color:#FFF"><span style="color:#0A0"> INFO</span></span></span><span style="color:#0AA"> |</span><span style="color:#FFF"> validation passed <span style="color:#0A0">http://example.com/</span></span><span style="color:#FFF"></span>
-</code></pre>
+<pre><code></span></span><span style="color:#209805;"> INFO<span style="font-weight:normal;opacity:1;color:#fff;background:#000;"><span style="color:#00ffee;"> |</span></span></span> </span><span style="color:#209805;">200<span style="font-weight:normal;opacity:1;color:#fff;background:#000;"></span></span> </span>http://example.com/<span style="font-weight:normal;opacity:1;color:#fff;background:#000;"></span> (</span>[1;39m1270<span style="font-weight:normal;opacity:1;color:#fff;background:#000;"></span></span> bytes)<span style="font-weight:normal;opacity:1;color:#fff;background:#000;">
+</span></span><span style="color:#209805;"> INFO<span style="font-weight:normal;opacity:1;color:#fff;background:#000;"><span style="color:#00ffee;"> |</span></span></span> validation passed <span style="color:#209805;">http://example.com/<span style="font-weight:normal;opacity:1;color:#fff;background:#000;"></span><span style="font-weight:normal;opacity:1;color:#fff;background:#000;">
+</span></span></code></pre>
 
 ## Developer
 

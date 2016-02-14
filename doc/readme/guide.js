@@ -2,8 +2,7 @@ var fs = require('fs')
   , execSync = require('child_process').execSync
   , base = __dirname + '/guide'
   , tempfile = require('tempfile')
-  , Convert = require('ansi-to-html')
-  , convert = new Convert()
+  , ansihtml = require('ansi-html')
   , sections = [
     'configuration',
     'info',
@@ -41,7 +40,7 @@ sections.forEach(function(section) {
       var contents = fs.readFileSync(tmp);
 
       process.stdout.write('<pre><code>')
-      process.stdout.write(convert.toHtml('' + contents));
+      process.stdout.write(ansihtml('' + contents));
       process.stdout.write('</code></pre>')
 
       fs.unlinkSync(tmp);
