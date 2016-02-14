@@ -7,7 +7,10 @@ addons:
   apt:
     packages:
       - oracle-java8-installer
-before_script: pwd && ls && java -version && export NU_VALIDATOR_JAR=$PWD/vnu/vnu.jar
+before_script:
+  - java -version
+  - export NU_VALIDATOR_JAR=$PWD/vnu/dist/vnu.jar
+  - java -jar $NU_VALIDATOR_JAR --help
 script: npm run cover
 node_js:
   - "4.1"
