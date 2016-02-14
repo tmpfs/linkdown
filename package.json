@@ -35,7 +35,7 @@
     "cli-help": "~1.0.2",
     "cli-interface": "~1.0.19",
     "cli-logger": "~0.5.40",
-    "cli-mid-color": "~1.0.11",
+    "cli-mid-color": "~1.0.12",
     "cli-mid-logger": "~1.0.10",
     "cli-mid-manual": "~1.0.15",
     "cli-util": "~1.1.27",
@@ -44,7 +44,7 @@
     "simplecrawler": "~0.6.1",
     "string-repeater": "~1.0.3",
     "tempfile": "~1.1.1",
-    "ttycolor": "~1.0.0"
+    "ttycolor": "~1.1.0"
   },
   "devDependencies": {
     "chai": "~3.5.0",

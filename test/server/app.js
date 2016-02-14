@@ -32,6 +32,14 @@ app.get('/bad-length', function(req, res) {
 });
 
 /**
+ *  Text directory.
+ */
+app.get('/text', function(req, res) {
+  res.set('Content-Type', 'text/plain');
+  res.send('plain text');
+});
+
+/**
  *  Validation warning.
  */
 app.get('/validate-warn', function(req, res) {
