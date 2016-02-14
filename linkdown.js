@@ -1,13 +1,6 @@
 module.exports = {
   validate: {
     contentType: /(text\/html|application\/xhtml\+xml)/,
-    // time to sleep between validation calls
-    // no sleep will get your fans going and pausing
-    // a while gives a chance to see the errors
-    sleep: {
-      pass: 0.5,
-      fail: 5
-    },
     fetch: {
       // this pattern will match the obvious file extensions
       // and treat directories with a trailing slash as index pages
