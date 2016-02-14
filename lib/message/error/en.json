@@ -15,6 +15,11 @@
     "message": "configuration file parse error: %s"
   },
   {
+    "key": "EJAVA",
+    "description": "Attempt to validate java installed",
+    "message": "executable %s not found (%s)"
+  },
+  {
     "key": "ENU_VALIDATOR_JAR",
     "description": "Attempt to validate without a jar file",
     "message": "no jar file specified, use --jar=[file] or set NU_VALIDATOR_JAR"
