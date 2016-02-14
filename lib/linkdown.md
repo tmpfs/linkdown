@@ -20,6 +20,7 @@ Link manipulation tool.
 #### Options
 
 * `jar: --jar=[file]`: Path to the validator jar file.
+* `--errors-only`: Proxied to the validator.
 
 This command will fetch all pages ending with `.htm` and `.html` and URLs with no file extension are assumed to be directories serving HTML pages.
 

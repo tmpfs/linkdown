@@ -4,9 +4,9 @@ linkdown-validate
 .SH "USAGE"
 
 .SP
-linkdown validate [\-\-jar==<file>] <args>
+linkdown validate [\-\-errors\-only] [\-\-jar==<file>] <args>
 .br
-linkdown v [\-\-jar==<file>] <args>
+linkdown v [\-\-errors\-only] [\-\-jar==<file>] <args>
 .SH "DESCRIPTION"
 .PP
 Validate HTML pages with the nu validator.
@@ -14,6 +14,8 @@ Validate HTML pages with the nu validator.
 .BL
 .IP "\[ci]" 4
 \fB\-\-jar==[file]\fR: Path to the validator jar file.
+.IP "\[ci]" 4
+\fB\-\-errors\-only\fR: Proxied to the validator.
 .EL
 .PP
 This command will fetch all pages ending with \fB.htm\fR and \fB.html\fR and URLs with no file extension are assumed to be directories serving HTML pages.

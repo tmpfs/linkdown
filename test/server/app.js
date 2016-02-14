@@ -31,6 +31,19 @@ app.get('/bad-length', function(req, res) {
   res.end('<html></html>');
 });
 
+/**
+ *  Validation warning.
+ */
+app.get('/validate-warn', function(req, res) {
+  res.render('validate-warn');
+});
+
+/**
+ *  Validation error.
+ */
+app.get('/validate-error', function(req, res) {
+  res.render('validate-error');
+});
 
 app.all('*', wildcard);
 app.use(errorView);
