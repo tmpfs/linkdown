@@ -22,6 +22,7 @@ err.protocol = err('EINVALID_PROTOCOL');
 err.confload = err('ECONF_LOAD');
 
 err.bail = err('EBAIL');
+err.abort = err('EVALIDATE_ABORT');
 
 err.nojar = err('ENU_VALIDATOR_JAR');
 err.jar = err('ENOJAR');

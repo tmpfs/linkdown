@@ -14,7 +14,7 @@ var fs = require('fs')
       'linkdown info ' + url +  ' --bail'
     ],
     validate: [
-      'linkdown validate ' + url
+      'linkdown validate ' + url + ' --abort'
     ]
   }
 

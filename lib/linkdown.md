@@ -22,7 +22,8 @@ Link manipulation tool.
 
 * `format: --format=[fmt]`: Validator output format.
 * `jar: --jar=[file]`: Path to the validator jar file.
-* `--errors-only`: Warnings and info messages are not reported.
+* `errorsOnly: --errors-only`: Warnings and info messages are not reported.
+* `abort: --abort`: Abort validation on the first error.
 
 This command will fetch all pages ending with the `.htm`, `.html`, `.xhtml` and `.xht` extensions; URLs with no file extension are assumed to be directories serving (X)HTML pages. Each downloaded file is written to a temporary file and passed to the validator.
 

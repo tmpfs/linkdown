@@ -2,7 +2,7 @@
 
 ### Test
 
-To run the test suite:
+To run the test suite you will need to have installed java and the validator jar, see [validate](#validate).
 
 ```
 npm test

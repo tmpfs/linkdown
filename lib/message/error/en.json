@@ -38,5 +38,10 @@
     "key": "EBAIL",
     "description": "User specified --bail and a non-2xx response was received",
     "message": "bailed on %s %s"
+  },
+  {
+    "key": "EVALIDATE_ABORT",
+    "description": "User specified --abort and validation generated an error",
+    "message": "aborted due to validation error(s)"
   }
 ]
