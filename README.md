@@ -74,11 +74,13 @@ linkdown info http://example.com -c /path/to/conf.js -c /path/to/other/conf.js
 Print link status codes, URLs and buffer lengths.
 
 ```shell
-linkdown info http://example.com
+linkdown info http://localhost:8000 --bail
 ```
 
 ```
-ERROR | 599 http://example.com/
+ INFO | 200 http://localhost:8000/ (557 bytes)
+ WARN | 404 http://localhost:8000/assets/css/style.css 
+ERROR | bailed on 404 http://localhost:8000/assets/css/style.css
 ```
 
 ### Validate
@@ -92,11 +94,62 @@ You can use the `--jar` option to specify the path to the jar file but it is rec
 When the validate command encounters errors they are printed to screen in a format that enables easily debugging and fixing the errors much like the online w3 validation service.
 
 ```shell
-linkdown validate http://example.com
+linkdown validate http://localhost:8000
 ```
 
 ```
-ERROR | 599 http://example.com/
+ INFO | 200 http://localhost:8000/ (557 bytes)
+ INFO | validation passed http://localhost:8000/
+ INFO | 200 http://localhost:8000/text (10 bytes)
+ WARN | invalid content type text/plain; charset=utf-8 from http://localhost:8000/text (skipped)
+ INFO | 200 http://localhost:8000/validate-fail (280 bytes)
+ERROR | validation failed on http://localhost:8000/validate-fail
+ HTML |  
+ HTML | 1) http://localhost:8000/validate-fail
+ HTML |  
+ HTML | From line 1, column 244; to line 1, column 249
+ HTML |  
+ HTML | A numeric character reference expanded to the C1 controls range.
+ HTML |  
+ HTML |   ion><span>&#151;</span
+ HTML | ------------^
+ HTML |  
+ HTML | 2) http://localhost:8000/validate-fail
+ HTML |  
+ HTML | From line 1, column 229; to line 1, column 237
+ HTML |  
+ HTML | Section lacks heading. Consider using “h2”-“h6” elements to add identifying
+ HTML | headings to all sections.
+ HTML |  
+ HTML |   ead><body><section><span>
+ HTML | ------------^
+ HTML |  
+ INFO | 200 http://localhost:8000/validate-warn (261 bytes)
+ HTML |  
+ HTML | 1) http://localhost:8000/validate-warn
+ HTML |  
+ HTML | From line 1, column 229; to line 1, column 237
+ HTML |  
+ HTML | Section lacks heading. Consider using “h2”-“h6” elements to add identifying
+ HTML | headings to all sections.
+ HTML |  
+ HTML |   ead><body><section></sect
+ HTML | ------------^
+ HTML |  
+ INFO | 200 http://localhost:8000/validate-error (261 bytes)
+ERROR | validation failed on http://localhost:8000/validate-error
+ HTML |  
+ HTML | 1) http://localhost:8000/validate-error
+ HTML |  
+ HTML | From line 1, column 235; to line 1, column 240
+ HTML |  
+ HTML | A numeric character reference expanded to the C1 controls range.
+ HTML |  
+ HTML |   ody><span>&#151;</span
+ HTML | ------------^
+ HTML |  
+ERROR | 599 http://localhost:8000/bad-length 
+ WARN | 404 http://localhost:8000/non-existent
 ```
 
 ## Developer
