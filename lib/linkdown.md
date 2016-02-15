@@ -10,6 +10,7 @@ Link manipulation tool.
 
 ## Options
 
+* `bail: --bail`: Exit on first non-2xx response code.
 * `conf: -c, --conf=[file...]`: Load crawler configuration files.
 * `logLevel: --log-level=[level]`: Set the log level.
 * `depth: --depth=[int]`: Maximum depth to recurse.
