@@ -1,5 +1,6 @@
 module.exports = {
   validate: {
+    // only validate on these MIME types
     contentType: /(text\/html|application\/xhtml\+xml)/,
     fetch: {
       // this pattern will match the obvious file extensions

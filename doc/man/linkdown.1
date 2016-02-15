@@ -4,11 +4,11 @@ linkdown
 .SH "USAGE"
 
 .SP
-linkdown <command> [\-h] [\-\-color|\-\-no\-color] [\-\-bail] [\-\-follow]
+linkdown <command> [\-h] [\-\-color|\-\-no\-color] [\-\-bail] [\-h|\-\-help]
 .br
-         [\-h|\-\-help] [\-\-version] [\-c|\-\-conf==<file...>]
+         [\-\-version] [\-c|\-\-conf==<file...>] [\-\-log\-level==<level>]
 .br
-         [\-\-log\-level==<level>] [\-\-depth==<int>] <args>
+         [\-\-depth==<int>] <args>
 .SH "DESCRIPTION"
 .PP
 Link manipulation tool.
@@ -36,10 +36,11 @@ Link manipulation tool.
 .IP "\[ci]" 4
 \fB\-\-depth==[int]\fR: Maximum depth to recurse.
 .IP "\[ci]" 4
-\fB\-\-follow\fR: Follow redirects.
-.IP "\[ci]" 4
 \fB\-\-version\fR: Print version and exit.
 .EL
+.SH "REDIRECTS"
+.PP
+Redirects are automatically followed provided the redirect is to the same host.
 .SH "EXAMPLE"
 .PP
 Print crawl information:

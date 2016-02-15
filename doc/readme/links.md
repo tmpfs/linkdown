@@ -1,3 +1,4 @@
+[simplecrawler]: https://github.com/cgiffard/node-simplecrawler
 [manpage]: https://github.com/cli-kit/cli-manpage
 [mdp]: https://github.com/tmpfs/mdp
 [validator]: https://github.com/validator/validator

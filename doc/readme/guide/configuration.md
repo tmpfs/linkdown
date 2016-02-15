@@ -6,3 +6,5 @@ The [default configuration](/linkdown.js) file is always loaded, you can load yo
 linkdown info http://example.com -c /path/to/conf.js -c /path/to/other/conf.js
 ```
 
+The `crawl` section of the configuration file supports all the configuration properties defined by [simplecrawler][].
+
