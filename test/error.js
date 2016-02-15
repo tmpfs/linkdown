@@ -21,6 +21,8 @@ err.url = err('EURL');
 err.protocol = err('EINVALID_PROTOCOL');
 err.confload = err('ECONF_LOAD');
 
+err.bail = err('EBAIL');
+
 err.nojar = err('ENU_VALIDATOR_JAR');
 err.jar = err('ENOJAR');
 err.java = err('EJAVA');

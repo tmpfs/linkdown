@@ -1,10 +1,10 @@
-.TH "LINKDOWN" "1" "February 2016" "linkdown 1.0.4" "User Commands"
+.TH "LINKDOWN" "1" "February 2016" "linkdown 1.0.7" "User Commands"
 .SH "NAME"
 linkdown
 .SH "USAGE"
 
 .SP
-linkdown <command> [\-h] [\-\-color|\-\-no\-color] [\-\-follow]
+linkdown <command> [\-h] [\-\-color|\-\-no\-color] [\-\-bail] [\-\-follow]
 .br
          [\-h|\-\-help] [\-\-version] [\-c|\-\-conf==<file...>]
 .br
@@ -29,6 +29,8 @@ Link manipulation tool.
 \fB\-h, \-\-help\fR: Display this help and exit.
 .IP "\[ci]" 4
 \fB\-\-[no]\-color\fR: Enable or disable terminal colors.
+.IP "\[ci]" 4
+\fB\-\-bail\fR: Exit on first non\-2xx response code.
 .IP "\[ci]" 4
 \fB\-\-log\-level==[level]\fR: Set the log level.
 .IP "\[ci]" 4

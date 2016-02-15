@@ -33,5 +33,10 @@
     "key": "ENOJAR",
     "description": "Specified jar file does not exist",
     "message": "jar file %s does not exist"
+  },
+  {
+    "key": "EBAIL",
+    "description": "User specified --bail and a non-2xx response was received",
+    "message": "bailed on %s %s"
   }
 ]

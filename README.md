@@ -50,14 +50,16 @@ Usage: linkdown <command>
 where <command> is one of:
     help, info, i, validate, v
 
-linkdown@1.0.4 /home/muji/git/linkdown
+linkdown@1.0.7 /home/muji/git/linkdown
 ```
 
 ## Manual
 
-Run `linkdown help` for the program manual, use `linkdown help <cmd>` for individual command man pages. You can view quick help on commands and options with `linkdown -h` or `linkdown -help`.
+Run `linkdown help` for the program manual, use `linkdown help <cmd>` for individual command man pages. You can view quick help on commands and options with `linkdown -h` or `linkdown --help`.
 
 ## Guide
+
+This section provides examples on how to use the program, for more detailed information see the relevant man entry: `linkdown help <cmd>`.
 
 ### Configuration
 
@@ -76,7 +78,7 @@ linkdown info http://example.com
 ```
 
 ```
- INFO | 200 http://example.com/ (1270 bytes)
+ERROR | 599 http://example.com/
 ```
 
 ### Validate
@@ -94,8 +96,7 @@ linkdown validate http://example.com
 ```
 
 ```
- INFO | 200 http://example.com/ (1270 bytes)
- INFO | validation passed http://example.com/
+ERROR | 599 http://example.com/
 ```
 
 ## Developer

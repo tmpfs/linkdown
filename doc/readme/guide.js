@@ -1,7 +1,9 @@
 var fs = require('fs')
-  , execSync = require('child_process').execSync
+  , exec = require('child_process').exec
   , base = __dirname + '/guide'
   , tempfile = require('tempfile')
+  , port = 8000
+  , url = 'http://localhost:' + port
   , sections = [
     'configuration',
     'info',
@@ -9,40 +11,62 @@ var fs = require('fs')
   ]
   , commands = {
     info: [
-      'linkdown info http://example.com'
+      'linkdown info ' + url +  ' --bail'
     ],
     validate: [
-      'linkdown validate http://example.com'
+      'linkdown validate ' + url
     ]
   }
 
+var app = require('../../test/server/app');
 
-sections.forEach(function(section) {
-  var contents = '' + fs.readFileSync(base + '/' + section + '.md');
-  process.stdout.write(contents);
-  if(commands[section]) {
-    commands[section].forEach(function(cmd) {
-      var tmp = tempfile('.ansi');
-      var file = fs.openSync(tmp, 'w');
-      var opts = {stdio: [0, file, file]};
+app.listen(port, function() {
 
-      // command to execute
-      console.log('```shell'); 
-      console.log(cmd);
-      console.log('```'); 
-      console.log();
+  process.stdout.write('' + fs.readFileSync('doc/readme/guide.md'));
 
-      execSync(cmd, opts);
+  function onSection() {
+    var section = sections.shift();
+    if(!section) {
+      process.exit();
+    }
+    var contents = '' + fs.readFileSync(base + '/' + section + '.md');
+    process.stdout.write(contents);
+    if(commands[section]) {
+      commands[section].forEach(function(cmd) {
+        var tmp = tempfile('.example.log');
+        var file = fs.openSync(tmp, 'w');
+        var opts = {stdio: [0, file, file]};
+        //var opts = {};
 
-      var contents = fs.readFileSync(tmp);
+        // command to execute
+        console.log('```shell'); 
+        console.log(cmd);
+        console.log('```'); 
+        console.log();
 
-      process.stdout.write('```\n')
-      process.stdout.write('' + contents);
-      process.stdout.write('```\n')
+        //execSync('pwd', opts);
+        exec(cmd, opts, function onExec(err, stdout, stderr) {
+          //console.log('after command: '+ stdout);
+          //console.log('after command: '+ stderr);
 
-      fs.unlinkSync(tmp);
+          //var contents = fs.readFileSync(tmp);
 
-      console.log();
-    })
+          process.stdout.write('```\n')
+          process.stdout.write('' + stderr);
+          process.stdout.write('```\n')
+
+          fs.unlinkSync(tmp);
+
+          console.log();
+
+          onSection();
+        })
+
+      })
+    }else{
+      onSection();
+    }
   }
+
+  onSection();
 });

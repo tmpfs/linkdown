@@ -25,7 +25,6 @@
       ]
     },
     {
-      "title": "Guide",
       "bin": "node doc/readme/guide.js"
     },
     {
