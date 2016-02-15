@@ -27,3 +27,4 @@ deploy:
   on:
     tags: true
     repo: tmpfs/linkdown
+    node: '4.1'
