@@ -38,8 +38,24 @@ npm run clean
 
 ### Readme
 
-To build the readme file from the partial definitions:
+To build the readme file from the partial definitions (requires [mdp][]):
 
 ```
 npm run readme
+```
+
+### Manual
+
+To build the man pages run (requires [manpage][]):
+
+```
+npm run manual
+```
+
+### Server
+
+To start the mock web server run:
+
+```
+npm start
 ```
