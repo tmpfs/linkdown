@@ -35,7 +35,6 @@ server.listen(port, function() {
 
   var crawler = new Crawler('localhost', '/', port);
 
-  // i would expect this to fire for / 
   crawler.on('fetchcomplete', function(item/*, buf, res*/) {
     console.log('fetch complete fired %s', item.url); 
   })

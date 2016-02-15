@@ -14,7 +14,6 @@ Link manipulation tool.
 * `conf: -c, --conf=[file...]`: Load crawler configuration files.
 * `logLevel: --log-level=[level]`: Set the log level.
 * `depth: --depth=[int]`: Maximum depth to recurse.
-* `follow: --[no]-follow`: Follow redirects.
 
 ### Validate
 
