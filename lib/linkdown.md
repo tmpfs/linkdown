@@ -36,6 +36,10 @@ When the `--format` option is given the raw validator output is printed to stdou
 
 Because all log messages are sent to stderr this means you can get an easy to parse log file with all validation results using `linkdown v --format json http://example.com > validation.log`.
 
+## Redirects
+
+Redirects are automatically followed provided the redirect is to the same host.
+
 ## Example
 
 Print crawl information:
