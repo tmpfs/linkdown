@@ -35,6 +35,15 @@ describe('info:', function() {
     });
   });
 
+  it('should print link summary w/ --json', function(done) {
+    var cli = linkdown(pkg, pkg.name)
+      , args = argv(['info', process.env.URL, '--json']);
+    cli.parse(args, function complete(res) {
+      expect(res.errors.list.length).to.eql(0);
+      done(); 
+    });
+  });
+
   it('should print link summary with --depth', function(done) {
     var cli = linkdown(pkg, pkg.name)
       , args = argv(['info', process.env.URL, '--depth=1']);

@@ -40,7 +40,7 @@
     "cli-mid-manual": "~1.0.15",
     "cli-util": "~1.1.27",
     "merge": "~1.2.0",
-    "nenv": "~0.5.1",
+    "nenv": "~0.5.3",
     "simplecrawler": "~0.6.2",
     "string-repeater": "~1.0.3",
     "tempfile": "~1.1.1",

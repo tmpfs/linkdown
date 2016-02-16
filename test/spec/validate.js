@@ -70,8 +70,7 @@ describe('validate:', function() {
 
   it('should validate mock server w/ --json', function(done) {
     var cli = linkdown(pkg, pkg.name)
-      // add --abort for faster tests
-      , args = argv(['validate', process.env.URL, '--json', '--abort']);
+      , args = argv(['validate', process.env.URL, '--json']);
     cli.parse(args, function complete(res) {
       expect(res.errors.list.length).to.eql(0);
       done(); 
@@ -98,9 +97,8 @@ describe('validate:', function() {
 
   it('should validate mock server w/ --format and --json', function(done) {
     var cli = linkdown(pkg, pkg.name)
-      // add --abort for faster tests
       , args = argv(
-        ['validate', process.env.URL, '--format=text', '--json', '--abort']);
+          ['validate', process.env.URL, '--format=text', '--json']);
     cli.parse(args, function complete(res) {
       expect(res.errors.list.length).to.eql(0);
       done(); 

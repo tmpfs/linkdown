@@ -1,6 +1,6 @@
 .TH "LINKDOWN-INFO" "1" "February 2016" "linkdown-info 1.0.8" "User Commands"
 .SH "NAME"
-linkdown-info
+linkdown-info -- Print crawl information.
 .SH "USAGE"
 
 .SP
@@ -9,7 +9,7 @@ linkdown info <args>
 linkdown i <args>
 .SH "DESCRIPTION"
 .PP
-Print crawl information.
+If the \fB\-\-json\fR option is given the item data is printed to stdout as line\-delimited JSON documents. If a buffer is available for the item (it has been downloaded) the buffer length is injected as a \fBlength\fR field.
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/tmpfs/linkdown/issues.

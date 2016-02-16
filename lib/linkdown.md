@@ -6,7 +6,7 @@ Link manipulation tool.
 ## Commands
 
 * `info: info, i`: Print crawl information.
-* `ls: list, ls`: Print discovered links.
+* `list: list, ls`: Print discovered links.
 * `validate: validate, v`: Validate (X)HTML pages (nu validator).
 
 ## Options
@@ -16,6 +16,14 @@ Link manipulation tool.
 * `logLevel: --log-level=[level]`: Set the log level.
 * `json: --json`: Output as JSON where possible.
 * `depth: --depth=[int]`: Maximum depth to recurse.
+
+### Info
+
+If the `--json` option is given the item data is printed to stdout as line-delimited JSON documents. If a buffer is available for the item (it has been downloaded) the buffer length is injected as a `length` field.
+
+### List
+
+If the `--json` option is given the links are printed to stdout as line-delimited JSON documents with the fields `url` and `resources`.
 
 ### Validate
 
