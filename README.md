@@ -8,6 +8,7 @@ Table of Contents
   * [Guide](#guide)
     * [Configuration](#configuration)
     * [Info](#info)
+    * [List](#list)
     * [Validate](#validate)
   * [Developer](#developer)
     * [Test](#test)
@@ -50,7 +51,7 @@ npm i -g linkdown
 Usage: linkdown <command>
 
 where <command> is one of:
-    help, info, i, validate, v
+    help, info, i, list, ls, validate, v
 
 linkdown@1.0.7 /home/muji/git/linkdown
 ```
@@ -83,6 +84,28 @@ linkdown info http://localhost:8000 --bail
 
 ```
  INFO | 200 http://localhost:8000/ (557 bytes)
+ WARN | 404 http://localhost:8000/assets/css/style.css 
+ERROR | bailed on 404 http://localhost:8000/assets/css/style.css
+```
+
+### List
+
+List discovered resources (URLs) for each crawled page.
+
+```shell
+linkdown ls http://localhost:8000 --bail
+```
+
+```
+ INFO | 200 http://localhost:8000/ (557 bytes)
+ INFO | URL http://localhost:8000/assets/css/style.css
+ INFO | URL http://localhost:8000/redirect
+ INFO | URL http://localhost:8000/text
+ INFO | URL http://localhost:8000/validate-fail
+ INFO | URL http://localhost:8000/validate-warn
+ INFO | URL http://localhost:8000/validate-error
+ INFO | URL http://localhost:8000/bad-length
+ INFO | URL http://localhost:8000/non-existent
  WARN | 404 http://localhost:8000/assets/css/style.css 
 ERROR | bailed on 404 http://localhost:8000/assets/css/style.css
 ```

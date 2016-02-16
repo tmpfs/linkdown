@@ -7,11 +7,15 @@ var fs = require('fs')
   , sections = [
     'configuration',
     'info',
+    'ls',
     'validate'
   ]
   , commands = {
     info: [
       'linkdown info ' + url +  ' --bail'
+    ],
+    ls: [
+      'linkdown ls ' + url +  ' --bail'
     ],
     validate: [
       'linkdown validate ' + url + ' --abort'
@@ -36,7 +40,6 @@ app.listen(port, function() {
         var tmp = tempfile('.example.log');
         var file = fs.openSync(tmp, 'w');
         var opts = {stdio: [0, file, file]};
-        //var opts = {};
 
         // command to execute
         console.log('```shell'); 
