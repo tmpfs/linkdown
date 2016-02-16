@@ -105,6 +105,16 @@ describe('validate:', function() {
     });
   });
 
+  it('should adjust java thread stack size w/ -- -Xss512k', function(done) {
+    var cli = linkdown(pkg, pkg.name)
+      , args = argv(['validate', process.env.URL, '--', '-Xss512k']);
+    cli.parse(args, function complete(res) {
+      expect(res.errors.list.length).to.eql(0);
+      done(); 
+    });
+    cli.parse(args);
+  });
+
   it('should abort validation with --abort', function(done) {
     var cli = linkdown(pkg, pkg.name)
       , args = argv(['validate', process.env.URL, '--abort']);

@@ -48,6 +48,8 @@ Because all log messages are sent to stderr this means you can get an easy to pa
 
 If the `--json` option is given all validation results are output to stdout as line-delimited JSON documents with the fields `url` and `result`.
 
+To pass additional arguments to the java executable use `--`, for example: `linkdown v http://example.com -- -Xss512k` to adjust the java thread stack size.
+
 ## Redirects
 
 Redirects are automatically followed provided the redirect is to the same host.

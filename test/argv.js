@@ -2,9 +2,10 @@ var env = require('nenv')();
 
 function argv(args, bypass) {
   if(!bypass) {
-    args.push('--no-color');
+    // NOTE: we don't want to push for the '--' usage
+    args.unshift('--no-color');
     if(!env.debug) {
-      args.push('--log-level=none'); 
+      args.unshift('--log-level=none'); 
     }
   }
   return args;
