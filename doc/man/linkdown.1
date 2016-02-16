@@ -1,4 +1,4 @@
-.TH "LINKDOWN" "1" "February 2016" "linkdown 1.0.8" "User Commands"
+.TH "LINKDOWN" "1" "February 2016" "linkdown 1.0.9" "User Commands"
 .SH "NAME"
 linkdown
 .SH "USAGE"
@@ -15,7 +15,7 @@ Link manipulation tool.
 .SH "COMMANDS"
 .BL
 .IP "\[ci]" 4
-\fBinfo, i\fR: Print crawl information.
+\fBinfo, i\fR: Print response information.
 .IP "\[ci]" 4
 \fBlist, ls\fR: Print discovered links.
 .IP "\[ci]" 4
@@ -45,11 +45,9 @@ Link manipulation tool.
 .SH "REDIRECTS"
 .PP
 Redirects are automatically followed provided the redirect is to the same host.
-.SH "EXAMPLE"
+.SH "EXIT"
 .PP
-Print crawl information:
-
-  linkdown info http://example.com
+The program will exit with a non\-zero exit code when an error is encountered. When the crawl completes any 4xx and 5xx HTTP response codes will cause the program to exit with code 255. This guarantees that a success exit code of zero will only occur when the crawl completes and no HTTP error responses occurred during the crawl.
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/tmpfs/linkdown/issues.

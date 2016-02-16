@@ -1,4 +1,4 @@
-.TH "LINKDOWN-VALIDATE" "1" "February 2016" "linkdown-validate 1.0.8" "User Commands"
+.TH "LINKDOWN-VALIDATE" "1" "February 2016" "linkdown-validate 1.0.9" "User Commands"
 .SH "NAME"
 linkdown-validate
 .SH "USAGE"
@@ -39,6 +39,8 @@ When the \fB\-\-format\fR option is given the raw validator output is printed to
 Because all log messages are sent to stderr this means you can get an easy to parse log file with all validation results using \fBlinkdown v \-\-format json http://example.com > validation.log\fR.
 .PP
 If the \fB\-\-json\fR option is given all validation results are output to stdout as line\-delimited JSON documents with the fields \fBurl\fR and \fBresult\fR.
+.PP
+To pass additional arguments to the java executable use \fB\-\-\fR, for example: \fBlinkdown v http://example.com \-\- \-Xss512k\fR to adjust the java thread stack size.
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/tmpfs/linkdown/issues.

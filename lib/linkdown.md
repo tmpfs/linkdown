@@ -5,7 +5,7 @@ Link manipulation tool.
 
 ## Commands
 
-* `info: info, i`: Print crawl information.
+* `info: info, i`: Print response information.
 * `list: list, ls`: Print discovered links.
 * `validate: validate, v`: Validate (X)HTML pages (nu validator).
 
@@ -54,10 +54,6 @@ To pass additional arguments to the java executable use `--`, for example: `link
 
 Redirects are automatically followed provided the redirect is to the same host.
 
-## Example
+## Exit
 
-Print crawl information:
-
-```
-$0 info http://example.com
-```
+The program will exit with a non-zero exit code when an error is encountered. When the crawl completes any 4xx and 5xx HTTP response codes will cause the program to exit with code 255. This guarantees that a success exit code of zero will only occur when the crawl completes and no HTTP error responses occurred during the crawl.
