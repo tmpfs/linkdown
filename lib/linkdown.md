@@ -6,6 +6,7 @@ Link manipulation tool.
 ## Commands
 
 * `info: info, i`: Print crawl information.
+* `ls: list, ls`: Print discovered links.
 * `validate: validate, v`: Validate (X)HTML pages (nu validator).
 
 ## Options
