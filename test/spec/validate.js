@@ -68,6 +68,16 @@ describe('validate:', function() {
     });
   });
 
+  it('should validate mock server w/ --json', function(done) {
+    var cli = linkdown(pkg, pkg.name)
+      // add --abort for faster tests
+      , args = argv(['validate', process.env.URL, '--json', '--abort']);
+    cli.parse(args, function complete(res) {
+      expect(res.errors.list.length).to.eql(0);
+      done(); 
+    });
+  });
+
   it('should validate mock server w/ --errors-only', function(done) {
     var cli = linkdown(pkg, pkg.name)
       , args = argv(['validate', process.env.URL, '--errors-only']);
@@ -80,6 +90,17 @@ describe('validate:', function() {
   it('should validate mock server w/ --format', function(done) {
     var cli = linkdown(pkg, pkg.name)
       , args = argv(['validate', process.env.URL, '--format=xml']);
+    cli.parse(args, function complete(res) {
+      expect(res.errors.list.length).to.eql(0);
+      done(); 
+    });
+  });
+
+  it('should validate mock server w/ --format and --json', function(done) {
+    var cli = linkdown(pkg, pkg.name)
+      // add --abort for faster tests
+      , args = argv(
+        ['validate', process.env.URL, '--format=text', '--json', '--abort']);
     cli.parse(args, function complete(res) {
       expect(res.errors.list.length).to.eql(0);
       done(); 

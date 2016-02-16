@@ -14,6 +14,7 @@ Link manipulation tool.
 * `bail: --bail`: Exit on first non-2xx response code.
 * `conf: -c, --conf=[file...]`: Load crawler configuration files.
 * `logLevel: --log-level=[level]`: Set the log level.
+* `json: --json`: Output as JSON where possible.
 * `depth: --depth=[int]`: Maximum depth to recurse.
 
 ### Validate
@@ -36,6 +37,8 @@ Without the `--format` option the format is set to `json`; the response document
 When the `--format` option is given the raw validator output is printed to stdout, the first line is the remote URL, followed by the validator output followed by a newline.
 
 Because all log messages are sent to stderr this means you can get an easy to parse log file with all validation results using `linkdown v --format json http://example.com > validation.log`.
+
+If the `--json` option is given all validation results are output to stdout as line-delimited JSON documents with the fields `url` and `result`.
 
 ## Redirects
 
