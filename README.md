@@ -18,6 +18,7 @@ Table of Contents
     * [Readme](#readme)
     * [Manual](#manual-1)
     * [Server](#server)
+  * [Credits](#credits)
   * [License](#license)
 
 Linkdown
@@ -53,7 +54,7 @@ Usage: linkdown <command>
 where <command> is one of:
     help, info, i, list, ls, validate, v
 
-linkdown@1.0.7 /home/muji/git/linkdown
+linkdown@1.0.10 /home/muji/git/linkdown
 ```
 
 ## Manual
@@ -83,8 +84,9 @@ linkdown info http://localhost:8000 --bail
 ```
 
 ```
- INFO | 200 http://localhost:8000/ (557 bytes)
- WARN | 404 http://localhost:8000/assets/css/style.css 
+ INFO | [8964] started on Wed Feb 17 2016 15:25:17 GMT+0800 (WITA)
+ INFO | 200 http://localhost:8000/ (557 B)
+ WARN | 404 http://localhost:8000/assets/css/style.css
 ERROR | bailed on 404 http://localhost:8000/assets/css/style.css
 ```
 
@@ -97,7 +99,8 @@ linkdown ls http://localhost:8000 --bail
 ```
 
 ```
- INFO | 200 http://localhost:8000/ (557 bytes)
+ INFO | [8992] started on Wed Feb 17 2016 15:25:18 GMT+0800 (WITA)
+ INFO | 200 http://localhost:8000/ (557 B)
  INFO | URL http://localhost:8000/assets/css/style.css
  INFO | URL http://localhost:8000/redirect
  INFO | URL http://localhost:8000/text
@@ -106,7 +109,7 @@ linkdown ls http://localhost:8000 --bail
  INFO | URL http://localhost:8000/validate-error
  INFO | URL http://localhost:8000/bad-length
  INFO | URL http://localhost:8000/non-existent
- WARN | 404 http://localhost:8000/assets/css/style.css 
+ WARN | 404 http://localhost:8000/assets/css/style.css
 ERROR | bailed on 404 http://localhost:8000/assets/css/style.css
 ```
 
@@ -118,18 +121,19 @@ To use this command you should have Java 1.8 installed and [download the validat
 
 You can use the `--jar` option to specify the path to the jar file but it is recommended you set the environment variable `NU_VALIDATOR_JAR` so that there is no need to keep specifying on the command line.
 
-When the validate command encounters errors they are printed to screen in a format that enables easily debugging and fixing the errors much like the online w3 validation service.
+When the validate command encounters errors they are printed to screen in a format that enables easily fixing the errors; much like the online w3 validation service.
 
 ```shell
 linkdown validate http://localhost:8000 --abort
 ```
 
 ```
- INFO | 200 http://localhost:8000/ (557 bytes)
+ INFO | [9002] started on Wed Feb 17 2016 15:25:19 GMT+0800 (WITA)
+ INFO | 200 http://localhost:8000/ (557 B)
  INFO | validation passed http://localhost:8000/
- INFO | 200 http://localhost:8000/text (10 bytes)
+ INFO | 200 http://localhost:8000/text (10 B)
  WARN | invalid content type text/plain; charset=utf-8 from http://localhost:8000/text (skipped)
- INFO | 200 http://localhost:8000/validate-fail (280 bytes)
+ INFO | 200 http://localhost:8000/validate-fail (280 B)
 ERROR | validation failed on http://localhost:8000/validate-fail
  HTML |  
  HTML | 1) http://localhost:8000/validate-fail
@@ -159,6 +163,10 @@ ERROR | aborted due to validation error(s)
 ### Test
 
 To run the test suite you will need to have installed java and the validator jar, see [validate](#validate).
+
+You **must** not have a HTTP server running on port `9871` as this is used to test for the server down scenario.
+
+You **must** not have permission to write to `/sbin` - pretty standard permissions.
 
 ```
 npm test
@@ -215,6 +223,10 @@ To start the mock web server run:
 ```
 npm start
 ```
+
+## Credits
+
+None of this would be possible without the work of the devlopers behind the excellent [simplecrawler](https://github.com/cgiffard/node-simplecrawler).
 
 ## License
 

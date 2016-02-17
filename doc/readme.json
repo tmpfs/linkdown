@@ -30,6 +30,7 @@
     {
       "inc": [
         "developer.md",
+        "credits.md",
         "license.md"
       ]
     }
