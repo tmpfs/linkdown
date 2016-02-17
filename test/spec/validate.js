@@ -133,7 +133,11 @@ describe('validate:', function() {
 
   it('should abort validation w/ --format and --abort', function(done) {
     var cli = linkdown(pkg, pkg.name)
-      , args = argv(['validate', process.env.URL, '--abort', '--format=text']);
+      , file = 'target/test-abort.log'
+      , args = argv(
+        [
+          'validate', process.env.URL,
+          '--abort', '--format=text', '-o=' + file]);
     cli.program.on('error', function(err) {
       error.abort(err, this.errors);
       done();
