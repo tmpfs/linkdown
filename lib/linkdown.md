@@ -9,6 +9,7 @@ Link manipulation tool.
 * `list: list, ls`: Print discovered links.
 * `validate: validate, v`: Validate (X)HTML pages (nu validator).
 * `exec: exec, x`: Run an executable for each response.
+* `meta: meta`: Extract meta data from stdin.
 
 ## Options
 
