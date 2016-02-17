@@ -4,6 +4,7 @@
 /doc/readme
 /target
 linkdownc.js
+ldnc.js
 *.log
 *.bak
 *.pid

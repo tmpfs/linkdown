@@ -3,4 +3,4 @@
 // sadly npm doesn't support symlinks
 // otherwise i would just symlink this short alias
 var program = require('../lib/linkdown');
-program(require('../package.json')).parse();
+program(require('../package.json'), 'linkdown').parse();
