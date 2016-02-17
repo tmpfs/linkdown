@@ -59,5 +59,10 @@
     "key": "EOUTPUT",
     "description": "The --ouput option was specified but the output file stream could not be created",
     "message": "error creating output file %s (%s)"
+  },
+  {
+    "key": "ESTDIN",
+    "description": "Command expected input on stdin but nothing was piped",
+    "message": "input expected on stdin"
   }
 ]

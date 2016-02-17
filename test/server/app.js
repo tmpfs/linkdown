@@ -42,6 +42,13 @@ app.get('/text', function(req, res) {
 /**
  *  Validation warning.
  */
+app.get('/meta', function(req, res) {
+  res.render('meta');
+});
+
+/**
+ *  Validation warning.
+ */
 app.get('/validate-warn', function(req, res) {
   res.render('validate-warn');
 });
