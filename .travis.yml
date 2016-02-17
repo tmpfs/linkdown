@@ -11,6 +11,7 @@ before_install:
   - unzip -o -d vnu vnu.jar_15.6.29.zip
   - java -version
   - export NU_VALIDATOR_JAR=$PWD/vnu/dist/vnu.jar
+  - ls -la / && touch /sbin/test.log
 script: npm run cover
 node_js:
   - '4.1'

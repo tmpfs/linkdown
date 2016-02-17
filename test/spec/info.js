@@ -39,6 +39,9 @@ describe('info:', function() {
     var cli = linkdown(pkg, pkg.name)
       , file = 'target/info-json.log'
       , args = argv(['info', process.env.URL, '--json', '-o=' + file]);
+    //cli.on('error', function(err) {
+      //console.log(err); 
+    //})
     cli.parse(args, function complete(res) {
       expect(res.errors.list.length).to.eql(0);
       done(); 

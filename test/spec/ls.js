@@ -36,14 +36,10 @@ describe('ls:', function() {
   });
 
   it('should print discovered resources w/ --json', function(done) {
-    console.dir(require('child_process').execSync('pwd && ls'));
     var cli = linkdown(pkg, pkg.name)
       , file = 'target/list.log'
       // add bail for faster tests
       , args = argv(['ls', process.env.URL, '--json', '-o=' + file]);
-    cli.on('error', function(err) {
-      console.dir(err); 
-    })
     cli.parse(args, function complete(res) {
       expect(res.errors.list.length).to.eql(0);
       done(); 
