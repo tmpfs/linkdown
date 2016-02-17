@@ -9,6 +9,10 @@ app.set('view engine', 'jade');
 app.set('views', path.join(__dirname, '/view'));
 app.use(express.static(path.join(__dirname, '/public')));
 
+// pretty print html so that grep example
+// searches do not print the entire document
+app.locals.pretty = true;
+
 /**
  *  Get the index page.
  */
