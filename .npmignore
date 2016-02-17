@@ -6,3 +6,4 @@
 linkdownc.js
 *.log
 *.bak
+*.pid

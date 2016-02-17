@@ -37,8 +37,9 @@ describe('ls:', function() {
 
   it('should print discovered resources w/ --json', function(done) {
     var cli = linkdown(pkg, pkg.name)
+      , file = 'target/list.log'
       // add bail for faster tests
-      , args = argv(['ls', process.env.URL, '--json']);
+      , args = argv(['ls', process.env.URL, '--json', '-o=' + file]);
     cli.parse(args, function complete(res) {
       expect(res.errors.list.length).to.eql(0);
       done(); 

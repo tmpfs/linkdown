@@ -17,7 +17,8 @@ Link manipulation tool.
 * `json: --json`: Output as JSON where possible.
 * `depth: --depth=[int]`: Maximum depth to recurse.
 * `report: --report=[file]`: Write statistics report to file.
-* `output: -o, --output=[file]`: Pipe stdout to file.
+* `output: -o, --output=[file]`: Print to file not stdout.
+* `pid: --pid=[file]`: Write process id to file.
 
 ### Info
 
@@ -71,6 +72,10 @@ The stats object has child objects that contain `min`, `max` and `avg` statistic
 * `body`: Time in milliseconds to download the response body.
 * `request`: Time in milliseconds to download the entire response; headers and body.
 * `size`: Size in bytes for the response body.
+
+## Output
+
+When the `--ouput` option is given printing is redirected to the specified file and is not written to stdout. If the file does not exist it is created otherwise it is truncated; if the file stream cannot be created an error is reported and the program will exit with a non-zero exit code.
 
 ## Signals
 

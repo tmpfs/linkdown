@@ -70,7 +70,8 @@ describe('validate:', function() {
 
   it('should validate mock server w/ --json', function(done) {
     var cli = linkdown(pkg, pkg.name)
-      , args = argv(['validate', process.env.URL, '--json']);
+      , file = 'target/validate-json.log'
+      , args = argv(['validate', process.env.URL, '--json', '-o=' + file]);
     cli.parse(args, function complete(res) {
       expect(res.errors.list.length).to.eql(0);
       done(); 
@@ -88,7 +89,9 @@ describe('validate:', function() {
 
   it('should validate mock server w/ --format', function(done) {
     var cli = linkdown(pkg, pkg.name)
-      , args = argv(['validate', process.env.URL, '--format=xml']);
+      , file = 'target/validate-xml.log'
+      , args = argv(
+          ['validate', process.env.URL, '--format=xml', '-o=' + file]);
     cli.parse(args, function complete(res) {
       expect(res.errors.list.length).to.eql(0);
       done(); 
@@ -97,8 +100,11 @@ describe('validate:', function() {
 
   it('should validate mock server w/ --format and --json', function(done) {
     var cli = linkdown(pkg, pkg.name)
+      , file = 'target/format-json.log'
       , args = argv(
-          ['validate', process.env.URL, '--format=text', '--json']);
+          [
+            'validate', process.env.URL,
+            '--format=text', '--json', '-o=' + file]);
     cli.parse(args, function complete(res) {
       expect(res.errors.list.length).to.eql(0);
       done(); 

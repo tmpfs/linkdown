@@ -6,6 +6,8 @@ To run the test suite you will need to have installed java and the validator jar
 
 You **must** not have a HTTP server running on port `9871` as this is used to test for the server down scenario.
 
+You **must** not have permission to write to `/sbin` - pretty standard permissions.
+
 ```
 npm test
 ```

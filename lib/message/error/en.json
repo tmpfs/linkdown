@@ -49,5 +49,15 @@
     "key": "EVALIDATE_ABORT",
     "description": "User specified --abort and validation generated an error",
     "message": "aborted due to validation error(s)"
+  },
+  {
+    "key": "EPID",
+    "description": "The --pid option was specified but the pid file could not be written",
+    "message": "error writing pid file %s (%s)"
+  },
+  {
+    "key": "EOUTPUT",
+    "description": "The --ouput option was specified but the output file stream could not be created",
+    "message": "error creating output file %s (%s)"
   }
 ]

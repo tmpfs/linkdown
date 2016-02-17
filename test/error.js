@@ -17,7 +17,7 @@ function err(key) {
   }
 }
 
-err.http= err('EHTTP_STATUS');
+err.http = err('EHTTP_STATUS');
 
 err.url = err('EURL');
 err.protocol = err('EINVALID_PROTOCOL');
@@ -30,5 +30,9 @@ err.nojar = err('ENU_VALIDATOR_JAR');
 err.jar = err('ENOJAR');
 err.java = err('EJAVA');
 err.format = err('EINVALID_FORMAT');
+
+
+err.pid = err('EPID');
+err.output = err('EOUTPUT');
 
 module.exports = err;

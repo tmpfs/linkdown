@@ -1,4 +1,4 @@
-.TH "LINKDOWN" "1" "February 2016" "linkdown 1.0.9" "User Commands"
+.TH "LINKDOWN" "1" "February 2016" "linkdown 1.0.10" "User Commands"
 .SH "NAME"
 linkdown
 .SH "USAGE"
@@ -10,7 +10,7 @@ linkdown <command> [\-h] [\-\-color|\-\-no\-color] [\-\-bail] [\-\-json]
 .br
          [\-\-log\-level==<level>] [\-\-depth==<int>] [\-\-report==<file>]
 .br
-         <args>
+         [\-o|\-\-output==<file>] [\-\-pid==<file>] <args>
 .SH "DESCRIPTION"
 .PP
 Link manipulation tool.
@@ -28,21 +28,25 @@ Link manipulation tool.
 .SH "OPTIONS"
 .BL
 .IP "\[ci]" 4
-\fB\-c, \-\-conf==[file...]\fR: Load crawler configuration files.
-.IP "\[ci]" 4
-\fB\-h, \-\-help\fR: Display this help and exit.
+\fB\-\-depth==[int]\fR: Maximum depth to recurse.
 .IP "\[ci]" 4
 \fB\-\-[no]\-color\fR: Enable or disable terminal colors.
 .IP "\[ci]" 4
-\fB\-\-bail\fR: Exit on first non\-2xx response code.
+\fB\-c, \-\-conf==[file...]\fR: Load crawler configuration files.
 .IP "\[ci]" 4
 \fB\-\-log\-level==[level]\fR: Set the log level.
 .IP "\[ci]" 4
 \fB\-\-json\fR: Output as JSON where possible.
 .IP "\[ci]" 4
-\fB\-\-depth==[int]\fR: Maximum depth to recurse.
+\fB\-\-bail\fR: Exit on first non\-2xx response code.
 .IP "\[ci]" 4
 \fB\-\-report==[file]\fR: Write statistics report to file.
+.IP "\[ci]" 4
+\fB\-o, \-\-output==[file]\fR: Print to file not stdout.
+.IP "\[ci]" 4
+\fB\-\-pid==[file]\fR: Write process id to file.
+.IP "\[ci]" 4
+\fB\-h, \-\-help\fR: Display this help and exit.
 .IP "\[ci]" 4
 \fB\-\-version\fR: Print version and exit.
 .EL
@@ -74,9 +78,22 @@ The stats object has child objects that contain \fBmin\fR, \fBmax\fR and \fBavg\
 .IP "\[ci]" 4
 \fBsize\fR: Size in bytes for the response body.
 .EL
+.SH "OUTPUT"
+.PP
+When the \fB\-\-ouput\fR option is given printing is redirected to the specified file and is not written to stdout. If the file does not exist it is created otherwise it is truncated; if the file stream cannot be created an error is reported and the program will exit with a non\-zero exit code.
+.SH "SIGNALS"
+.PP
+You may pause the crawl by sending the signal \fBTSTP\fR and resume a paused crawl by sending the signal \fBCONT\fR.
+.PP
+Attempting to send the \fBTSTP\fR signal on a paused crawl will have no effect as will attempting to send \fBCONT\fR when the crawl has not previously been paused with \fBTSTP\fR.
+.PP
+Note that depending upon the concurrency level you may see messages printed after a crawl is paused.
 .SH "EXIT"
 .PP
 The program will exit with a non\-zero exit code when an error is encountered. When the crawl completes any 4xx and 5xx HTTP response codes will cause the program to exit with code 255. This guarantees that a success exit code of zero will only occur when the crawl completes and no HTTP error responses occurred.
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/tmpfs/linkdown/issues.
+.SH "SEE ALSO"
+.PP
+signal(7)
