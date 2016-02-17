@@ -1,5 +1,8 @@
 language: node_js
 sudo: false
+branches:
+  except:
+    - develop
 jdk:
   - oraclejdk8
 addons:
