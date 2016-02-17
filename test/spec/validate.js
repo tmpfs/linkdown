@@ -121,9 +121,19 @@ describe('validate:', function() {
     cli.parse(args);
   });
 
-  it('should abort validation with --abort', function(done) {
+  it('should abort validation w/ --abort', function(done) {
     var cli = linkdown(pkg, pkg.name)
       , args = argv(['validate', process.env.URL, '--abort']);
+    cli.program.on('error', function(err) {
+      error.abort(err, this.errors);
+      done();
+    })
+    cli.parse(args);
+  });
+
+  it('should abort validation w/ --format and --abort', function(done) {
+    var cli = linkdown(pkg, pkg.name)
+      , args = argv(['validate', process.env.URL, '--abort', '--format=text']);
     cli.program.on('error', function(err) {
       error.abort(err, this.errors);
       done();
