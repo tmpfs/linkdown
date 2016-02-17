@@ -17,6 +17,7 @@ Link manipulation tool.
 * `json: --json`: Output as JSON where possible.
 * `depth: --depth=[int]`: Maximum depth to recurse.
 * `report: --report=[file]`: Write statistics report to file.
+* `output: -o, --output=[file]`: Pipe stdout to file.
 
 ### Info
 
