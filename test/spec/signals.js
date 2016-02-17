@@ -11,7 +11,6 @@ describe('signals:', function() {
           ['info', process.env.URL]);
     cli.parse(args, function(res) {
       expect(res.errors.list.length).to.eql(0);
-      done(); 
     });
     function pause() {
       process.kill(process.pid, 'SIGTSTP');
@@ -23,6 +22,7 @@ describe('signals:', function() {
       process.kill(process.pid, 'SIGCONT');
       // send twice to trigger code path
       process.kill(process.pid, 'SIGCONT');
+      done(); 
     }
     setTimeout(pause, 250);
   });
