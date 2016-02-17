@@ -1,0 +1,112 @@
+.TH "LINKDOWN-META" "1" "February 2016" "linkdown-meta 1.0.14" "User Commands"
+.SH "NAME"
+linkdown-meta -- Extract meta data from stdin.
+.SH "USAGE"
+
+linkdown meta <args>
+.SH "DESCRIPTION"
+.PP
+The meta command extracts HTML page meta data from a buffer written to stdin. It extracts the value from the <title> element and any <meta> tags in the input buffer.
+.PP
+Typically this is used in combination with the exec command.
+.PP
+It prints to stdout a JSON document containing the meta data. When a JSON document is passed as an argument the meta data is injected into the input document.
+.SH "EXAMPLE"
+.PP
+Without the \-\-json option to the exec command a simple document is printed.
+
+  linkdown exec http://localhost:8080/meta \-\-cmd 'ldn meta'
+.PP
+Outputs:
+
+.SP
+  {
+.br
+    "meta": {
+.br
+      "title": "Meta Page",
+.br
+      "description": "Meta Test",
+.br
+      "keywords": "meta, link, http, linkdown"
+.br
+    }
+.br
+  }
+.PP
+When the \-\-json option is given to exec a more complete document is printed.
+
+  linkdown exec http://localhost:8080/meta \-\-cmd 'ldn meta' \-\-json
+.PP
+Outputs:
+
+.SP
+  {
+.br
+    "url": "http://localhost:8080/meta",
+.br
+    "protocol": "http",
+.br
+    "host": "localhost",
+.br
+    "port": 8080,
+.br
+    "path": "/meta",
+.br
+    "depth": 1,
+.br
+    "fetched": true,
+.br
+    "status": "downloaded",
+.br
+    "stateData": {
+.br
+      "requestLatency": 21,
+.br
+      "requestTime": 28,
+.br
+      "contentLength": 278,
+.br
+      "contentType": "text/html; charset=utf\-8",
+.br
+      "code": 200,
+.br
+      "headers": {
+.br
+        "content\-type": "text/html; charset=utf\-8",
+.br
+        "content\-length": "278",
+.br
+        "etag": "W/\"116\-XLd4QBoQli2+6XLPb3Hinw\"",
+.br
+        "date": "Wed, 17 Feb 2016 15:02:57 GMT",
+.br
+        "connection": "close"
+.br
+      },
+.br
+      "downloadTime": 7,
+.br
+      "actualDataSize": 278,
+.br
+      "sentIncorrectSize": false
+.br
+    },
+.br
+    "meta": {
+.br
+      "title": "Meta Page",
+.br
+      "description": "Meta Test",
+.br
+      "keywords": "meta, link, http, linkdown"
+.br
+    }
+.br
+  }
+.SH "BUGS"
+.PP
+Report bugs to https://github.com/tmpfs/linkdown/issues.
+.SH "SEE ALSO"
+.PP
+linkdown\-exec(1)

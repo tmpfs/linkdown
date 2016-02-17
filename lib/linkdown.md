@@ -59,6 +59,10 @@ To pass additional arguments to the java executable use --, for example: `linkdo
 
 For each fetched resource execute the program specified by `--cmd`. The downloaded buffer for the resource is written to stdin of the child process.
 
+#### Options
+
+* `cmd: --cmd=[exe]`: The program to execute.
+
 #### Arguments
 
 If the --cmd option contains whitespace it is split into an array and the command is taken from the first element in the array the remaining parts are treated as arguments to the command. When -- is specified remaining arguments are concatenated with any current arguments. Thus:
@@ -69,9 +73,80 @@ Will result in `foo bar` being printed.
 
 When the --json option is present the current queue item is stringified and sent as an additional argument to the child process.
 
-#### Options
+### Meta
 
-* `cmd: --cmd=[exe]`: The program to execute.
+The meta command extracts HTML page meta data from a buffer written to stdin. It extracts the value from the <title> element and any <meta> tags in the input buffer.
+
+Typically this is used in combination with the exec command.
+
+It prints to stdout a JSON document containing the meta data. When a JSON document is passed as an argument the meta data is injected into the input document.
+
+#### Example
+
+Without the --json option to the exec command a simple document is printed.
+
+```
+$0 exec http://localhost:8080/meta --cmd 'ldn meta'
+```
+
+Outputs:
+
+```
+{
+  "meta": {
+    "title": "Meta Page",
+    "description": "Meta Test",
+    "keywords": "meta, link, http, linkdown"
+  }
+}
+```
+
+When the --json option is given to exec a more complete document is printed.
+
+```
+$0 exec http://localhost:8080/meta --cmd 'ldn meta' --json
+```
+
+Outputs:
+
+```
+{
+  "url": "http://localhost:8080/meta",
+  "protocol": "http",
+  "host": "localhost",
+  "port": 8080,
+  "path": "/meta",
+  "depth": 1,
+  "fetched": true,
+  "status": "downloaded",
+  "stateData": {
+    "requestLatency": 21,
+    "requestTime": 28,
+    "contentLength": 278,
+    "contentType": "text/html; charset=utf-8",
+    "code": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "content-length": "278",
+      "etag": "W/\"116-XLd4QBoQli2+6XLPb3Hinw\"",
+      "date": "Wed, 17 Feb 2016 15:02:57 GMT",
+      "connection": "close"
+    },
+    "downloadTime": 7,
+    "actualDataSize": 278,
+    "sentIncorrectSize": false
+  },
+  "meta": {
+    "title": "Meta Page",
+    "description": "Meta Test",
+    "keywords": "meta, link, http, linkdown"
+  }
+}
+```
+
+#### See
+
+linkdown-exec(1)
 
 ## Redirects
 
