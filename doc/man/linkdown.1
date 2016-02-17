@@ -8,7 +8,9 @@ linkdown <command> [\-h] [\-\-color|\-\-no\-color] [\-\-bail] [\-\-json]
 .br
          [\-h|\-\-help] [\-\-version] [\-c|\-\-conf==<file...>]
 .br
-         [\-\-log\-level==<level>] [\-\-depth==<int>] <args>
+         [\-\-log\-level==<level>] [\-\-depth==<int>] [\-\-report==<file>]
+.br
+         <args>
 .SH "DESCRIPTION"
 .PP
 Link manipulation tool.
@@ -40,14 +42,41 @@ Link manipulation tool.
 .IP "\[ci]" 4
 \fB\-\-depth==[int]\fR: Maximum depth to recurse.
 .IP "\[ci]" 4
+\fB\-\-report==[file]\fR: Write statistics report to file.
+.IP "\[ci]" 4
 \fB\-\-version\fR: Print version and exit.
 .EL
 .SH "REDIRECTS"
 .PP
 Redirects are automatically followed provided the redirect is to the same host.
+.SH "REPORT"
+.PP
+When the \fB\-\-report\fR option is given statistics are written to the specified file as a JSON document when the crawl is complete, it has the following fields:
+.BL
+.IP "\[ci]" 4
+\fBlength\fR: Number of items in the queue.
+.IP "\[ci]" 4
+\fBcomplete\fR: Number of items completed.
+.IP "\[ci]" 4
+\fBerrors\fR: Number of requests that responded with 4xx or 5xx status codes.
+.IP "\[ci]" 4
+\fBstats\fR: An object containing statistics.
+.EL
+.PP
+The stats object has child objects that contain \fBmin\fR, \fBmax\fR and \fBavg\fR statistics for each of the following fields:
+.BL
+.IP "\[ci]" 4
+\fBheaders\fR: Time in milliseconds until response headers were received.
+.IP "\[ci]" 4
+\fBbody\fR: Time in milliseconds to download the response body.
+.IP "\[ci]" 4
+\fBrequest\fR: Time in milliseconds to download the entire response; headers and body.
+.IP "\[ci]" 4
+\fBsize\fR: Size in bytes for the response body.
+.EL
 .SH "EXIT"
 .PP
-The program will exit with a non\-zero exit code when an error is encountered. When the crawl completes any 4xx and 5xx HTTP response codes will cause the program to exit with code 255. This guarantees that a success exit code of zero will only occur when the crawl completes and no HTTP error responses occurred during the crawl.
+The program will exit with a non\-zero exit code when an error is encountered. When the crawl completes any 4xx and 5xx HTTP response codes will cause the program to exit with code 255. This guarantees that a success exit code of zero will only occur when the crawl completes and no HTTP error responses occurred.
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/tmpfs/linkdown/issues.

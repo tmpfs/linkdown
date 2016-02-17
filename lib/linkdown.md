@@ -16,6 +16,7 @@ Link manipulation tool.
 * `logLevel: --log-level=[level]`: Set the log level.
 * `json: --json`: Output as JSON where possible.
 * `depth: --depth=[int]`: Maximum depth to recurse.
+* `report: --report=[file]`: Write statistics report to file.
 
 ### Info
 
@@ -54,6 +55,22 @@ To pass additional arguments to the java executable use `--`, for example: `link
 
 Redirects are automatically followed provided the redirect is to the same host.
 
+## Report
+
+When the `--report` option is given statistics are written to the specified file as a JSON document when the crawl is complete, it has the following fields:
+
+* `length`: Number of items in the queue.
+* `complete`: Number of items completed.
+* `errors`: Number of requests that responded with 4xx or 5xx status codes.
+* `stats`: An object containing statistics.
+
+The stats object has child objects that contain `min`, `max` and `avg` statistics for each of the following fields:
+
+* `headers`: Time in milliseconds until response headers were received.
+* `body`: Time in milliseconds to download the response body.
+* `request`: Time in milliseconds to download the entire response; headers and body.
+* `size`: Size in bytes for the response body.
+
 ## Exit
 
-The program will exit with a non-zero exit code when an error is encountered. When the crawl completes any 4xx and 5xx HTTP response codes will cause the program to exit with code 255. This guarantees that a success exit code of zero will only occur when the crawl completes and no HTTP error responses occurred during the crawl.
+The program will exit with a non-zero exit code when an error is encountered. When the crawl completes any 4xx and 5xx HTTP response codes will cause the program to exit with code 255. This guarantees that a success exit code of zero will only occur when the crawl completes and no HTTP error responses occurred.
