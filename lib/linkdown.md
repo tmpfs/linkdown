@@ -59,6 +59,16 @@ To pass additional arguments to the java executable use --, for example: `linkdo
 
 For each fetched resource execute the program specified by `--cmd`. The downloaded buffer for the resource is written to stdin of the child process.
 
+#### Arguments
+
+If the --cmd option contains whitespace it is split into an array and the command is taken from the first element in the array the remaining parts are treated as arguments to the command. When -- is specified remaining arguments are concatenated with any current arguments. Thus:
+
+$0 exec --cmd 'echo foo' http://localhost:8080 -- bar
+
+Will result in `foo bar` being printed.
+
+When the --json option is present the current queue item is stringified and sent as an additional argument to the child process.
+
 #### Options
 
 * `cmd: --cmd=[exe]`: The program to execute.

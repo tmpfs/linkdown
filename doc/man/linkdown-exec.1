@@ -1,0 +1,29 @@
+.TH "LINKDOWN-EXEC" "1" "February 2016" "linkdown-exec 1.0.14" "User Commands"
+.SH "NAME"
+linkdown-exec -- Run an executable for each response.
+.SH "USAGE"
+
+.SP
+linkdown exec [\-\-cmd==<exe>] <args>
+.br
+linkdown x [\-\-cmd==<exe>] <args>
+.SH "DESCRIPTION"
+.PP
+For each fetched resource execute the program specified by \fB\-\-cmd\fR. The downloaded buffer for the resource is written to stdin of the child process.
+.SH "OPTIONS"
+.BL
+.IP "\[ci]" 4
+\fB\-\-cmd==[exe]\fR: The program to execute.
+.EL
+.SH "ARGUMENTS"
+.PP
+If the \-\-cmd option contains whitespace it is split into an array and the command is taken from the first element in the array the remaining parts are treated as arguments to the command. When \-\- is specified remaining arguments are concatenated with any current arguments. Thus:
+.PP
+linkdown exec \-\-cmd 'echo foo' http://localhost:8080 \-\- bar
+.PP
+Will result in \fBfoo bar\fR being printed.
+.PP
+When the \-\-json option is present the current queue item is stringified and sent as an additional argument to the child process.
+.SH "BUGS"
+.PP
+Report bugs to https://github.com/tmpfs/linkdown/issues.
