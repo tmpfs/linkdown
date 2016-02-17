@@ -3,7 +3,6 @@ node_modules
 coverage
 target
 /lib/linkdownc.js
-/lib/ldnc.js
 *.log
 *.bak
 *.pid

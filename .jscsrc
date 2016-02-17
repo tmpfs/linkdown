@@ -15,7 +15,6 @@
       "doc/readme",
       "node_modules",
       "lib/linkdownc.js",
-      "lib/ldnc.js",
       "coverage",
       "target"
     ]

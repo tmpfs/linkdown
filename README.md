@@ -46,6 +46,8 @@ But may be used to perform arbitrary operations on the links crawled from a doma
 npm i -g linkdown
 ```
 
+The executable is named `linkdown` but is also available as `ldn` for those that prefer less typing.
+
 ## Usage
 
 ```
@@ -54,12 +56,12 @@ Usage: linkdown <command>
 where <command> is one of:
     help, info, i, list, ls, validate, v
 
-linkdown@1.0.10 /home/muji/git/linkdown
+linkdown@1.0.14 /home/muji/git/linkdown
 ```
 
 ## Manual
 
-Run `linkdown help` for the program manual, use `linkdown help <cmd>` for individual command man pages. You can view quick help on commands and options with `linkdown -h` or `linkdown --help`.
+Run `linkdown help` for the program manual, use `linkdown help <cmd>` for individual command man pages. You can view quick help on commands and options with `-h | --help`.
 
 ## Guide
 
@@ -84,7 +86,7 @@ linkdown info http://localhost:8000 --bail
 ```
 
 ```
- INFO | [9777] started on Wed Feb 17 2016 15:27:08 GMT+0800 (WITA)
+ INFO | [22060] started on Wed Feb 17 2016 18:36:10 GMT+0800 (WITA)
  INFO | 200 http://localhost:8000/ (557 B)
  WARN | 404 http://localhost:8000/assets/css/style.css
 ERROR | bailed on 404 http://localhost:8000/assets/css/style.css
@@ -99,7 +101,7 @@ linkdown ls http://localhost:8000 --bail
 ```
 
 ```
- INFO | [9791] started on Wed Feb 17 2016 15:27:09 GMT+0800 (WITA)
+ INFO | [22080] started on Wed Feb 17 2016 18:36:11 GMT+0800 (WITA)
  INFO | 200 http://localhost:8000/ (557 B)
  INFO | URL http://localhost:8000/assets/css/style.css
  INFO | URL http://localhost:8000/redirect
@@ -128,7 +130,7 @@ linkdown validate http://localhost:8000 --abort
 ```
 
 ```
- INFO | [9801] started on Wed Feb 17 2016 15:27:10 GMT+0800 (WITA)
+ INFO | [22105] started on Wed Feb 17 2016 18:36:12 GMT+0800 (WITA)
  INFO | 200 http://localhost:8000/ (557 B)
  INFO | validation passed http://localhost:8000/
  INFO | 200 http://localhost:8000/text (10 B)
