@@ -1,0 +1,6 @@
+#!/usr/bin/env node
+
+// sadly npm doesn't support symlinks
+// otherwise i would just symlink this short alias
+var program = require('../lib/linkdown');
+program(require('../package.json')).parse();
