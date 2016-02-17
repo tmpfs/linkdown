@@ -67,10 +67,10 @@
     "clean": "npm run clean-man && rm -rf ./coverage",
     "manual": "npm run clean-man && NODE_ENV=devel manpage --output ./doc/man ./bin/linkdown",
     "readme": "mdp --force -v -i doc/readme.json",
-    "pretest": "rm -rf target && mkdir -p target && pwd && ls -la",
+    "pretest": "rm -rf target && mkdir target",
     "test": "NODE_ENV=test mocha test/global ${SPEC:-test/spec}",
     "precover": "npm run pretest",
-    "cover": "NODE_ENV=test istanbul cover --root lib _mocha -- test/global ${SPEC:-test/spec}",
+    "cover": "DEBUG=1 NODE_ENV=test istanbul cover --root lib _mocha -- test/global ${SPEC:-test/spec}",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   }
 }
