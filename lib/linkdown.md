@@ -72,6 +72,18 @@ The stats object has child objects that contain `min`, `max` and `avg` statistic
 * `request`: Time in milliseconds to download the entire response; headers and body.
 * `size`: Size in bytes for the response body.
 
+## Signals
+
+You may pause the crawl by sending the signal `TSTP` and resume a paused crawl by sending the signal `CONT`.
+
+Attempting to send the `TSTP` signal on a paused crawl will have no effect as will attempting to send `CONT` when the crawl has not previously been paused with `TSTP`.
+
+Note that depending upon the concurrency level you may see messages printed after a crawl is paused.
+
 ## Exit
 
 The program will exit with a non-zero exit code when an error is encountered. When the crawl completes any 4xx and 5xx HTTP response codes will cause the program to exit with code 255. This guarantees that a success exit code of zero will only occur when the crawl completes and no HTTP error responses occurred.
+
+## See
+
+signal(7)
