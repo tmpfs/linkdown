@@ -84,7 +84,7 @@ linkdown info http://localhost:8000 --bail
 ```
 
 ```
- INFO | [8964] started on Wed Feb 17 2016 15:25:17 GMT+0800 (WITA)
+ INFO | [9777] started on Wed Feb 17 2016 15:27:08 GMT+0800 (WITA)
  INFO | 200 http://localhost:8000/ (557 B)
  WARN | 404 http://localhost:8000/assets/css/style.css
 ERROR | bailed on 404 http://localhost:8000/assets/css/style.css
@@ -99,7 +99,7 @@ linkdown ls http://localhost:8000 --bail
 ```
 
 ```
- INFO | [8992] started on Wed Feb 17 2016 15:25:18 GMT+0800 (WITA)
+ INFO | [9791] started on Wed Feb 17 2016 15:27:09 GMT+0800 (WITA)
  INFO | 200 http://localhost:8000/ (557 B)
  INFO | URL http://localhost:8000/assets/css/style.css
  INFO | URL http://localhost:8000/redirect
@@ -128,7 +128,7 @@ linkdown validate http://localhost:8000 --abort
 ```
 
 ```
- INFO | [9002] started on Wed Feb 17 2016 15:25:19 GMT+0800 (WITA)
+ INFO | [9801] started on Wed Feb 17 2016 15:27:10 GMT+0800 (WITA)
  INFO | 200 http://localhost:8000/ (557 B)
  INFO | validation passed http://localhost:8000/
  INFO | 200 http://localhost:8000/text (10 B)
@@ -226,7 +226,7 @@ npm start
 
 ## Credits
 
-None of this would be possible without the work of the devlopers behind the excellent [simplecrawler](https://github.com/cgiffard/node-simplecrawler).
+None of this would be possible without the work of the developers behind the excellent [simplecrawler](https://github.com/cgiffard/node-simplecrawler).
 
 ## License
 
