@@ -8,6 +8,7 @@ Link manipulation tool.
 * `info: info, i`: Print response information.
 * `list: list, ls`: Print discovered links.
 * `validate: validate, v`: Validate (X)HTML pages (nu validator).
+* `exec: exec, x`: Run an executable for each response.
 
 ## Options
 
@@ -52,6 +53,14 @@ Because all log messages are sent to stderr this means you can get an easy to pa
 If the --json option is given all validation results are output to stdout as line-delimited JSON documents with the fields `url` and `result`.
 
 To pass additional arguments to the java executable use --, for example: `linkdown v http://example.com -- -Xss512k` to adjust the java thread stack size.
+
+### Exec
+
+For each fetched resource execute the program specified by `--cmd`. The downloaded buffer for the resource is written to stdin of the child process.
+
+#### Options
+
+* `cmd: --cmd=[exe]`: The program to execute.
 
 ## Redirects
 
