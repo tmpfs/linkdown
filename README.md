@@ -9,6 +9,7 @@ Table of Contents
     * [Configuration](#configuration)
     * [Info](#info)
     * [List](#list)
+    * [Exec](#exec)
     * [Validate](#validate)
   * [Developer](#developer)
     * [Test](#test)
@@ -54,7 +55,7 @@ The executable is named `linkdown` but is also available as `ldn` for those that
 Usage: linkdown <command>
 
 where <command> is one of:
-    help, info, i, list, ls, validate, v
+    exec, x, help, info, i, list, ls, meta, validate, v
 
 linkdown@1.0.14 /home/muji/git/linkdown
 ```
@@ -86,10 +87,10 @@ linkdown info http://localhost:8000 --bail
 ```
 
 ```
- INFO | [22060] started on Wed Feb 17 2016 18:36:10 GMT+0800 (WITA)
- INFO | 200 http://localhost:8000/ (557 B)
- WARN | 404 http://localhost:8000/assets/css/style.css
-ERROR | bailed on 404 http://localhost:8000/assets/css/style.css
+ INFO | [15479] started on Thu Feb 18 2016 07:29:41 GMT+0800 (WITA)
+ INFO | 200 http://localhost:8000/ (626 B)
+ WARN | 404 http://localhost:8000/style.css
+ERROR | bailed on 404 http://localhost:8000/style.css
 ```
 
 ### List
@@ -101,9 +102,9 @@ linkdown ls http://localhost:8000 --bail
 ```
 
 ```
- INFO | [22080] started on Wed Feb 17 2016 18:36:11 GMT+0800 (WITA)
- INFO | 200 http://localhost:8000/ (557 B)
- INFO | URL http://localhost:8000/assets/css/style.css
+ INFO | [15492] started on Thu Feb 18 2016 07:29:42 GMT+0800 (WITA)
+ INFO | 200 http://localhost:8000/ (626 B)
+ INFO | URL http://localhost:8000/style.css
  INFO | URL http://localhost:8000/redirect
  INFO | URL http://localhost:8000/text
  INFO | URL http://localhost:8000/validate-fail
@@ -111,8 +112,30 @@ linkdown ls http://localhost:8000 --bail
  INFO | URL http://localhost:8000/validate-error
  INFO | URL http://localhost:8000/bad-length
  INFO | URL http://localhost:8000/non-existent
- WARN | 404 http://localhost:8000/assets/css/style.css
-ERROR | bailed on 404 http://localhost:8000/assets/css/style.css
+ WARN | 404 http://localhost:8000/style.css
+ERROR | bailed on 404 http://localhost:8000/style.css
+```
+
+### Exec
+
+Execute a program for each fetched resource, the buffer for each resource is written to stdin of the spawned program.
+
+```shell
+linkdown exec http://localhost:8000/meta --cmd grep -- meta
+```
+
+```
+ INFO | [15501] started on Thu Feb 18 2016 07:29:43 GMT+0800 (WITA)
+ INFO | 200 http://localhost:8000/meta (322 B)
+    <meta charset="utf-8">
+    <meta name="description" content="Meta Test">
+    <meta name="keywords" content="meta, link, http, linkdown">
+ WARN | 404 http://localhost:8000/style.css
+ INFO | HEAD Min: 26ms, Max: 38ms, Avg: 32ms
+ INFO | BODY Min: 4ms, Max: 4ms, Avg: 4ms
+ INFO | TIME Min: 30ms, Max: 38ms, Avg: 34ms
+ INFO | SIZE Min: 322 B, Max: 322 B, Avg: 322 B
+ INFO | HTTP Total: 2, Complete: 2, Errors: 1
 ```
 
 ### Validate
@@ -130,17 +153,17 @@ linkdown validate http://localhost:8000 --abort
 ```
 
 ```
- INFO | [22105] started on Wed Feb 17 2016 18:36:12 GMT+0800 (WITA)
- INFO | 200 http://localhost:8000/ (557 B)
+ INFO | [15511] started on Thu Feb 18 2016 07:29:44 GMT+0800 (WITA)
+ INFO | 200 http://localhost:8000/ (626 B)
  INFO | validation passed http://localhost:8000/
  INFO | 200 http://localhost:8000/text (10 B)
  WARN | invalid content type text/plain; charset=utf-8 from http://localhost:8000/text (skipped)
- INFO | 200 http://localhost:8000/validate-fail (280 B)
+ INFO | 200 http://localhost:8000/validate-fail (240 B)
 ERROR | validation failed on http://localhost:8000/validate-fail
  HTML |  
  HTML | 1) http://localhost:8000/validate-fail
  HTML |  
- HTML | From line 1, column 244; to line 1, column 249
+ HTML | From line 9, column 20; to line 9, column 25
  HTML |  
  HTML | A numeric character reference expanded to the C1 controls range.
  HTML |  
@@ -149,12 +172,13 @@ ERROR | validation failed on http://localhost:8000/validate-fail
  HTML |  
  HTML | 2) http://localhost:8000/validate-fail
  HTML |  
- HTML | From line 1, column 229; to line 1, column 237
+ HTML | From line 9, column 5; to line 9, column 13
  HTML |  
  HTML | Section lacks heading. Consider using “h2”-“h6” elements to add identifying
  HTML | headings to all sections.
  HTML |  
- HTML |   ead><body><section><span>
+ HTML |   body>
+    <section><span>
  HTML | ------------^
  HTML |  
 ERROR | aborted due to validation error(s)

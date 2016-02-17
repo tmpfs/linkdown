@@ -1,13 +1,13 @@
 var fs = require('fs')
-  , exec = require('child_process').exec
+  , spawn = require('child_process').spawn
   , base = __dirname + '/guide'
-  , tempfile = require('tempfile')
   , port = 8000
   , url = 'http://localhost:' + port
   , sections = [
     'configuration',
     'info',
     'ls',
+    'exec',
     'validate'
   ]
   , commands = {
@@ -16,6 +16,9 @@ var fs = require('fs')
     ],
     ls: [
       'linkdown ls ' + url +  ' --bail'
+    ],
+    exec: [
+      'linkdown exec ' + url +  '/meta --cmd grep -- meta'
     ],
     validate: [
       'linkdown validate ' + url + ' --abort'
@@ -37,9 +40,10 @@ app.listen(port, function() {
     process.stdout.write(contents);
     if(commands[section]) {
       commands[section].forEach(function(cmd) {
-        var tmp = tempfile('.example.log');
-        var file = fs.openSync(tmp, 'w');
-        var opts = {stdio: [0, file, file]};
+        var opts = {env: process.env};
+        var parts = cmd.split(/\s+/);
+        var exe = parts[0];
+        var args = parts.slice(1);
 
         // command to execute
         console.log('```shell'); 
@@ -47,24 +51,21 @@ app.listen(port, function() {
         console.log('```'); 
         console.log();
 
-        //execSync('pwd', opts);
-        exec(cmd, opts, function onExec(err, stdout, stderr) {
-          //console.log('after command: '+ stdout);
-          //console.log('after command: '+ stderr);
+        var ps = spawn(exe, args, opts);
+        // start code block
+        process.stdout.write('```\n')
 
-          //var contents = fs.readFileSync(tmp);
+        // pipe streams
+        ps.stdout.pipe(process.stdout);
+        ps.stderr.pipe(process.stdout);
 
+        ps.once('exit', function() {
+          // close code block
           process.stdout.write('```\n')
-          process.stdout.write('' + stderr);
-          process.stdout.write('```\n')
 
-          fs.unlinkSync(tmp);
-
-          console.log();
-
+          // process next section
           onSection();
         })
-
       })
     }else{
       onSection();
