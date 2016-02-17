@@ -1,5 +1,11 @@
 [
   {
+    "key": "EHTTP_STATUS",
+    "description": "Crawl completed but some 4xx and 5xx errors occurred",
+    "message": "http 4xx or 5xx errors encountered",
+    "code": 255
+  },
+  {
     "key": "EURL",
     "description": "User did not supply url command line argument",
     "message": "url is required"
