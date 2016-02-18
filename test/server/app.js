@@ -44,6 +44,20 @@ app.get('/text', function(req, res) {
 });
 
 /**
+ *  Mock section.
+ */
+app.get('/section', function(req, res) {
+  res.render('section');
+});
+
+/**
+ *  Mock deep page.
+ */
+app.get('/section/page', function(req, res) {
+  res.render('page');
+});
+
+/**
  *  Validation warning.
  */
 app.get('/meta', function(req, res) {
