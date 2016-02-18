@@ -69,6 +69,7 @@ app.get('/validate-error', function(req, res) {
  */
 app.get('/validate-fail', function(req, res) {
   res.render('validate-fail', {pretty: false});
+  //res.render('validate-fail');
 });
 
 app.all('*', wildcard);
