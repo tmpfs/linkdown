@@ -101,7 +101,11 @@ describe('tree-builder:', function() {
 
   it('should build mock tree', function(done) {
     var input = load('test/fixtures/mock.json.log')
-      , res = builder(input, {lean: true})
+      , label = function(item, root){
+          return root
+            ? item.pathname + ' (' + item.hostname + ')' : item.pathname;
+        }
+      , res = builder(input, {lean: true, label: label})
       , keys = Object.keys(res)
       , host
       , node;

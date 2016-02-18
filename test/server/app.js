@@ -73,6 +73,13 @@ app.get('/validate-fail', function(req, res) {
   //res.render('validate-fail');
 });
 
+/**
+ *  Deep page with no parent hierarchy.
+ */
+app.get('/into/the/deep', function(req, res) {
+  res.render('deep');
+});
+
 // MOCK ROUTES (NON-SITEMAP)
 
 /**
