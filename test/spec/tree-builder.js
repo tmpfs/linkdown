@@ -117,7 +117,7 @@ describe('tree-builder:', function() {
 
     console.dir(res, {depth: 4});
 
-    //console.log(archy(res['localhost:8080']));
+    console.log(archy(res['localhost:8080']));
     //node = host.nodes[0];
     //expect(node).to.be.an('object');
     //expect(node.label).to.be.a('string').to.eql('Meta Page');
