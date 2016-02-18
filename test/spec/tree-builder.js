@@ -33,22 +33,22 @@ function load(file) {
  *  Build the simple fixture: 
  *
  *  NODE_ENV=devel ldn x http://localhost:8080/meta \
- *    --cmd 'ldn meta' --json > test/fixtures/simple.json.log
+ *    --cmd 'ldn meta' --json > test/fixtures/simple.log.json
  *
  *  Build the deep fixture:
  *
  *  NODE_ENV=devel ldn x http://localhost:8080/into/the/deep \
- *    --cmd 'ldn meta' --json > test/fixtures/deep.json.log
+ *    --cmd 'ldn meta' --json > test/fixtures/deep.log.json
  *
  *  Build the mock fixture: 
  *
  *  NODE_ENV=devel ldn x http://localhost:8080 \
- *    --cmd 'ldn meta' --json > test/fixtures/mock.json.log
+ *    --cmd 'ldn meta' --json > test/fixtures/mock.log.json
  */
 describe('tree-builder:', function() {
 
   it('should build simple tree', function(done) {
-    var input = load('test/fixtures/simple.json.log')
+    var input = load('test/fixtures/simple.log.json')
       , res = builder(input)
       , keys = Object.keys(res)
       , host
@@ -64,7 +64,7 @@ describe('tree-builder:', function() {
   });
 
   it('should build simple tree w/ standard port', function(done) {
-    var input = load('test/fixtures/simple.json.log');
+    var input = load('test/fixtures/simple.log.json');
     input[0].port = 443;
     var res = builder(input)
       , keys = Object.keys(res)
@@ -81,7 +81,7 @@ describe('tree-builder:', function() {
   });
 
   //it('should build simple tree w/ url label', function(done) {
-    //var input = load('test/fixtures/simple.json.log');
+    //var input = load('test/fixtures/simple.log.json');
     //delete input[0].meta;
     //var res = builder(input)
       //, keys = Object.keys(res)
@@ -98,7 +98,7 @@ describe('tree-builder:', function() {
   //});
 
   it('should build simple tree w/ hostMap', function(done) {
-    var input = load('test/fixtures/simple.json.log')
+    var input = load('test/fixtures/simple.log.json')
       , hostMap = {'localhost:8080': 'example.com'}
       , res = builder(input, {hostMap: hostMap})
       , keys = Object.keys(res)
@@ -116,7 +116,7 @@ describe('tree-builder:', function() {
   });
   
   it('should build tree with no parents', function(done) {
-    var input = load('test/fixtures/deep.json.log')
+    var input = load('test/fixtures/deep.log.json')
       , res = builder(input, {lean: true, label: label})
       , keys = Object.keys(res)
       , host
@@ -145,7 +145,7 @@ describe('tree-builder:', function() {
 
 
   it('should build full tree', function(done) {
-    var input = load('test/fixtures/mock.json.log')
+    var input = load('test/fixtures/mock.log.json')
       , res = builder(input, {lean: true, label: label})
       , keys = Object.keys(res)
       , host
