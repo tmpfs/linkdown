@@ -1,5 +1,6 @@
 var expect = require('chai').expect
   , fs = require('fs')
+  , archy = require('archy')
   , builder = require('../../lib/tree-builder');
 
 function load(file) {
@@ -100,7 +101,7 @@ describe('tree-builder:', function() {
 
   it('should build mock tree', function(done) {
     var input = load('test/fixtures/mock.json.log')
-      , res = builder(input)
+      , res = builder(input, {lean: true})
       , keys = Object.keys(res)
       , host
       , node;
@@ -108,10 +109,15 @@ describe('tree-builder:', function() {
     host = res['localhost:8080'];
     expect(host.label).to.be.a('string');
     expect(host.nodes).to.be.an('array');
-    console.dir(host.nodes.length);
-    host.nodes.forEach(function(node) {
-      console.log(node.label);
-    })
+    //console.dir(host.nodes.length);
+
+    //host.nodes.forEach(function(node) {
+      //console.log(node.label);
+    //})
+
+    console.dir(res, {depth: 4});
+
+    //console.log(archy(res['localhost:8080']));
     //node = host.nodes[0];
     //expect(node).to.be.an('object');
     //expect(node.label).to.be.a('string').to.eql('Meta Page');

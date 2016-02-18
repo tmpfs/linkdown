@@ -13,26 +13,13 @@ app.use(express.static(path.join(__dirname, '/public')));
 // searches do not print the entire document
 app.locals.pretty = true;
 
+// VALID STATIC ROUTES (SITEMAP)
+
 /**
  *  Get the index page.
  */
 app.get('/', function(req, res) {
   res.render('index');
-});
-
-/**
- *  Redirect to another page.
- */
-app.get('/redirect', function(req, res) {
-  res.redirect('/');
-});
-
-/**
- *  Bad content length header.
- */
-app.get('/bad-length', function(req, res) {
-  res.set('Content-Length', '4')
-  res.end('<html></html>');
 });
 
 /**
@@ -58,7 +45,7 @@ app.get('/section/page', function(req, res) {
 });
 
 /**
- *  Validation warning.
+ *  Page with extended meta data.
  */
 app.get('/meta', function(req, res) {
   res.render('meta');
@@ -84,6 +71,23 @@ app.get('/validate-error', function(req, res) {
 app.get('/validate-fail', function(req, res) {
   res.render('validate-fail', {pretty: false});
   //res.render('validate-fail');
+});
+
+// MOCK ROUTES (NON-SITEMAP)
+
+/**
+ *  Redirect to another page.
+ */
+app.get('/redirect', function(req, res) {
+  res.redirect('/');
+});
+
+/**
+ *  Bad content length header.
+ */
+app.get('/bad-length', function(req, res) {
+  res.set('Content-Length', '4')
+  res.end('<html></html>');
 });
 
 app.all('*', wildcard);

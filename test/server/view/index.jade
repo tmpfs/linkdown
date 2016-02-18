@@ -1,5 +1,8 @@
 extends layout
 
+block title
+  title Home Page
+
 block meta
   meta(name='description', content='Mock web server')
   meta(name='keywords', content='mock, http, linkdown')
@@ -7,6 +10,7 @@ block meta
 block content
   h1 Home Page
   a(href='/redirect') Redirect page
+  a(href='/meta') Meta Page
   a(href='/section') Section page
   a(href='/text') Text directory
   a(href='/validate-fail') Validation Fail
