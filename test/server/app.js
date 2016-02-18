@@ -54,21 +54,21 @@ app.get('/meta', function(req, res) {
  *  Validation warning.
  */
 app.get('/validate-warn', function(req, res) {
-  res.render('validate-warn');
+  res.render('validate-warn', {pretty: false});
 });
 
 /**
  *  Validation error.
  */
 app.get('/validate-error', function(req, res) {
-  res.render('validate-error');
+  res.render('validate-error', {pretty: false});
 });
 
 /**
  *  Validation error and warning.
  */
 app.get('/validate-fail', function(req, res) {
-  res.render('validate-fail');
+  res.render('validate-fail', {pretty: false});
 });
 
 app.all('*', wildcard);

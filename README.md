@@ -88,7 +88,7 @@ linkdown info http://localhost:8000 --bail
 ```
 
 ```
- INFO | [25427] started on Thu Feb 18 2016 09:39:02 GMT+0800 (WITA)
+ INFO | [29587] started on Thu Feb 18 2016 09:44:03 GMT+0800 (WITA)
  INFO | 200 http://localhost:8000/ (626 B)
  WARN | 404 http://localhost:8000/style.css
 ERROR | bailed on 404 http://localhost:8000/style.css
@@ -103,7 +103,7 @@ linkdown ls http://localhost:8000 --bail
 ```
 
 ```
- INFO | [25468] started on Thu Feb 18 2016 09:39:03 GMT+0800 (WITA)
+ INFO | [29600] started on Thu Feb 18 2016 09:44:04 GMT+0800 (WITA)
  INFO | 200 http://localhost:8000/ (626 B)
  INFO | URL http://localhost:8000/style.css
  INFO | URL http://localhost:8000/redirect
@@ -126,35 +126,35 @@ linkdown exec http://localhost:8000/meta --cmd grep -- meta
 ```
 
 ```
- INFO | [25477] started on Thu Feb 18 2016 09:39:04 GMT+0800 (WITA)
+ INFO | [29617] started on Thu Feb 18 2016 09:44:05 GMT+0800 (WITA)
  INFO | 200 http://localhost:8000/meta (322 B)
     <meta charset="utf-8">
     <meta name="description" content="Meta Test">
     <meta name="keywords" content="meta, link, http, linkdown">
  WARN | 404 http://localhost:8000/style.css
- INFO | HEAD Min: 25ms, Max: 31ms, Avg: 28ms
- INFO | BODY Min: 5ms, Max: 5ms, Avg: 5ms
- INFO | TIME Min: 25ms, Max: 36ms, Avg: 31ms
+ INFO | HEAD Min: 25ms, Max: 32ms, Avg: 29ms
+ INFO | BODY Min: 6ms, Max: 6ms, Avg: 6ms
+ INFO | TIME Min: 31ms, Max: 32ms, Avg: 32ms
  INFO | SIZE Min: 322 B, Max: 322 B, Avg: 322 B
  INFO | HTTP Total: 2, Complete: 2, Errors: 1
 ```
 
 ### Meta
 
-Reads a HTML page written to stdin and prints a JSON document; designed to be used with the `exec` command to inject meta data as pages are fetched.
+Reads an HTML page written to stdin and prints a JSON document; designed to be used with the `exec` command to inject meta data as pages are fetched.
 
 ```shell
 linkdown exec http://localhost:8000/meta --cmd linkdown -- meta
 ```
 
 ```
- INFO | [25487] started on Thu Feb 18 2016 09:39:05 GMT+0800 (WITA)
+ INFO | [29627] started on Thu Feb 18 2016 09:44:06 GMT+0800 (WITA)
  INFO | 200 http://localhost:8000/meta (322 B)
  WARN | 404 http://localhost:8000/style.css
 {"meta":{"title":"Meta Page","description":"Meta Test","keywords":"meta, link, http, linkdown"}}
- INFO | HEAD Min: 23ms, Max: 34ms, Avg: 29ms
- INFO | BODY Min: 6ms, Max: 6ms, Avg: 6ms
- INFO | TIME Min: 23ms, Max: 40ms, Avg: 32ms
+ INFO | HEAD Min: 17ms, Max: 32ms, Avg: 25ms
+ INFO | BODY Min: 4ms, Max: 4ms, Avg: 4ms
+ INFO | TIME Min: 17ms, Max: 36ms, Avg: 27ms
  INFO | SIZE Min: 322 B, Max: 322 B, Avg: 322 B
  INFO | HTTP Total: 2, Complete: 2, Errors: 1
 ```
@@ -164,13 +164,13 @@ linkdown exec http://localhost:8000/meta --cmd linkdown --json -- meta
 ```
 
 ```
- INFO | [25533] started on Thu Feb 18 2016 09:39:06 GMT+0800 (WITA)
+ INFO | [29673] started on Thu Feb 18 2016 09:44:07 GMT+0800 (WITA)
  INFO | 200 http://localhost:8000/meta (322 B)
  WARN | 404 http://localhost:8000/style.css
-{"url":"http://localhost:8000/meta","protocol":"http","host":"localhost","port":8000,"path":"/meta","depth":1,"fetched":true,"status":"downloaded","stateData":{"requestLatency":28,"requestTime":33,"contentLength":322,"contentType":"text/html; charset=utf-8","code":200,"headers":{"content-type":"text/html; charset=utf-8","content-length":"322","etag":"W/\"142-yIHzsRL5RxIRsAAxctYrsw\"","date":"Thu, 18 Feb 2016 01:39:06 GMT","connection":"close"},"downloadTime":5,"actualDataSize":322,"sentIncorrectSize":false},"meta":{"title":"Meta Page","description":"Meta Test","keywords":"meta, link, http, linkdown"}}
- INFO | HEAD Min: 28ms, Max: 31ms, Avg: 30ms
- INFO | BODY Min: 5ms, Max: 5ms, Avg: 5ms
- INFO | TIME Min: 31ms, Max: 33ms, Avg: 32ms
+{"url":"http://localhost:8000/meta","protocol":"http","host":"localhost","port":8000,"path":"/meta","depth":1,"fetched":true,"status":"downloaded","stateData":{"requestLatency":30,"requestTime":36,"contentLength":322,"contentType":"text/html; charset=utf-8","code":200,"headers":{"content-type":"text/html; charset=utf-8","content-length":"322","etag":"W/\"142-yIHzsRL5RxIRsAAxctYrsw\"","date":"Thu, 18 Feb 2016 01:44:07 GMT","connection":"close"},"downloadTime":6,"actualDataSize":322,"sentIncorrectSize":false},"meta":{"title":"Meta Page","description":"Meta Test","keywords":"meta, link, http, linkdown"}}
+ INFO | HEAD Min: 30ms, Max: 31ms, Avg: 31ms
+ INFO | BODY Min: 6ms, Max: 6ms, Avg: 6ms
+ INFO | TIME Min: 31ms, Max: 36ms, Avg: 34ms
  INFO | SIZE Min: 322 B, Max: 322 B, Avg: 322 B
  INFO | HTTP Total: 2, Complete: 2, Errors: 1
 ```
@@ -190,13 +190,13 @@ linkdown validate http://localhost:8000/validate-fail
 ```
 
 ```
- INFO | [25551] started on Thu Feb 18 2016 09:39:07 GMT+0800 (WITA)
- INFO | 200 http://localhost:8000/validate-fail (240 B)
+ INFO | [29691] started on Thu Feb 18 2016 09:44:08 GMT+0800 (WITA)
+ INFO | 200 http://localhost:8000/validate-fail (201 B)
 ERROR | validation failed on http://localhost:8000/validate-fail
  HTML |  
  HTML | 1) http://localhost:8000/validate-fail
  HTML |  
- HTML | From line 9, column 20; to line 9, column 25
+ HTML | From line 1, column 165; to line 1, column 170
  HTML |  
  HTML | A numeric character reference expanded to the C1 controls range.
  HTML |  
@@ -205,19 +205,18 @@ ERROR | validation failed on http://localhost:8000/validate-fail
  HTML |  
  HTML | 2) http://localhost:8000/validate-fail
  HTML |  
- HTML | From line 9, column 5; to line 9, column 13
+ HTML | From line 1, column 150; to line 1, column 158
  HTML |  
  HTML | Section lacks heading. Consider using “h2”-“h6” elements to add identifying
  HTML | headings to all sections.
  HTML |  
- HTML |   body>
-    <section><span>
+ HTML |   ead><body><section><span>
  HTML | ------------^
  HTML |  
- INFO | HEAD Min: 27ms, Max: 27ms, Avg: 27ms
- INFO | BODY Min: 3ms, Max: 3ms, Avg: 3ms
- INFO | TIME Min: 30ms, Max: 30ms, Avg: 30ms
- INFO | SIZE Min: 240 B, Max: 240 B, Avg: 240 B
+ INFO | HEAD Min: 28ms, Max: 28ms, Avg: 28ms
+ INFO | BODY Min: 5ms, Max: 5ms, Avg: 5ms
+ INFO | TIME Min: 33ms, Max: 33ms, Avg: 33ms
+ INFO | SIZE Min: 201 B, Max: 201 B, Avg: 201 B
  INFO | HTTP Total: 1, Complete: 1, Errors: 0
 ```
 
