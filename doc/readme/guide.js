@@ -8,6 +8,7 @@ var fs = require('fs')
     'info',
     'ls',
     'exec',
+    'meta',
     'validate'
   ]
   , commands = {
@@ -20,8 +21,12 @@ var fs = require('fs')
     exec: [
       'linkdown exec ' + url +  '/meta --cmd grep -- meta'
     ],
+    meta: [
+      'linkdown exec ' + url +  '/meta --cmd linkdown -- meta',
+      'linkdown exec ' + url +  '/meta --cmd linkdown --json -- meta',
+    ],
     validate: [
-      'linkdown validate ' + url + ' --abort'
+      'linkdown validate ' + url + '/validate-fail'
     ]
   }
 
@@ -38,35 +43,44 @@ app.listen(port, function() {
     }
     var contents = '' + fs.readFileSync(base + '/' + section + '.md');
     process.stdout.write(contents);
-    if(commands[section]) {
-      commands[section].forEach(function(cmd) {
-        var opts = {env: process.env};
-        var parts = cmd.split(/\s+/);
-        var exe = parts[0];
-        var args = parts.slice(1);
 
-        // command to execute
-        console.log('```shell'); 
-        console.log(cmd);
-        console.log('```'); 
-        console.log();
+    function onCommand() {
+      var cmd = cmds.shift();
+      if(!cmd) {
+        return onSection();
+      }
+      var opts = {env: process.env};
+      var parts = cmd.split(/\s+/);
+      var exe = parts[0];
+      var args = parts.slice(1);
 
-        var ps = spawn(exe, args, opts);
-        // start code block
-        process.stdout.write('```\n')
+      // command to execute
+      console.log('```shell'); 
+      console.log(cmd);
+      console.log('```'); 
+      console.log();
 
-        // pipe streams
-        ps.stdout.pipe(process.stdout);
-        ps.stderr.pipe(process.stdout);
+      var ps = spawn(exe, args, opts);
+      // start code block
+      process.stdout.write('```\n')
 
-        ps.once('exit', function() {
-          // close code block
-          process.stdout.write('```\n')
+      // pipe streams
+      ps.stdout.pipe(process.stdout);
+      ps.stderr.pipe(process.stdout);
 
-          // process next section
-          onSection();
-        })
+      ps.once('exit', function() {
+        // close code block
+        process.stdout.write('```\n\n')
+
+        // process next command
+        onCommand();
       })
+    }
+
+    if(commands[section]) {
+      var cmds = commands[section].slice();
+
+      onCommand();
     }else{
       onSection();
     }

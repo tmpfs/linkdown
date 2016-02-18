@@ -10,6 +10,7 @@ Table of Contents
     * [Info](#info)
     * [List](#list)
     * [Exec](#exec)
+    * [Meta](#meta)
     * [Validate](#validate)
   * [Developer](#developer)
     * [Test](#test)
@@ -87,7 +88,7 @@ linkdown info http://localhost:8000 --bail
 ```
 
 ```
- INFO | [18585] started on Thu Feb 18 2016 07:33:21 GMT+0800 (WITA)
+ INFO | [25427] started on Thu Feb 18 2016 09:39:02 GMT+0800 (WITA)
  INFO | 200 http://localhost:8000/ (626 B)
  WARN | 404 http://localhost:8000/style.css
 ERROR | bailed on 404 http://localhost:8000/style.css
@@ -102,7 +103,7 @@ linkdown ls http://localhost:8000 --bail
 ```
 
 ```
- INFO | [18598] started on Thu Feb 18 2016 07:33:22 GMT+0800 (WITA)
+ INFO | [25468] started on Thu Feb 18 2016 09:39:03 GMT+0800 (WITA)
  INFO | 200 http://localhost:8000/ (626 B)
  INFO | URL http://localhost:8000/style.css
  INFO | URL http://localhost:8000/redirect
@@ -125,15 +126,51 @@ linkdown exec http://localhost:8000/meta --cmd grep -- meta
 ```
 
 ```
- INFO | [18635] started on Thu Feb 18 2016 07:33:23 GMT+0800 (WITA)
+ INFO | [25477] started on Thu Feb 18 2016 09:39:04 GMT+0800 (WITA)
  INFO | 200 http://localhost:8000/meta (322 B)
     <meta charset="utf-8">
     <meta name="description" content="Meta Test">
     <meta name="keywords" content="meta, link, http, linkdown">
  WARN | 404 http://localhost:8000/style.css
- INFO | HEAD Min: 30ms, Max: 46ms, Avg: 38ms
+ INFO | HEAD Min: 25ms, Max: 31ms, Avg: 28ms
+ INFO | BODY Min: 5ms, Max: 5ms, Avg: 5ms
+ INFO | TIME Min: 25ms, Max: 36ms, Avg: 31ms
+ INFO | SIZE Min: 322 B, Max: 322 B, Avg: 322 B
+ INFO | HTTP Total: 2, Complete: 2, Errors: 1
+```
+
+### Meta
+
+Reads a HTML page written to stdin and prints a JSON document; designed to be used with the `exec` command to inject meta data as pages are fetched.
+
+```shell
+linkdown exec http://localhost:8000/meta --cmd linkdown -- meta
+```
+
+```
+ INFO | [25487] started on Thu Feb 18 2016 09:39:05 GMT+0800 (WITA)
+ INFO | 200 http://localhost:8000/meta (322 B)
+ WARN | 404 http://localhost:8000/style.css
+{"meta":{"title":"Meta Page","description":"Meta Test","keywords":"meta, link, http, linkdown"}}
+ INFO | HEAD Min: 23ms, Max: 34ms, Avg: 29ms
  INFO | BODY Min: 6ms, Max: 6ms, Avg: 6ms
- INFO | TIME Min: 36ms, Max: 46ms, Avg: 41ms
+ INFO | TIME Min: 23ms, Max: 40ms, Avg: 32ms
+ INFO | SIZE Min: 322 B, Max: 322 B, Avg: 322 B
+ INFO | HTTP Total: 2, Complete: 2, Errors: 1
+```
+
+```shell
+linkdown exec http://localhost:8000/meta --cmd linkdown --json -- meta
+```
+
+```
+ INFO | [25533] started on Thu Feb 18 2016 09:39:06 GMT+0800 (WITA)
+ INFO | 200 http://localhost:8000/meta (322 B)
+ WARN | 404 http://localhost:8000/style.css
+{"url":"http://localhost:8000/meta","protocol":"http","host":"localhost","port":8000,"path":"/meta","depth":1,"fetched":true,"status":"downloaded","stateData":{"requestLatency":28,"requestTime":33,"contentLength":322,"contentType":"text/html; charset=utf-8","code":200,"headers":{"content-type":"text/html; charset=utf-8","content-length":"322","etag":"W/\"142-yIHzsRL5RxIRsAAxctYrsw\"","date":"Thu, 18 Feb 2016 01:39:06 GMT","connection":"close"},"downloadTime":5,"actualDataSize":322,"sentIncorrectSize":false},"meta":{"title":"Meta Page","description":"Meta Test","keywords":"meta, link, http, linkdown"}}
+ INFO | HEAD Min: 28ms, Max: 31ms, Avg: 30ms
+ INFO | BODY Min: 5ms, Max: 5ms, Avg: 5ms
+ INFO | TIME Min: 31ms, Max: 33ms, Avg: 32ms
  INFO | SIZE Min: 322 B, Max: 322 B, Avg: 322 B
  INFO | HTTP Total: 2, Complete: 2, Errors: 1
 ```
@@ -149,15 +186,11 @@ You can use the `--jar` option to specify the path to the jar file but it is rec
 When the validate command encounters errors they are printed to screen in a format that enables easily fixing the errors; much like the online w3 validation service.
 
 ```shell
-linkdown validate http://localhost:8000 --abort
+linkdown validate http://localhost:8000/validate-fail
 ```
 
 ```
- INFO | [18645] started on Thu Feb 18 2016 07:33:24 GMT+0800 (WITA)
- INFO | 200 http://localhost:8000/ (626 B)
- INFO | validation passed http://localhost:8000/
- INFO | 200 http://localhost:8000/text (10 B)
- WARN | invalid content type text/plain; charset=utf-8 from http://localhost:8000/text (skipped)
+ INFO | [25551] started on Thu Feb 18 2016 09:39:07 GMT+0800 (WITA)
  INFO | 200 http://localhost:8000/validate-fail (240 B)
 ERROR | validation failed on http://localhost:8000/validate-fail
  HTML |  
@@ -181,7 +214,11 @@ ERROR | validation failed on http://localhost:8000/validate-fail
     <section><span>
  HTML | ------------^
  HTML |  
-ERROR | aborted due to validation error(s)
+ INFO | HEAD Min: 27ms, Max: 27ms, Avg: 27ms
+ INFO | BODY Min: 3ms, Max: 3ms, Avg: 3ms
+ INFO | TIME Min: 30ms, Max: 30ms, Avg: 30ms
+ INFO | SIZE Min: 240 B, Max: 240 B, Avg: 240 B
+ INFO | HTTP Total: 1, Complete: 1, Errors: 0
 ```
 
 ## Developer
