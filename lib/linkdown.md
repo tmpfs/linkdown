@@ -15,13 +15,13 @@ Link manipulation tool.
 ## Options
 
 * `bail: --bail`: Exit on first non-2xx response code.
-* `conf: -c, --conf=[file...]`: Load crawler configuration files.
-* `logLevel: --log-level=[level]`: Set the log level.
+* `conf: -c, --conf [file...]`: Load crawler configuration files.
+* `logLevel: --log-level [level]`: Set the log level.
 * `json: --json`: Output as JSON where possible.
-* `depth: --depth=[int]`: Maximum depth to recurse.
-* `report: --report=[file]`: Write statistics report to file.
-* `output: -o, --output=[file]`: Print to file not stdout.
-* `pid: --pid=[file]`: Write process id to file.
+* `depth: --depth [int]`: Maximum depth to recurse.
+* `report: --report [file]`: Write statistics report to file.
+* `output: -o, --output [file]`: Print to file not stdout.
+* `pid: --pid [file]`: Write process id to file.
 
 ### Info
 
@@ -35,8 +35,8 @@ If the `--json` option is given the links are printed to stdout as line-delimite
 
 #### Options
 
-* `format: --format=[fmt]`: Validator output format.
-* `jar: --jar=[file]`: Path to the validator jar file.
+* `format: --format [fmt]`: Validator output format.
+* `jar: --jar [file]`: Path to the validator jar file.
 * `errorsOnly: --errors-only`: Warnings and info messages are not reported.
 * `abort: --abort`: Abort validation on the first error.
 
@@ -159,18 +159,19 @@ Be careful with this command, it needs to buffer all the records into memory in 
 
 #### Options
 
-* `prettyPrint: --pretty-print`: Pretty print the JSON output.
-* `indent: --indent=[num]`: Number of spaces to indent.
-* `hierarchy: --archy, --hierarchy`: Print tree hierarchy.
-* `labels: --labels, --path-labels`: Print hierarchy tree labels as the path name.
-* `listStyle: --list-style=[style]`: Set an output list style. 
+* `indent: --indent [num]`: Number of spaces to indent.
+* `labels: --labels, --path-labels`: Use the path name for labels.
+* `listStyle: --list-style [style]`: Set an output list style. 
 
-By default this command will print a JSON document, when `--pretty-print` is specified the JSON document is indented
+#### Output
 
-When the `--hierarchy` option is given the output is a tree representation suitable for printing to a terminal and for quickly seeing an overview of the hierarchy. By default labels for this tree view are inferred from the data available, to use more predictable labels that always use the URL path name specify `--path-labels`. When the tree output contains multiple trees to print (multiple hosts) each tree is separated by a newline.
+By default this command will print a JSON document, when `--indent` is specified the JSON document is indented.
+
+By default labels for this tree view are inferred from the data available, to use more predictable labels that always use the URL path name specify `--path-labels`. When the tree output contains multiple trees to print (multiple hosts) each tree is separated by a delimiter which is dependent upon the list style format (see below).
 
 If the `--list-style` option is given the output is a list in one of the following formats:
 
+* `tty`: Hierarchy list suitable for a terminal
 * `md`: Markdown list
 * `html`: List for HTML pages
 * `jade`: List for the jade template language

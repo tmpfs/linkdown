@@ -4,17 +4,13 @@ linkdown-tree -- Convert line-delimited JSON records to a tree.
 .SH "USAGE"
 
 .SP
-linkdown tree [\-\-pretty\-print] [\-\-hierarchy|\-\-archy]
+linkdown tree [\-\-path\-labels|\-\-labels] [\-\-indent=<num>]
 .br
-         [\-\-path\-labels|\-\-labels] [md] [html] [jade]
+         [\-\-list\-style=<style>] <args>
 .br
-         [\-\-list\-style==<style>] <args>
+linkdown t [\-\-path\-labels|\-\-labels] [\-\-indent=<num>]
 .br
-linkdown t [\-\-pretty\-print] [\-\-hierarchy|\-\-archy]
-.br
-         [\-\-path\-labels|\-\-labels] [md] [html] [jade]
-.br
-         [\-\-list\-style==<style>] <args>
+         [\-\-list\-style=<style>] <args>
 .SH "DESCRIPTION"
 .PP
 Reads line\-delimited JSON records on stdin and parses the records into a tree structure representing the requests. Designed to be used in conjunction with \fBmeta\fR so that meta data may be injected into each request before converting to the tree structure.
@@ -25,27 +21,28 @@ Be careful with this command, it needs to buffer all the records into memory in 
 .SH "OPTIONS"
 .BL
 .IP "\[ci]" 4
-\fB\-\-pretty\-print\fR: Pretty print the JSON output.
+\fB\-\-indent=[num]\fR: Number of spaces to indent.
 .IP "\[ci]" 4
-\fB\-\-hierarchy, \-\-archy\fR: Print tree hierarchy.
+\fB\-\-path\-labels, \-\-labels\fR: Use the path name for labels.
 .IP "\[ci]" 4
-\fB\-\-path\-labels, \-\-labels\fR: Print hierarchy tree labels as the path name.
-.IP "\[ci]" 4
-\fB\-\-list\-style==[style]\fR: Set an output list style. 
+\fB\-\-list\-style=[style]\fR: Set an output list style. 
 .EL
+.SH "OUTPUT"
 .PP
-By default this command will print a JSON document, when \fB\-\-pretty\-print\fR is specified the JSON document is indented
+By default this command will print a JSON document, when \fB\-\-indent\fR is specified the JSON document is indented.
 .PP
-When the \fB\-\-hierarchy\fR option is given the output is a tree representation suitable for printing to a terminal and for quickly seeing an overview of the hierarchy. By default labels for this tree view are inferred from the data available, to use more predictable labels that always use the URL path name specify \fB\-\-path\-labels\fR. When the tree output contains multiple trees to print (multiple hosts) each tree is separated by a newline.
+By default labels for this tree view are inferred from the data available, to use more predictable labels that always use the URL path name specify \fB\-\-path\-labels\fR. When the tree output contains multiple trees to print (multiple hosts) each tree is separated by a delimiter which is dependent upon the list style format (see below).
 .PP
-If the \fB\-\-list\-style\fR option is given the output is a list in one of the following formats.
+If the \fB\-\-list\-style\fR option is given the output is a list in one of the following formats:
 .BL
 .IP "\[ci]" 4
-\fBmd\fR: Markdown list.
+\fBtty\fR: Hierarchy list suitable for a terminal
 .IP "\[ci]" 4
-\fBhtml\fR: List for HTML pages.
+\fBmd\fR: Markdown list
 .IP "\[ci]" 4
-\fBjade\fR: List for the jade template language.
+\fBhtml\fR: List for HTML pages
+.IP "\[ci]" 4
+\fBjade\fR: List for the jade template language
 .EL
 .SH "BUGS"
 .PP
