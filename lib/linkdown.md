@@ -160,12 +160,20 @@ Be careful with this command, it needs to buffer all the records into memory in 
 #### Options
 
 * `prettyPrint: --pretty-print`: Pretty print the JSON output.
+* `indent: --indent=[num]`: Number of spaces to indent.
 * `hierarchy: --archy, --hierarchy`: Print tree hierarchy.
 * `labels: --labels, --path-labels`: Print hierarchy tree labels as the path name.
+* `listStyle: --list-style=[style]`: Set an output list style. 
 
 By default this command will print a JSON document, when `--pretty-print` is specified the JSON document is indented
 
 When the `--hierarchy` option is given the output is a tree representation suitable for printing to a terminal and for quickly seeing an overview of the hierarchy. By default labels for this tree view are inferred from the data available, to use more predictable labels that always use the URL path name specify `--path-labels`. When the tree output contains multiple trees to print (multiple hosts) each tree is separated by a newline.
+
+If the `--list-style` option is given the output is a list in one of the following formats:
+
+* `md`: Markdown list
+* `html`: List for HTML pages
+* `jade`: List for the jade template language
 
 ## Redirects
 

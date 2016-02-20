@@ -64,5 +64,10 @@
     "key": "ESTDIN",
     "description": "Command expected input on stdin but nothing was piped",
     "message": "input expected on stdin"
+  },
+  {
+    "key": "ELIST_STYLE",
+    "description": "User specified an invalid --list-style to the tree command",
+    "message": "unknown list style %s"
   }
 ]
