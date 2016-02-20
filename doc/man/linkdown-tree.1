@@ -1,0 +1,36 @@
+.TH "LINKDOWN-TREE" "1" "February 2016" "linkdown-tree 1.0.14" "User Commands"
+.SH "NAME"
+linkdown-tree -- Convert line-delimited JSON records to a tree.
+.SH "USAGE"
+
+.SP
+linkdown tree [\-\-pretty\-print] [\-\-hierarchy|\-\-archy]
+.br
+         [\-\-path\-labels] <args>
+.br
+linkdown t [\-\-pretty\-print] [\-\-hierarchy|\-\-archy]
+.br
+         [\-\-path\-labels] <args>
+.SH "DESCRIPTION"
+.PP
+Reads line\-delimited JSON records on stdin and parses the records into a tree structure representing the requests. Designed to be used in conjunction with \fBmeta\fR so that meta data may be injected into each request before converting to the tree structure.
+.PP
+The tree structure may then be used to generate a sitemap. Output is keyed by fully qualified host name to allow for the scenario when a crawl resolves to multiple hosts.
+.PP
+Be careful with this command, it needs to buffer all the records into memory in order to be able to create the tree structure correctly and also needs to parse each JSON record as well as stringify when printing to stdout. For small to medium size sites this should not be a problem but if you input data for a huge site the process will hang and you may even run out of memory.
+.SH "OPTIONS"
+.BL
+.IP "\[ci]" 4
+\fB\-\-pretty\-print\fR: Pretty print the JSON output.
+.IP "\[ci]" 4
+\fB\-\-hierarchy, \-\-archy\fR: Print tree hierarchy.
+.IP "\[ci]" 4
+\fB\-\-path\-labels\fR: Print hierarchy tree labels as the path name.
+.EL
+.PP
+By default this command will print a JSON document, when \fB\-\-pretty\-print\fR is specified the JSON document is indented
+.PP
+When the \fB\-\-hierarchy\fR option is given the output is a tree representation suitable for printing to a terminal and for quickly seeing an overview of the hierarchy. By default labels for this tree view are inferred from the data available, to use more predictable labels that always use the URL path name specify \fB\-\-path\-labels\fR. When the tree output contains multiple trees to print (multiple hosts) each tree is separated by a newline.
+.SH "BUGS"
+.PP
+Report bugs to https://github.com/tmpfs/linkdown/issues.

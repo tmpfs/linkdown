@@ -9,8 +9,8 @@ Link manipulation tool.
 * `list: list, ls`: Print discovered links.
 * `validate: validate, v`: Validate (X)HTML pages (nu validator).
 * `exec: exec, x`: Run an executable for each response.
-* `meta: meta`: Extract meta data from stdin.
-* `tree: tree`: Convert line-delimited JSON records to a tree.
+* `meta: meta, m`: Extract meta data from stdin.
+* `tree: tree, t`: Convert line-delimited JSON records to a tree.
 
 ## Options
 
@@ -148,6 +148,24 @@ Outputs:
 #### See
 
 linkdown-exec(1)
+
+### Tree
+
+Reads line-delimited JSON records on stdin and parses the records into a tree structure representing the requests. Designed to be used in conjunction with `meta` so that meta data may be injected into each request before converting to the tree structure.
+
+The tree structure may then be used to generate a sitemap. Output is keyed by fully qualified host name to allow for the scenario when a crawl resolves to multiple hosts.
+
+Be careful with this command, it needs to buffer all the records into memory in order to be able to create the tree structure correctly and also needs to parse each JSON record as well as stringify when printing to stdout. For small to medium size sites this should not be a problem but if you input data for a huge site the process will hang and you may even run out of memory.
+
+#### Options
+
+* `prettyPrint: --pretty-print`: Pretty print the JSON output.
+* `hierarchy: --archy, --hierarchy`: Print tree hierarchy.
+* `labels: --labels, --path-labels`: Print hierarchy tree labels as the path name.
+
+By default this command will print a JSON document, when `--pretty-print` is specified the JSON document is indented
+
+When the `--hierarchy` option is given the output is a tree representation suitable for printing to a terminal and for quickly seeing an overview of the hierarchy. By default labels for this tree view are inferred from the data available, to use more predictable labels that always use the URL path name specify `--path-labels`. When the tree output contains multiple trees to print (multiple hosts) each tree is separated by a newline.
 
 ## Redirects
 
