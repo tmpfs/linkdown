@@ -65,8 +65,11 @@ describe('tree:', function() {
       done();
     })
 
+    io.writable.on('finish', function() {
+      cli.parse(args, {stdin: fs.createReadStream(io.readable.path)});
+    })
     io.writable.write(input);
-    cli.parse(args, {stdin: io.readable});
+    io.writable.end();
   });
 
   it('should print json tree w/ --indent', function(done) {
@@ -84,8 +87,11 @@ describe('tree:', function() {
       done();
     })
 
+    io.writable.on('finish', function() {
+      cli.parse(args, {stdin: fs.createReadStream(io.readable.path)});
+    })
     io.writable.write(input);
-    cli.parse(args, {stdin: io.readable});
+    io.writable.end();
   });
 
   it('should print tree w/ --list-style=tty', function(done) {
@@ -99,8 +105,11 @@ describe('tree:', function() {
       done();
     })
 
+    io.writable.on('finish', function() {
+      cli.parse(args, {stdin: fs.createReadStream(io.readable.path)});
+    })
     io.writable.write(input);
-    cli.parse(args, {stdin: io.readable});
+    io.writable.end();
   });
 
   it('should print tree w/ --list-style=tty and --labels', function(done) {
@@ -115,8 +124,11 @@ describe('tree:', function() {
       done();
     })
 
+    io.writable.on('finish', function() {
+      cli.parse(args, {stdin: fs.createReadStream(io.readable.path)});
+    })
     io.writable.write(input);
-    cli.parse(args, {stdin: io.readable});
+    io.writable.end();
   });
 
   it('should print tree w/ --list-style=html', function(done) {
@@ -131,8 +143,11 @@ describe('tree:', function() {
       done();
     })
 
+    io.writable.on('finish', function() {
+      cli.parse(args, {stdin: fs.createReadStream(io.readable.path)});
+    })
     io.writable.write(input);
-    cli.parse(args, {stdin: io.readable});
+    io.writable.end();
   });
 
   it('should print tree w/ --list-style=html and --indent=2', function(done) {
@@ -148,9 +163,11 @@ describe('tree:', function() {
       done();
     })
 
+    io.writable.on('finish', function() {
+      cli.parse(args, {stdin: fs.createReadStream(io.readable.path)});
+    })
     io.writable.write(input);
-    cli.parse(args, {stdin: io.readable});
+    io.writable.end();
   });
-
 
 });

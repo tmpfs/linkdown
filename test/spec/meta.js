@@ -46,8 +46,11 @@ describe('meta:', function() {
       done();
     })
 
+    io.writable.on('finish', function() {
+      cli.parse(args, {stdin: fs.createReadStream(io.readable.path)});
+    })
     io.writable.write(html);
-    cli.parse(args, {stdin: io.readable});
+    io.writable.end();
   });
 
   it('should extract meta data into existing json object', function(done) {
@@ -69,8 +72,11 @@ describe('meta:', function() {
       done();
     })
 
+    io.writable.on('finish', function() {
+      cli.parse(args, {stdin: fs.createReadStream(io.readable.path)});
+    })
     io.writable.write(html);
-    cli.parse(args, {stdin: io.readable});
+    io.writable.end();
   });
 
 });

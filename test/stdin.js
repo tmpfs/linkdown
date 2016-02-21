@@ -3,7 +3,9 @@ var fs = require('fs')
 
 function setup() {
   var writable = fs.createWriteStream(file, {flags: 'w'})
-    , readable = fs.createReadStream(file, {flags: 'r'})
+    , readable = {
+      path: file
+    }
   return {readable: readable, writable: writable};
 }
 
