@@ -35,4 +35,6 @@ err.format = err('EINVALID_FORMAT');
 err.pid = err('EPID');
 err.output = err('EOUTPUT');
 
+err.json = err('EJSON_PARSE');
+
 module.exports = err;

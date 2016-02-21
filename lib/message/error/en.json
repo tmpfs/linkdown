@@ -69,5 +69,10 @@
     "key": "ELIST_STYLE",
     "description": "User specified an invalid --list-style to the tree command",
     "message": "unknown list style %s"
+  },
+  {
+    "key": "EJSON_PARSE",
+    "description": "Failed to parse input JSON string",
+    "message": "error parsing JSON: %s"
   }
 ]
