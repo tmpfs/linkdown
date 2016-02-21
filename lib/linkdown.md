@@ -171,10 +171,10 @@ By default labels for this tree view are inferred from the data available, to us
 
 If the `--list-style` option is given the output is a list in one of the following formats:
 
-* `tty`: Hierarchy list suitable for a terminal
-* `md`: Markdown list
-* `html`: List for HTML pages
-* `jade`: List for the jade template language
+* `tty`: Hierarchy list suitable for a terminal, multiple trees delimited by a newline.
+* `md`: Markdown list, multiple trees delimited by a newline.
+* `html`: List for HTML pages, multiple trees use new lists.
+* `jade`: List for the jade template language, multiple trees use new lists.
 
 ## Redirects
 
