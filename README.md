@@ -39,6 +39,9 @@ Designed to be used to:
 * Validate all HTML pages on a website.
 * Generate a site map from a website structure.
 * Print link information to find broken links.
+* Generate a static cache for dynamic web applications.
+* Download files of a certain type from a website.
+* Cache an entire website for offline browsing.
 
 But may be used to perform arbitrary operations on the links crawled from a domain.
 
@@ -89,7 +92,7 @@ linkdown info http://localhost:8000 --bail
 ```
 
 ```
- INFO | [21572] started on Sat Feb 20 2016 17:51:27 GMT+0800 (WITA)
+ INFO | [599] started on Sun Feb 21 2016 18:30:10 GMT+0800 (WITA)
  INFO | 200 http://localhost:8000/ (745 B)
  WARN | 404 http://localhost:8000/style.css
 ERROR | bailed on 404 http://localhost:8000/style.css
@@ -104,7 +107,7 @@ linkdown ls http://localhost:8000 --bail
 ```
 
 ```
- INFO | [21599] started on Sat Feb 20 2016 17:51:28 GMT+0800 (WITA)
+ INFO | [621] started on Sun Feb 21 2016 18:30:11 GMT+0800 (WITA)
  INFO | 200 http://localhost:8000/ (745 B)
  INFO | URL http://localhost:8000/style.css
  INFO | URL http://localhost:8000/redirect
@@ -130,15 +133,15 @@ linkdown exec http://localhost:8000/meta --cmd grep -- meta
 ```
 
 ```
- INFO | [21622] started on Sat Feb 20 2016 17:51:29 GMT+0800 (WITA)
+ INFO | [630] started on Sun Feb 21 2016 18:30:11 GMT+0800 (WITA)
  INFO | 200 http://localhost:8000/meta (322 B)
     <meta charset="utf-8">
     <meta name="description" content="Meta Test">
     <meta name="keywords" content="meta, link, http, linkdown">
  WARN | 404 http://localhost:8000/style.css
- INFO | HEAD Min: 30ms, Max: 46ms, Avg: 38ms
- INFO | BODY Min: 5ms, Max: 5ms, Avg: 5ms
- INFO | TIME Min: 35ms, Max: 46ms, Avg: 41ms
+ INFO | HEAD Min: 30ms, Max: 135ms, Avg: 83ms
+ INFO | BODY Min: 6ms, Max: 6ms, Avg: 6ms
+ INFO | TIME Min: 36ms, Max: 135ms, Avg: 86ms
  INFO | SIZE Min: 322 B, Max: 322 B, Avg: 322 B
  INFO | HTTP Total: 2, Complete: 2, Errors: 1
 ```
@@ -152,13 +155,13 @@ linkdown exec http://localhost:8000/meta --cmd linkdown -- meta
 ```
 
 ```
- INFO | [21646] started on Sat Feb 20 2016 17:51:30 GMT+0800 (WITA)
+ INFO | [670] started on Sun Feb 21 2016 18:30:13 GMT+0800 (WITA)
  INFO | 200 http://localhost:8000/meta (322 B)
  WARN | 404 http://localhost:8000/style.css
 {"meta":{"title":"Meta Page","description":"Meta Test","keywords":"meta, link, http, linkdown"}}
- INFO | HEAD Min: 23ms, Max: 31ms, Avg: 27ms
- INFO | BODY Min: 6ms, Max: 6ms, Avg: 6ms
- INFO | TIME Min: 23ms, Max: 37ms, Avg: 30ms
+ INFO | HEAD Min: 25ms, Max: 26ms, Avg: 26ms
+ INFO | BODY Min: 4ms, Max: 4ms, Avg: 4ms
+ INFO | TIME Min: 25ms, Max: 30ms, Avg: 28ms
  INFO | SIZE Min: 322 B, Max: 322 B, Avg: 322 B
  INFO | HTTP Total: 2, Complete: 2, Errors: 1
 ```
@@ -168,13 +171,13 @@ linkdown exec http://localhost:8000/meta --cmd linkdown --json -- meta
 ```
 
 ```
- INFO | [21678] started on Sat Feb 20 2016 17:51:31 GMT+0800 (WITA)
+ INFO | [688] started on Sun Feb 21 2016 18:30:14 GMT+0800 (WITA)
  INFO | 200 http://localhost:8000/meta (322 B)
  WARN | 404 http://localhost:8000/style.css
-{"url":"http://localhost:8000/meta","protocol":"http","host":"localhost","port":8000,"path":"/meta","depth":1,"fetched":true,"status":"downloaded","stateData":{"requestLatency":40,"requestTime":46,"contentLength":322,"contentType":"text/html; charset=utf-8","code":200,"headers":{"content-type":"text/html; charset=utf-8","content-length":"322","etag":"W/\"142-yIHzsRL5RxIRsAAxctYrsw\"","date":"Sat, 20 Feb 2016 09:51:31 GMT","connection":"close"},"downloadTime":6,"actualDataSize":322,"sentIncorrectSize":false},"meta":{"title":"Meta Page","description":"Meta Test","keywords":"meta, link, http, linkdown"}}
- INFO | HEAD Min: 22ms, Max: 40ms, Avg: 31ms
- INFO | BODY Min: 6ms, Max: 6ms, Avg: 6ms
- INFO | TIME Min: 22ms, Max: 46ms, Avg: 34ms
+{"url":"http://localhost:8000/meta","protocol":"http","host":"localhost","port":8000,"path":"/meta","depth":1,"fetched":true,"status":"downloaded","stateData":{"requestLatency":38,"requestTime":41,"contentLength":322,"contentType":"text/html; charset=utf-8","code":200,"headers":{"content-type":"text/html; charset=utf-8","content-length":"322","etag":"W/\"142-yIHzsRL5RxIRsAAxctYrsw\"","date":"Sun, 21 Feb 2016 10:30:14 GMT","connection":"close"},"downloadTime":3,"actualDataSize":322,"sentIncorrectSize":false},"meta":{"title":"Meta Page","description":"Meta Test","keywords":"meta, link, http, linkdown"}}
+ INFO | HEAD Min: 28ms, Max: 38ms, Avg: 33ms
+ INFO | BODY Min: 3ms, Max: 3ms, Avg: 3ms
+ INFO | TIME Min: 28ms, Max: 41ms, Avg: 35ms
  INFO | SIZE Min: 322 B, Max: 322 B, Avg: 322 B
  INFO | HTTP Total: 2, Complete: 2, Errors: 1
 ```
@@ -194,7 +197,7 @@ linkdown validate http://localhost:8000/validate-fail
 ```
 
 ```
- INFO | [21710] started on Sat Feb 20 2016 17:51:32 GMT+0800 (WITA)
+ INFO | [735] started on Sun Feb 21 2016 18:30:15 GMT+0800 (WITA)
  INFO | 200 http://localhost:8000/validate-fail (200 B)
 ERROR | validation failed on http://localhost:8000/validate-fail
  HTML |  
@@ -217,9 +220,9 @@ ERROR | validation failed on http://localhost:8000/validate-fail
  HTML |   ead><body><section><span>
  HTML | ------------^
  HTML |  
- INFO | HEAD Min: 17ms, Max: 17ms, Avg: 17ms
- INFO | BODY Min: 11ms, Max: 11ms, Avg: 11ms
- INFO | TIME Min: 28ms, Max: 28ms, Avg: 28ms
+ INFO | HEAD Min: 34ms, Max: 34ms, Avg: 34ms
+ INFO | BODY Min: 3ms, Max: 3ms, Avg: 3ms
+ INFO | TIME Min: 37ms, Max: 37ms, Avg: 37ms
  INFO | SIZE Min: 200 B, Max: 200 B, Avg: 200 B
  INFO | HTTP Total: 1, Complete: 1, Errors: 0
 ```
