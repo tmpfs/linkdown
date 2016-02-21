@@ -85,4 +85,67 @@ describe('tree:', function() {
     cli.parse(args, {stdin: io.readable});
   });
 
+  it('should print tree w/ --list-style=tty', function(done) {
+    var cli = linkdown(pkg, pkg.name)
+      , args = argv(['tree', '-o=' + output, '--list-style=tty']);
+
+    cli.program.on('complete', function() {
+      var contents = '' + fs.readFileSync(output);
+      expect(contents).to.eql('' + fs.readFileSync('test/fixtures/tty.txt'));
+      done();
+    })
+
+    io.writable.write(input);
+    cli.parse(args, {stdin: io.readable});
+  });
+
+  it('should print tree w/ --list-style=tty and --labels', function(done) {
+    var cli = linkdown(pkg, pkg.name)
+      , args = argv(['tree', '-o=' + output, '--list-style=tty', '--labels']);
+
+    cli.program.on('complete', function() {
+      var contents = '' + fs.readFileSync(output);
+      expect(contents).to.eql(
+        '' + fs.readFileSync('test/fixtures/tty-labels.txt'));
+      done();
+    })
+
+    io.writable.write(input);
+    cli.parse(args, {stdin: io.readable});
+  });
+
+  it('should print tree w/ --list-style=html', function(done) {
+    output = 'target/html-list.txt';
+    var cli = linkdown(pkg, pkg.name)
+      , args = argv(['tree', '-o=' + output, '--list-style=html']);
+
+    cli.program.on('complete', function() {
+      var contents = '' + fs.readFileSync(output);
+      expect(contents).to.eql(
+        '' + fs.readFileSync('test/fixtures/html-list.txt'));
+      done();
+    })
+
+    io.writable.write(input);
+    cli.parse(args, {stdin: io.readable});
+  });
+
+  it('should print tree w/ --list-style=html and --indent=2', function(done) {
+    output = 'target/html-list-indent.txt';
+    var cli = linkdown(pkg, pkg.name)
+      , args = argv(
+        ['tree', '-o=' + output, '--list-style=html', '--indent=2']);
+
+    cli.program.on('complete', function() {
+      var contents = '' + fs.readFileSync(output);
+      expect(contents).to.eql(
+        '' + fs.readFileSync('test/fixtures/html-list-indent.txt'));
+      done();
+    })
+
+    io.writable.write(input);
+    cli.parse(args, {stdin: io.readable});
+  });
+
+
 });

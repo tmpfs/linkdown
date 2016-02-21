@@ -80,23 +80,6 @@ describe('tree-builder:', function() {
     done();
   });
 
-  //it('should build simple tree w/ url label', function(done) {
-    //var input = load('test/fixtures/simple.log.json');
-    //delete input[0].meta;
-    //var res = builder(input)
-      //, keys = Object.keys(res)
-      //, host
-      //, node;
-    //expect(keys.length).to.eql(1);
-    //host = res['localhost:8080'];
-    //expect(host.label).to.be.a('string');
-    //expect(host.nodes).to.be.an('array');
-    //node = host.nodes[0];
-    //expect(node).to.be.an('object');
-    //expect(node.label).to.be.a('string').to.eql(input[0].url);
-    //done();
-  //});
-
   it('should build simple tree w/ hostMap', function(done) {
     var input = load('test/fixtures/simple.log.json')
       , hostMap = {'localhost:8080': 'example.com'}
