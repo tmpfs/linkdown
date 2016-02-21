@@ -162,6 +162,7 @@ Be careful with this command, it needs to buffer all the records into memory in 
 * `indent: --indent [num]`: Number of spaces to indent.
 * `labels: --labels, --path-labels`: Use the path name for labels.
 * `listStyle: --list-style [style]`: Set an output list style. 
+* `link: --link [format]`: Link format; one of relative, absolute or none.
 
 #### Output
 
