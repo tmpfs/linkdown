@@ -52,6 +52,7 @@ describe('tree:', function() {
   });
 
   it('should print json tree', function(done) {
+    output = 'target/tree.json';
     var cli = linkdown(pkg, pkg.name)
       , args = argv(['tree', '-o=' + output]);
 
@@ -69,6 +70,7 @@ describe('tree:', function() {
   });
 
   it('should print json tree w/ --indent', function(done) {
+    output = 'target/tree-indent.json';
     var cli = linkdown(pkg, pkg.name)
       , args = argv(['tree', '-o=' + output, '--indent=2']);
 
@@ -76,6 +78,7 @@ describe('tree:', function() {
       var contents = '' + fs.readFileSync(output)
         , data = JSON.parse(contents)
         , lines = contents.trim().split('\n');
+      //console.dir(lines);
       expect(lines.length).to.be.gt(1);
       simple(data);
       done();
@@ -86,6 +89,7 @@ describe('tree:', function() {
   });
 
   it('should print tree w/ --list-style=tty', function(done) {
+    output = 'target/tree-tty.txt';
     var cli = linkdown(pkg, pkg.name)
       , args = argv(['tree', '-o=' + output, '--list-style=tty']);
 
@@ -100,6 +104,7 @@ describe('tree:', function() {
   });
 
   it('should print tree w/ --list-style=tty and --labels', function(done) {
+    output = 'target/tree-tty-labels.txt';
     var cli = linkdown(pkg, pkg.name)
       , args = argv(['tree', '-o=' + output, '--list-style=tty', '--labels']);
 
