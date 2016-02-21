@@ -163,6 +163,7 @@ Be careful with this command, it needs to buffer all the records into memory in 
 * `labels: --labels, --path-labels`: Use the path name for labels.
 * `listStyle: --list-style [style]`: Set an output list style. 
 * `link: --link [format]`: Link format; one of relative, absolute or none.
+* `listDescription: --desc, --description`: Include meta description.
 
 #### Output
 
@@ -176,6 +177,10 @@ If the `--list-style` option is given the output is a list in one of the followi
 * `md`: Markdown list, multiple trees delimited by a newline.
 * `html`: List for HTML pages, multiple trees use new lists.
 * `jade`: List for the jade template language, multiple trees use new lists.
+
+Links are created by default (with the exception of the `tty` list style) using a relative path from the root of the web server, you maybe disable automatic linking with `--link=none` or force to use absolute URLs with `--link=absolute`.
+
+By default meta description text is printed when available but may by disabled with `--no-description`.
 
 ## Redirects
 

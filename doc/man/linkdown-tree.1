@@ -4,13 +4,17 @@ linkdown-tree -- Convert line-delimited JSON records to a tree.
 .SH "USAGE"
 
 .SP
-linkdown tree [\-\-path\-labels|\-\-labels] [\-\-indent=<num>]
+linkdown tree [\-\-path\-labels|\-\-labels]
 .br
-         [\-\-list\-style=<style>] <args>
+         [\-\-description|\-\-desc] [\-\-indent=<num>]
 .br
-linkdown t [\-\-path\-labels|\-\-labels] [\-\-indent=<num>]
+         [\-\-list\-style=<style>] [\-\-link=<format>] <args>
 .br
-         [\-\-list\-style=<style>] <args>
+linkdown t [\-\-path\-labels|\-\-labels] [\-\-description|\-\-desc]
+.br
+         [\-\-indent=<num>] [\-\-list\-style=<style>] [\-\-link=<format>]
+.br
+         <args>
 .SH "DESCRIPTION"
 .PP
 Reads line\-delimited JSON records on stdin and parses the records into a tree structure representing the requests. Designed to be used in conjunction with \fBmeta\fR so that meta data may be injected into each request before converting to the tree structure.
@@ -26,6 +30,10 @@ Be careful with this command, it needs to buffer all the records into memory in 
 \fB\-\-path\-labels, \-\-labels\fR: Use the path name for labels.
 .IP "\[ci]" 4
 \fB\-\-list\-style=[style]\fR: Set an output list style. 
+.IP "\[ci]" 4
+\fB\-\-link=[format]\fR: Link format; one of relative, absolute or none.
+.IP "\[ci]" 4
+\fB\-\-description, \-\-desc\fR: Include meta description.
 .EL
 .SH "OUTPUT"
 .PP
@@ -44,6 +52,10 @@ If the \fB\-\-list\-style\fR option is given the output is a list in one of the 
 .IP "\[ci]" 4
 \fBjade\fR: List for the jade template language, multiple trees use new lists.
 .EL
+.PP
+Links are created by default (with the exception of the \fBtty\fR list style) using a relative path from the root of the web server, you maybe disable automatic linking with \fB\-\-link=none\fR or force to use absolute URLs with \fB\-\-link=absolute\fR.
+.PP
+By default meta description text is printed when available but may by disabled with \fB\-\-no\-description\fR.
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/tmpfs/linkdown/issues.
