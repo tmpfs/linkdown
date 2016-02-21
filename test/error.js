@@ -37,4 +37,6 @@ err.output = err('EOUTPUT');
 
 err.json = err('EJSON_PARSE');
 
+err.style = err('ELIST_STYLE');
+
 module.exports = err;
