@@ -17,7 +17,7 @@ Link manipulation tool.
 * `bail: --bail`: Exit on first non-2xx response code.
 * `conf: -c, --conf [file...]`: Load crawler configuration files.
 * `logLevel: --log-level [level]`: Set the log level.
-* `json: --json`: Output as JSON where possible.
+* `json: -j, --json`: Output as JSON where possible.
 * `depth: --depth [int]`: Maximum depth to recurse.
 * `report: --report [file]`: Write statistics report to file.
 * `output: -o, --output [file]`: Print to file not stdout.
