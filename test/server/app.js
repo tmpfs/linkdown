@@ -45,6 +45,14 @@ app.get('/section/page', function(req, res) {
 });
 
 /**
+ *  Mock deep sibling.
+ */
+app.get('/section/alt', function(req, res) {
+  res.render('alt');
+});
+
+
+/**
  *  Page with extended meta data.
  */
 app.get('/meta', function(req, res) {
