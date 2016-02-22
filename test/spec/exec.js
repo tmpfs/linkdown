@@ -105,7 +105,7 @@ describe('exec:', function() {
       expect(res.errors.list.length).to.eql(0);
       var contents = '' + fs.readFileSync(output);
       expect(contents).to.eql(
-        '' + fs.readFileSync('test/fixtures/meta-grep.log'));
+        '' + fs.readFileSync('test/fixtures/meta-grep.txt'));
       done(); 
     });
   });
