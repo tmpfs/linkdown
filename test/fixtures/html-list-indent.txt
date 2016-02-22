@@ -1,9 +1,45 @@
 <ul>
   <li>
-    <span>/</span>
+    <a href="/">Home Page</a>
+    <span>Mock web server</span>
   </li>
   <li>
     <a href="/meta">Meta Page</a>
     <span>Meta Test</span>
+  </li>
+  <li>
+    <span>/into</span>
+    <ul>
+      <li>
+        <span>/into/the</span>
+        <ul>
+          <li>
+            <a href="/into/the/deep">Deep Page</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/section?var=val">Section</a>
+    <span>Section</span>
+    <ul>
+      <li>
+        <a href="/section/page">Section : Page</a>
+        <span>Page</span>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/validate-fail">Validation Fail</a>
+  </li>
+  <li>
+    <a href="/text">/text</a>
+  </li>
+  <li>
+    <a href="/validate-warn">Validation Warn</a>
+  </li>
+  <li>
+    <a href="/validate-error">Validation Error</a>
   </li>
 </ul>

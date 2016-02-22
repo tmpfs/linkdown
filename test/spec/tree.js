@@ -132,6 +132,7 @@ describe('tree:', function() {
   });
 
   it('should print tree w/ --list-style=html', function(done) {
+    input = fs.readFileSync('test/fixtures/mock.log.json');
     output = 'target/html-list.txt';
     var cli = linkdown(pkg, pkg.name)
       , args = argv(['tree', '-o=' + output, '--list-style=html']);
@@ -151,6 +152,7 @@ describe('tree:', function() {
   });
 
   it('should print tree w/ --list-style=html and --indent=2', function(done) {
+    input = fs.readFileSync('test/fixtures/mock.log.json');
     output = 'target/html-list-indent.txt';
     var cli = linkdown(pkg, pkg.name)
       , args = argv(
@@ -169,5 +171,28 @@ describe('tree:', function() {
     io.writable.write(input);
     io.writable.end();
   });
+
+  it('should print tree w/ --list-style=html and --link=absolute', 
+    function(done) {
+      input = fs.readFileSync('test/fixtures/mock.log.json');
+      output = 'target/html-list-absolute.txt';
+      var cli = linkdown(pkg, pkg.name)
+        , args = argv(
+          ['tree', '-o=' + output, '--list-style=html', '--link=absolute']);
+
+      cli.program.on('complete', function() {
+        var contents = '' + fs.readFileSync(output);
+        expect(contents).to.eql(
+          '' + fs.readFileSync('test/fixtures/html-list-absolute.txt'));
+        done();
+      })
+
+      io.writable.on('finish', function() {
+        cli.parse(args, {stdin: fs.createReadStream(io.readable.path)});
+      })
+      io.writable.write(input);
+      io.writable.end();
+    }
+  );
 
 });
