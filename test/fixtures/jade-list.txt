@@ -1,0 +1,30 @@
+ul
+  li
+    a(href="/") Home Page
+    span Mock web server
+  li
+    a(href="/meta") Meta Page
+    span Meta Test
+  li
+    span /into
+    ul
+      li
+        span /into/the
+        ul
+          li
+            a(href="/into/the/deep") Deep Page
+  li
+    a(href="/section?var=val") Section
+    span Section
+    ul
+      li
+        a(href="/section/page") Section : Page
+        span Page
+  li
+    a(href="/validate-fail") Validation Fail
+  li
+    a(href="/text") /text
+  li
+    a(href="/validate-warn") Validation Warn
+  li
+    a(href="/validate-error") Validation Error

@@ -249,17 +249,39 @@ describe('tree:', function() {
     io.writable.end();
   });
 
-  it('should print tree w/ --list-style=md and --link=absolute', function(done) {
+  it('should print tree w/ --list-style=md and --link=absolute',
+    function(done) {
+      input = fs.readFileSync('test/fixtures/mock.log.json');
+      output = 'target/md-list-absolute.txt';
+      var cli = linkdown(pkg, pkg.name)
+        , args = argv(
+            ['tree', '-o=' + output, '--list-style=md', '--link=absolute']);
+
+      cli.program.on('complete', function() {
+        var contents = '' + fs.readFileSync(output);
+        expect(contents).to.eql(
+          '' + fs.readFileSync('test/fixtures/md-list-absolute.txt'));
+        done();
+      })
+
+      io.writable.on('finish', function() {
+        cli.parse(args, {stdin: fs.createReadStream(io.readable.path)});
+      })
+      io.writable.write(input);
+      io.writable.end();
+    }
+  );
+
+  it('should print tree w/ --list-style=jade', function(done) {
     input = fs.readFileSync('test/fixtures/mock.log.json');
-    output = 'target/md-list-absolute.txt';
+    output = 'target/jade-list.txt';
     var cli = linkdown(pkg, pkg.name)
-      , args = argv(
-          ['tree', '-o=' + output, '--list-style=md', '--link=absolute']);
+      , args = argv(['tree', '-o=' + output, '--list-style=jade']);
 
     cli.program.on('complete', function() {
       var contents = '' + fs.readFileSync(output);
       expect(contents).to.eql(
-        '' + fs.readFileSync('test/fixtures/md-list-absolute.txt'));
+        '' + fs.readFileSync('test/fixtures/jade-list.txt'));
       done();
     })
 
@@ -269,5 +291,50 @@ describe('tree:', function() {
     io.writable.write(input);
     io.writable.end();
   });
+
+  it('should print tree w/ --list-style=jade and --indent=4', function(done) {
+    input = fs.readFileSync('test/fixtures/mock.log.json');
+    output = 'target/jade-list-indent.txt';
+    var cli = linkdown(pkg, pkg.name)
+      , args = argv(
+          ['tree', '-o=' + output, '--list-style=jade', '--indent=4']);
+
+    cli.program.on('complete', function() {
+      var contents = '' + fs.readFileSync(output);
+      expect(contents).to.eql(
+        '' + fs.readFileSync('test/fixtures/jade-list-indent.txt'));
+      done();
+    })
+
+    io.writable.on('finish', function() {
+      cli.parse(args, {stdin: fs.createReadStream(io.readable.path)});
+    })
+    io.writable.write(input);
+    io.writable.end();
+  });
+
+  it('should print tree w/ --list-style=jade and --link=absolute',
+    function(done) {
+      input = fs.readFileSync('test/fixtures/mock.log.json');
+      output = 'target/jade-list-absolute.txt';
+      var cli = linkdown(pkg, pkg.name)
+        , args = argv(
+            ['tree', '-o=' + output, '--list-style=jade', '--link=absolute']);
+
+      cli.program.on('complete', function() {
+        var contents = '' + fs.readFileSync(output);
+        expect(contents).to.eql(
+          '' + fs.readFileSync('test/fixtures/jade-list-absolute.txt'));
+        done();
+      })
+
+      io.writable.on('finish', function() {
+        cli.parse(args, {stdin: fs.createReadStream(io.readable.path)});
+      })
+      io.writable.write(input);
+      io.writable.end();
+    }
+  );
+
 
 });

@@ -1,0 +1,30 @@
+ul
+  li
+    a(href="http://localhost:8080/") Home Page
+    span Mock web server
+  li
+    a(href="http://localhost:8080/meta") Meta Page
+    span Meta Test
+  li
+    span /into
+    ul
+      li
+        span /into/the
+        ul
+          li
+            a(href="http://localhost:8080/into/the/deep") Deep Page
+  li
+    a(href="http://localhost:8080/section?var=val") Section
+    span Section
+    ul
+      li
+        a(href="http://localhost:8080/section/page") Section : Page
+        span Page
+  li
+    a(href="http://localhost:8080/validate-fail") Validation Fail
+  li
+    a(href="http://localhost:8080/text") /text
+  li
+    a(href="http://localhost:8080/validate-warn") Validation Warn
+  li
+    a(href="http://localhost:8080/validate-error") Validation Error
