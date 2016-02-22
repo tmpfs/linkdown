@@ -23,7 +23,7 @@ Link manipulation tool.
 * `output: -o, --output [file]`: Print to file not stdout.
 * `pid: --pid [file]`: Write process id to file.
 * `pattern: -p, --pattern [regex...]`: Path filter regexp patterns.
-* `file: -f, --pattern-file [file...]`: Files containing path filter regexp patterns.
+* `patternFile: -f, --pattern-file [file...]`: Files containing path filter regexp patterns.
 
 ### Info
 
