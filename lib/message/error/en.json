@@ -68,12 +68,12 @@
   {
     "key": "ELIST_STYLE",
     "description": "User specified an invalid --list-style to the tree command",
-    "message": "unknown list style %s, expecting %s"
+    "message": "unknown list style %s, expecting: %s"
   },
   {
     "key": "ELINK_TYPE",
     "description": "User specified an invalid --link type to the tree command",
-    "message": "unknown link type %s, expecting %s"
+    "message": "unknown link type %s, expecting: %s"
   },
   {
     "key": "EJSON_PARSE",
@@ -84,6 +84,10 @@
     "key": "ECMD",
     "description": "Attempt to run exec with no command specified",
     "message": "no command specified, use --cmd"
+  },
+  {
+    "key": "ELOG_LEVEL",
+    "description": "Attempt to set an unknown log level",
+    "message": "unknown log level %s, expecting: %s"
   }
-
 ]
