@@ -1,6 +1,6 @@
 var expect = require('chai').expect
   , fs = require('fs')
-  //, archy = require('archy')
+  , archy = require('archy')
   , builder = require('../../lib/tree-builder');
 
 
@@ -145,6 +145,28 @@ describe('tree-builder:', function() {
 
     //console.dir(res, {depth: 4});
     //console.log(archy(res['localhost:8080']));
+
+    done();
+  });
+
+  it('should sort tree on label', function(done) {
+    var input = load('test/fixtures/mock.log.json')
+      , res = builder(input, {lean: true, label: label, sort: 'label'})
+      , keys = Object.keys(res)
+      , host
+      , node;
+    expect(keys.length).to.eql(1);
+    host = res['localhost:8080'];
+    expect(host.label).to.be.a('string')
+      .to.eql('/ (localhost:8080)');
+
+    expect(host.nodes).to.be.an('array');
+
+    //node = host.nodes[0];
+    //expect(node.label).to.eql('/meta');
+
+    //console.dir(res, {depth: 4});
+    console.log(archy(res['localhost:8080']));
 
     done();
   });
