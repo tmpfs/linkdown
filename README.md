@@ -11,6 +11,7 @@ Table of Contents
     * [List](#list)
     * [Exec](#exec)
     * [Meta](#meta)
+    * [Tree](#tree)
     * [Validate](#validate)
   * [Developer](#developer)
     * [Test](#test)
@@ -92,7 +93,7 @@ linkdown info http://localhost:8000 --bail
 ```
 
 ```
- INFO | [13683] started on Mon Feb 22 2016 09:08:42 GMT+0800 (WITA)
+ INFO | [8118] started on Mon Feb 22 2016 09:40:53 GMT+0800 (WITA)
  INFO | 200 http://localhost:8000/ (745 B)
  WARN | 404 http://localhost:8000/style.css
 ERROR | bailed on 404 http://localhost:8000/style.css
@@ -107,7 +108,7 @@ linkdown ls http://localhost:8000 --bail
 ```
 
 ```
- INFO | [13724] started on Mon Feb 22 2016 09:08:43 GMT+0800 (WITA)
+ INFO | [8160] started on Mon Feb 22 2016 09:40:54 GMT+0800 (WITA)
  INFO | 200 http://localhost:8000/ (745 B)
  INFO | URL http://localhost:8000/style.css
  INFO | URL http://localhost:8000/redirect
@@ -133,15 +134,15 @@ linkdown exec http://localhost:8000/meta --cmd grep -- meta
 ```
 
 ```
- INFO | [13733] started on Mon Feb 22 2016 09:08:44 GMT+0800 (WITA)
+ INFO | [8169] started on Mon Feb 22 2016 09:40:55 GMT+0800 (WITA)
  INFO | 200 http://localhost:8000/meta (322 B)
     <meta charset="utf-8">
     <meta name="description" content="Meta Test">
     <meta name="keywords" content="meta, link, http, linkdown">
  WARN | 404 http://localhost:8000/style.css
- INFO | HEAD Min: 22ms, Max: 50ms, Avg: 36ms
+ INFO | HEAD Min: 20ms, Max: 74ms, Avg: 47ms
  INFO | BODY Min: 5ms, Max: 5ms, Avg: 5ms
- INFO | TIME Min: 27ms, Max: 50ms, Avg: 39ms
+ INFO | TIME Min: 25ms, Max: 74ms, Avg: 50ms
  INFO | SIZE Min: 322 B, Max: 322 B, Avg: 322 B
  INFO | HTTP Total: 2, Complete: 2, Errors: 1
 ```
@@ -155,13 +156,13 @@ linkdown exec http://localhost:8000/meta --cmd linkdown -- meta
 ```
 
 ```
- INFO | [13771] started on Mon Feb 22 2016 09:08:45 GMT+0800 (WITA)
+ INFO | [8207] started on Mon Feb 22 2016 09:40:56 GMT+0800 (WITA)
  INFO | 200 http://localhost:8000/meta (322 B)
  WARN | 404 http://localhost:8000/style.css
 {"meta":{"title":"Meta Page","description":"Meta Test","keywords":"meta, link, http, linkdown"}}
- INFO | HEAD Min: 22ms, Max: 38ms, Avg: 30ms
- INFO | BODY Min: 6ms, Max: 6ms, Avg: 6ms
- INFO | TIME Min: 22ms, Max: 44ms, Avg: 33ms
+ INFO | HEAD Min: 28ms, Max: 32ms, Avg: 30ms
+ INFO | BODY Min: 3ms, Max: 3ms, Avg: 3ms
+ INFO | TIME Min: 28ms, Max: 35ms, Avg: 32ms
  INFO | SIZE Min: 322 B, Max: 322 B, Avg: 322 B
  INFO | HTTP Total: 2, Complete: 2, Errors: 1
 ```
@@ -171,15 +172,56 @@ linkdown exec http://localhost:8000/meta --cmd linkdown --json -- meta
 ```
 
 ```
- INFO | [13789] started on Mon Feb 22 2016 09:08:46 GMT+0800 (WITA)
+ INFO | [8225] started on Mon Feb 22 2016 09:40:57 GMT+0800 (WITA)
  INFO | 200 http://localhost:8000/meta (322 B)
  WARN | 404 http://localhost:8000/style.css
-{"url":"http://localhost:8000/meta","protocol":"http","host":"localhost","port":8000,"path":"/meta","depth":1,"fetched":true,"status":"downloaded","stateData":{"requestLatency":39,"requestTime":42,"contentLength":322,"contentType":"text/html; charset=utf-8","code":200,"headers":{"content-type":"text/html; charset=utf-8","content-length":"322","etag":"W/\"142-yIHzsRL5RxIRsAAxctYrsw\"","date":"Mon, 22 Feb 2016 01:08:46 GMT","connection":"close"},"downloadTime":3,"actualDataSize":322,"sentIncorrectSize":false},"meta":{"title":"Meta Page","description":"Meta Test","keywords":"meta, link, http, linkdown"}}
- INFO | HEAD Min: 28ms, Max: 39ms, Avg: 34ms
- INFO | BODY Min: 3ms, Max: 3ms, Avg: 3ms
- INFO | TIME Min: 28ms, Max: 42ms, Avg: 35ms
+{"url":"http://localhost:8000/meta","protocol":"http","host":"localhost","port":8000,"path":"/meta","depth":1,"fetched":true,"status":"downloaded","stateData":{"requestLatency":28,"requestTime":34,"contentLength":322,"contentType":"text/html; charset=utf-8","code":200,"headers":{"content-type":"text/html; charset=utf-8","content-length":"322","etag":"W/\"142-yIHzsRL5RxIRsAAxctYrsw\"","date":"Mon, 22 Feb 2016 01:40:57 GMT","connection":"close"},"downloadTime":6,"actualDataSize":322,"sentIncorrectSize":false},"meta":{"title":"Meta Page","description":"Meta Test","keywords":"meta, link, http, linkdown"}}
+ INFO | HEAD Min: 28ms, Max: 35ms, Avg: 32ms
+ INFO | BODY Min: 6ms, Max: 6ms, Avg: 6ms
+ INFO | TIME Min: 34ms, Max: 35ms, Avg: 35ms
  INFO | SIZE Min: 322 B, Max: 322 B, Avg: 322 B
  INFO | HTTP Total: 2, Complete: 2, Errors: 1
+```
+
+### Tree
+
+Reads line-delimited JSON records written to stdin and converts to a tree structure, designed to be used after meta data has been injected so that a site map can be generated dynamically.
+
+Note that the resulting tree is keyed by fully qualified host name (including a port when necessary) so that it can handle the scenario when a crawl resolves to multiple hosts.
+
+Generating a tree structure is a two stage process, first the site should be crawled and meta data injected:
+
+```
+linkdown exec --cmd 'linkdown meta' --json http://localhost:8080 > site.log.json
+```
+
+Note that the `--json` option is required to print the JSON records to stdout. Then you can generate a JSON tree with:
+
+```
+linkdown tree --indent=2 < site.log.json > site.tree.json
+```
+
+For more compact JSON do not specify `--indent`.
+
+You can also pipe the records for a single command:
+
+```
+linkdown exec --cmd 'linkdown meta' --json http://localhost:8080 | linkdown tree > site.tree.json
+```
+
+The tree command can also print list(s) when `--list-style` is given, the list style may be one of:
+
+* `tty`: Print the tree hierarchy suitable for display on a terminal.
+* `html`: Print an HTML unordered list.
+* `md`: Print a markdown list.
+* `jade`: Print a list suitable for [jade](http://jade-lang.com).
+
+For the `tty` and `md` list styles when multiple trees are generated (multiple hosts) they are delimited with a newline; for the `html` and `jade` list styles distinct lists are printed.
+
+Sometimes it is useful to get a quick view of the tree without the injected meta data; use the `--labels` option to always use the path name for the node label, for example:
+
+```
+linkdown tree --list-style=tty --labels < site.log.json
 ```
 
 ### Validate
@@ -197,7 +239,7 @@ linkdown validate http://localhost:8000/validate-fail
 ```
 
 ```
- INFO | [13835] started on Mon Feb 22 2016 09:08:47 GMT+0800 (WITA)
+ INFO | [8271] started on Mon Feb 22 2016 09:40:58 GMT+0800 (WITA)
  INFO | 200 http://localhost:8000/validate-fail (200 B)
 ERROR | validation failed on http://localhost:8000/validate-fail
  HTML |  
@@ -220,9 +262,9 @@ ERROR | validation failed on http://localhost:8000/validate-fail
  HTML |   ead><body><section><span>
  HTML | ------------^
  HTML |  
- INFO | HEAD Min: 26ms, Max: 26ms, Avg: 26ms
- INFO | BODY Min: 5ms, Max: 5ms, Avg: 5ms
- INFO | TIME Min: 31ms, Max: 31ms, Avg: 31ms
+ INFO | HEAD Min: 22ms, Max: 22ms, Avg: 22ms
+ INFO | BODY Min: 6ms, Max: 6ms, Avg: 6ms
+ INFO | TIME Min: 28ms, Max: 28ms, Avg: 28ms
  INFO | SIZE Min: 200 B, Max: 200 B, Avg: 200 B
  INFO | HTTP Total: 1, Complete: 1, Errors: 0
 ```
@@ -308,5 +350,6 @@ Generated by [mdp(1)](https://github.com/tmpfs/mdp).
 [mdp]: https://github.com/tmpfs/mdp
 [validator]: https://github.com/validator/validator
 [validator-releases]: https://github.com/validator/validator/releases
+[jade]: http://jade-lang.com
 [jshint]: http://jshint.com
 [jscs]: http://jscs.info

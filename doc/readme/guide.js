@@ -9,6 +9,7 @@ var fs = require('fs')
     'ls',
     'exec',
     'meta',
+    'tree',
     'validate'
   ]
   , commands = {
