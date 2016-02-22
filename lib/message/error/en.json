@@ -89,5 +89,10 @@
     "key": "ELOG_LEVEL",
     "description": "Attempt to set an unknown log level",
     "message": "unknown log level %s, expecting: %s"
+  },
+  {
+    "key": "EPTN_COMPILE",
+    "description": "Failed to compile a regular expression pattern",
+    "message": "pattern compile error (%s)"
   }
 ]

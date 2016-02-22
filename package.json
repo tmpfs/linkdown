@@ -42,7 +42,7 @@
     "nenv": "~0.5.3",
     "pretty-bytes": "~3.0.1",
     "simplecrawler": "~0.6.2",
-    "stream-lines": "~1.1.6",
+    "stream-lines": "~1.1.7",
     "string-repeater": "~1.0.3",
     "tempfile": "~1.1.1",
     "through3": "~1.1.5",
