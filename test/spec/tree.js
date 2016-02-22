@@ -144,6 +144,29 @@ describe('tree:', function() {
     io.writable.end();
   });
 
+  it('should print tree w/ --list-style=tty and multiple hosts',
+    function(done) {
+      input = fs.readFileSync('test/fixtures/multiple-hosts.log.json');
+      output = 'target/tree-tty-multiple.txt';
+      var cli = linkdown(pkg, pkg.name)
+        , args = argv(
+          ['tree', '-o=' + output, '--list-style=tty', '--labels']);
+
+      cli.program.on('complete', function() {
+        var contents = '' + fs.readFileSync(output);
+        expect(contents).to.eql(
+          '' + fs.readFileSync('test/fixtures/tty-multiple.txt'));
+        done();
+      })
+
+      io.writable.on('finish', function() {
+        cli.parse(args, {stdin: fs.createReadStream(io.readable.path)});
+      })
+      io.writable.write(input);
+      io.writable.end();
+    }
+  );
+
   it('should print tree w/ --list-style=html', function(done) {
     input = fs.readFileSync('test/fixtures/mock.log.json');
     output = 'target/html-list.txt';
@@ -260,6 +283,29 @@ describe('tree:', function() {
         var contents = '' + fs.readFileSync(output);
         expect(contents).to.eql(
           '' + fs.readFileSync('test/fixtures/md-list-absolute.txt'));
+        done();
+      })
+
+      io.writable.on('finish', function() {
+        cli.parse(args, {stdin: fs.createReadStream(io.readable.path)});
+      })
+      io.writable.write(input);
+      io.writable.end();
+    }
+  );
+
+  it('should print tree w/ --list-style=md and multiple hosts',
+    function(done) {
+      input = fs.readFileSync('test/fixtures/multiple-hosts.log.json');
+      output = 'target/tree-md-multiple.txt';
+      var cli = linkdown(pkg, pkg.name)
+        , args = argv(
+          ['tree', '-o=' + output, '--list-style=md', '--labels']);
+
+      cli.program.on('complete', function() {
+        var contents = '' + fs.readFileSync(output);
+        expect(contents).to.eql(
+          '' + fs.readFileSync('test/fixtures/md-multiple.txt'));
         done();
       })
 
