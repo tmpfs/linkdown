@@ -15,13 +15,15 @@ Link manipulation tool.
 ## Options
 
 * `bail: --bail`: Exit on first non-2xx response code.
-* `conf: -c, --conf [file...]`: Load crawler configuration files.
+* `conf: -c, --conf [file...]`: Load configuration files.
 * `logLevel: --log-level [level]`: Set the log level.
 * `json: -j, --json`: Output as JSON where possible.
 * `depth: --depth [int]`: Maximum depth to recurse.
 * `report: --report [file]`: Write statistics report to file.
 * `output: -o, --output [file]`: Print to file not stdout.
 * `pid: --pid [file]`: Write process id to file.
+* `pattern: -p, --pattern [regex...]`: Path filter regexp patterns.
+* `file: -f, --pattern-file [file...]`: Files containing path filter regexp patterns.
 
 ### Info
 
@@ -181,6 +183,16 @@ If the `--list-style` option is given the output is a list in one of the followi
 Links are created by default (with the exception of the `tty` list style) using a relative path from the root of the web server, you maybe disable automatic linking with `--link=none` or force to use absolute URLs with `--link=absolute`.
 
 By default meta description text is printed when available but may by disabled with `--no-description`.
+
+## Pattern
+
+It is often useful to exclude certain pages from being downloaded, this is achieved using regular expression patterns on the command line or loaded from file(s). Be sure to quote pattern arguments on the command line to prevent shell meta characters from being interpreted.
+
+Patterns are normal regular expressions with the caveat that a pattern prefixed with an exclamation mark (!) becomes an exclude pattern; include patterns have precedence. The match is performed on the full path name including leading slash and any query string. A pattern compile error will cause the program to exit with a non-zero code.
+
+When loading patterns from files empty lines in the file are ignored as are comment lines beginning with a hash (#). The order in which command line patterns and patterns loaded from file(s) are compiled is indeterminate when combined.
+
+For example to exclude all pages from a section of a website but include a specific page you could use `-p '!/section/.*' -p '/section/page'`. The top-level /section path would be included as would /section/page but all other paths within /section would be ignored.
 
 ## Redirects
 

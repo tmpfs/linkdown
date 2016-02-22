@@ -1,4 +1,4 @@
-.TH "LINKDOWN" "1" "February 2016" "linkdown 1.0.14" "User Commands"
+.TH "LINKDOWN" "1" "February 2016" "linkdown 1.1.1" "User Commands"
 .SH "NAME"
 linkdown
 .SH "USAGE"
@@ -10,7 +10,11 @@ linkdown <command> [\-jh] [\-\-color|\-\-no\-color] [\-\-bail] [\-j|\-\-json]
 .br
          [\-\-log\-level=<level>] [\-\-depth=<int>] [\-\-report=<file>]
 .br
-         [\-o|\-\-output=<file>] [\-\-pid=<file>] <args>
+         [\-o|\-\-output=<file>] [\-\-pid=<file>]
+.br
+         [\-p|\-\-pattern=<regex...>] [\-f|\-\-pattern\-file=<file...>]
+.br
+         <args>
 .SH "DESCRIPTION"
 .PP
 Link manipulation tool.
@@ -34,28 +38,41 @@ Link manipulation tool.
 .SH "OPTIONS"
 .BL
 .IP "\[ci]" 4
-\fB\-\-depth=[int]\fR: Maximum depth to recurse.
+\fB\-\-report=[file]\fR: Write statistics report to file.
 .IP "\[ci]" 4
 \fB\-\-[no]\-color\fR: Enable or disable terminal colors.
 .IP "\[ci]" 4
-\fB\-c, \-\-conf=[file...]\fR: Load crawler configuration files.
+\fB\-c, \-\-conf=[file...]\fR: Load configuration files.
 .IP "\[ci]" 4
 \fB\-\-log\-level=[level]\fR: Set the log level.
 .IP "\[ci]" 4
 \fB\-j, \-\-json\fR: Output as JSON where possible.
 .IP "\[ci]" 4
-\fB\-\-bail\fR: Exit on first non\-2xx response code.
+\fB\-\-depth=[int]\fR: Maximum depth to recurse.
 .IP "\[ci]" 4
-\fB\-\-report=[file]\fR: Write statistics report to file.
+\fB\-\-bail\fR: Exit on first non\-2xx response code.
 .IP "\[ci]" 4
 \fB\-o, \-\-output=[file]\fR: Print to file not stdout.
 .IP "\[ci]" 4
 \fB\-\-pid=[file]\fR: Write process id to file.
 .IP "\[ci]" 4
+\fB\-p, \-\-pattern=[regex...]\fR: Path filter regexp patterns.
+.IP "\[ci]" 4
+\fB\-f, \-\-pattern\-file=[file...]\fR: Files containing path filter regexp patterns.
+.IP "\[ci]" 4
 \fB\-h, \-\-help\fR: Display this help and exit.
 .IP "\[ci]" 4
 \fB\-\-version\fR: Print version and exit.
 .EL
+.SH "PATTERN"
+.PP
+It is often useful to exclude certain pages from being downloaded, this is achieved using regular expression patterns on the command line or loaded from file(s). Be sure to quote pattern arguments on the command line to prevent shell meta characters from being interpreted.
+.PP
+Patterns are normal regular expressions with the caveat that a pattern prefixed with an exclamation mark (!) becomes an exclude pattern; include patterns have precedence. The match is performed on the full path name including leading slash and any query string. A pattern compile error will cause the program to exit with a non\-zero code.
+.PP
+When loading patterns from files empty lines in the file are ignored as are comment lines beginning with a hash (#). The order in which command line patterns and patterns loaded from file(s) are compiled is indeterminate when combined.
+.PP
+For example to exclude all pages from a section of a website but include a specific page you could use \fB\-p '!/section/.*' \-p '/section/page'\fR. The top\-level /section path would be included as would /section/page but all other paths within /section would be ignored.
 .SH "REDIRECTS"
 .PP
 Redirects are automatically followed provided the redirect is to the same host.
