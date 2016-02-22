@@ -40,4 +40,6 @@ err.json = err('EJSON_PARSE');
 err.style = err('ELIST_STYLE');
 err.link = err('ELINK_TYPE');
 
+err.cmd = err('ECMD');
+
 module.exports = err;
