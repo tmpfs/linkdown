@@ -94,5 +94,10 @@
     "key": "EPTN_COMPILE",
     "description": "Failed to compile a regular expression pattern",
     "message": "pattern compile error (%s)"
+  },
+  {
+    "key": "ESORT_TYPE",
+    "description": "Attempt to sort a tree on an unsupported field",
+    "message": "unknown sort field %s, expecting: %s"
   }
 ]

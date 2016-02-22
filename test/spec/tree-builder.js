@@ -1,6 +1,6 @@
 var expect = require('chai').expect
   , fs = require('fs')
-  , archy = require('archy')
+  //, archy = require('archy')
   , builder = require('../../lib/tree-builder');
 
 
@@ -162,11 +162,11 @@ describe('tree-builder:', function() {
 
     expect(host.nodes).to.be.an('array');
 
-    //node = host.nodes[0];
-    //expect(node.label).to.eql('/meta');
+    node = host.nodes[0];
+    expect(node.label).to.eql('/into');
 
     //console.dir(res, {depth: 4});
-    console.log(archy(res['localhost:8080']));
+    //console.log(archy(res['localhost:8080']));
 
     done();
   });
