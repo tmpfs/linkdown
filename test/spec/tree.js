@@ -5,7 +5,7 @@ var fs = require('fs')
   , argv = require('../argv')
   , stdin = require('../stdin')
   , input = fs.readFileSync('test/fixtures/simple.log.json')
-  , output = 'target/tree-command.json'
+  , output = 'target/json-tree.txt'
   , error = require('../error');
 
 /**
@@ -87,7 +87,7 @@ describe('tree:', function() {
   });
 
   it('should print json tree w/ --indent', function(done) {
-    output = 'target/tree-indent.json';
+    output = 'target/json-tree-indent.txt';
     var cli = linkdown(pkg, pkg.name)
       , args = argv(['tree', '-o=' + output, '--indent=2']);
 
@@ -95,7 +95,6 @@ describe('tree:', function() {
       var contents = '' + fs.readFileSync(output)
         , data = JSON.parse(contents)
         , lines = contents.trim().split('\n');
-      //console.dir(lines);
       expect(lines.length).to.be.gt(1);
       simple(data);
       done();
