@@ -11,8 +11,12 @@ Designed to be used to:
 * Validate all HTML pages on a website
 * Generate a site map from a website structure
 * Print link information to find broken links
+
+But may be used to perform arbitrary operations on the links crawled from a domain.
+
+In the future it will also:
+
 * Generate a static cache for dynamic web applications
 * Download files of a certain type from a website
 * Cache an entire website for offline browsing
 
-But may be used to perform arbitrary operations on the links crawled from a domain.
