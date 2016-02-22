@@ -51,6 +51,20 @@ describe('tree:', function() {
     cli.parse(args, {stdin: io.readable});
   });
 
+  it('should error on invalid link type', function(done) {
+    var cli = linkdown(pkg, pkg.name)
+      , args = argv(['tree', '--link=foo']);
+
+    cli.program.on('error', function(err) {
+      error.link(err, this.errors);
+      done();
+    })
+
+    io.writable.write(input);
+    cli.parse(args, {stdin: io.readable});
+  });
+
+
   it('should print json tree', function(done) {
     output = 'target/tree.json';
     var cli = linkdown(pkg, pkg.name)
@@ -194,5 +208,66 @@ describe('tree:', function() {
       io.writable.end();
     }
   );
+
+  it('should print tree w/ --list-style=md', function(done) {
+    input = fs.readFileSync('test/fixtures/mock.log.json');
+    output = 'target/md-list.txt';
+    var cli = linkdown(pkg, pkg.name)
+      , args = argv(['tree', '-o=' + output, '--list-style=md']);
+
+    cli.program.on('complete', function() {
+      var contents = '' + fs.readFileSync(output);
+      expect(contents).to.eql(
+        '' + fs.readFileSync('test/fixtures/md-list.txt'));
+      done();
+    })
+
+    io.writable.on('finish', function() {
+      cli.parse(args, {stdin: fs.createReadStream(io.readable.path)});
+    })
+    io.writable.write(input);
+    io.writable.end();
+  });
+
+  it('should print tree w/ --list-style=md and --indent=4', function(done) {
+    input = fs.readFileSync('test/fixtures/mock.log.json');
+    output = 'target/md-list-indent.txt';
+    var cli = linkdown(pkg, pkg.name)
+      , args = argv(['tree', '-o=' + output, '--list-style=md', '--indent=4']);
+
+    cli.program.on('complete', function() {
+      var contents = '' + fs.readFileSync(output);
+      expect(contents).to.eql(
+        '' + fs.readFileSync('test/fixtures/md-list-indent.txt'));
+      done();
+    })
+
+    io.writable.on('finish', function() {
+      cli.parse(args, {stdin: fs.createReadStream(io.readable.path)});
+    })
+    io.writable.write(input);
+    io.writable.end();
+  });
+
+  it('should print tree w/ --list-style=md and --link=absolute', function(done) {
+    input = fs.readFileSync('test/fixtures/mock.log.json');
+    output = 'target/md-list-absolute.txt';
+    var cli = linkdown(pkg, pkg.name)
+      , args = argv(
+          ['tree', '-o=' + output, '--list-style=md', '--link=absolute']);
+
+    cli.program.on('complete', function() {
+      var contents = '' + fs.readFileSync(output);
+      expect(contents).to.eql(
+        '' + fs.readFileSync('test/fixtures/md-list-absolute.txt'));
+      done();
+    })
+
+    io.writable.on('finish', function() {
+      cli.parse(args, {stdin: fs.createReadStream(io.readable.path)});
+    })
+    io.writable.write(input);
+    io.writable.end();
+  });
 
 });

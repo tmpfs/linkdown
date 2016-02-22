@@ -38,5 +38,6 @@ err.output = err('EOUTPUT');
 err.json = err('EJSON_PARSE');
 
 err.style = err('ELIST_STYLE');
+err.link = err('ELINK_TYPE');
 
 module.exports = err;
