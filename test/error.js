@@ -41,5 +41,6 @@ err.style = err('ELIST_STYLE');
 err.link = err('ELINK_TYPE');
 
 err.cmd = err('ECMD');
+err.level = err('ELOG_LEVEL');
 
 module.exports = err;
