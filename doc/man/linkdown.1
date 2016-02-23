@@ -14,7 +14,7 @@ linkdown <command> [\-jh] [\-\-color|\-\-no\-color] [\-\-bail] [\-j|\-\-json]
 .br
          [\-p|\-\-pattern=<regex...>] [\-f|\-\-pattern\-file=<file...>]
 .br
-         <args>
+         [\-\-user\-agent|\-\-ua=<val>] <args>
 .SH "DESCRIPTION"
 .PP
 Link manipulation tool.
@@ -38,7 +38,7 @@ Link manipulation tool.
 .SH "OPTIONS"
 .BL
 .IP "\[ci]" 4
-\fB\-\-report=[file]\fR: Write statistics report to file.
+\fB\-o, \-\-output=[file]\fR: Print to file not stdout.
 .IP "\[ci]" 4
 \fB\-\-[no]\-color\fR: Enable or disable terminal colors.
 .IP "\[ci]" 4
@@ -50,15 +50,17 @@ Link manipulation tool.
 .IP "\[ci]" 4
 \fB\-\-depth=[int]\fR: Maximum depth to recurse.
 .IP "\[ci]" 4
-\fB\-\-bail\fR: Exit on first non\-2xx response code.
+\fB\-\-report=[file]\fR: Write statistics report to file.
 .IP "\[ci]" 4
-\fB\-o, \-\-output=[file]\fR: Print to file not stdout.
+\fB\-\-bail\fR: Exit on first non\-2xx response code.
 .IP "\[ci]" 4
 \fB\-\-pid=[file]\fR: Write process id to file.
 .IP "\[ci]" 4
 \fB\-p, \-\-pattern=[regex...]\fR: Path filter regexp patterns.
 .IP "\[ci]" 4
 \fB\-f, \-\-pattern\-file=[file...]\fR: Files containing path filter regexp patterns.
+.IP "\[ci]" 4
+\fB\-\-user\-agent, \-\-ua=[val]\fR: Set the user agent header. 
 .IP "\[ci]" 4
 \fB\-h, \-\-help\fR: Display this help and exit.
 .IP "\[ci]" 4

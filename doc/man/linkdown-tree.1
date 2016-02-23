@@ -1,4 +1,4 @@
-.TH "LINKDOWN-TREE" "1" "February 2016" "linkdown-tree 1.0.14" "User Commands"
+.TH "LINKDOWN-TREE" "1" "February 2016" "linkdown-tree 1.1.1" "User Commands"
 .SH "NAME"
 linkdown-tree -- Convert line-delimited JSON records to a tree.
 .SH "USAGE"
@@ -8,13 +8,15 @@ linkdown tree [\-\-path\-labels|\-\-labels]
 .br
          [\-\-description|\-\-desc] [\-\-indent=<num>]
 .br
-         [\-\-list\-style=<style>] [\-\-link=<format>] <args>
+         [\-\-list\-style=<style>] [\-\-link=<format>] [\-\-sort=<field>]
+.br
+         <args>
 .br
 linkdown t [\-\-path\-labels|\-\-labels] [\-\-description|\-\-desc]
 .br
          [\-\-indent=<num>] [\-\-list\-style=<style>] [\-\-link=<format>]
 .br
-         <args>
+         [\-\-sort=<field>] <args>
 .SH "DESCRIPTION"
 .PP
 Reads line\-delimited JSON records on stdin and parses the records into a tree structure representing the requests. Designed to be used in conjunction with \fBmeta\fR so that meta data may be injected into each request before converting to the tree structure.
@@ -34,6 +36,8 @@ Be careful with this command, it needs to buffer all the records into memory in 
 \fB\-\-link=[format]\fR: Link format; one of relative, absolute or none.
 .IP "\[ci]" 4
 \fB\-\-description, \-\-desc\fR: Include meta description.
+.IP "\[ci]" 4
+\fB\-\-sort=[field]\fR: Sort nodes on the given field. 
 .EL
 .SH "OUTPUT"
 .PP
