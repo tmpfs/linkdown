@@ -14,7 +14,7 @@ module.exports = {
     }
   },
   crawl: {
-    downloadUnsupported: true,
+    downloadUnsupported: false,
     userAgent: 'Linkdown',
     // decrease interval and concurrency as normally
     // executing against local server, adjust for your needs
