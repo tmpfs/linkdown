@@ -1,3 +1,5 @@
+var pkg = require('./package.json');
+
 module.exports = {
   validate: {
     // only validate on these MIME types
@@ -15,7 +17,7 @@ module.exports = {
   },
   crawl: {
     downloadUnsupported: false,
-    userAgent: 'Linkdown',
+    userAgent: pkg.name + '@' + pkg.version + ' (' + pkg.repository.url + ')',
     // decrease interval and concurrency as normally
     // executing against local server, adjust for your needs
     interval: 200,
