@@ -24,6 +24,7 @@ Link manipulation tool.
 * `pid: --pid [file]`: Write process id to file.
 * `pattern: -p, --pattern [regex...]`: Path filter regexp patterns.
 * `patternFile: -f, --pattern-file [file...]`: Files containing path filter regexp patterns.
+* `userAgent: --ua, --user-agent [val]`: Set the user agent header. 
 
 ### Info
 
