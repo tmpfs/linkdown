@@ -169,6 +169,7 @@ Be careful with this command, it needs to buffer all the records into memory in 
 * `listDescription: --desc, --description`: Include meta description.
 * `sort: --sort [field]`: Sort nodes on the given field. 
 * `pluck: --pluck [path...]`: Pluck the child nodes of the given path.
+* `suppressRoot: --suppress-root`: Do not print the root of the tree.
 
 #### Output
 
