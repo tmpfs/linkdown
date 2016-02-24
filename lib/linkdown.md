@@ -168,6 +168,7 @@ Be careful with this command, it needs to buffer all the records into memory in 
 * `link: --link [format]`: Link format; one of relative, absolute or none.
 * `listDescription: --desc, --description`: Include meta description.
 * `sort: --sort [field]`: Sort nodes on the given field. 
+* `pluck: --pluck [path...]`: Pluck the child nodes of the given path.
 
 #### Output
 
