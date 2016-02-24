@@ -25,6 +25,8 @@ Link manipulation tool.
 * `pattern: -p, --pattern [regex...]`: Path filter regexp patterns.
 * `patternFile: -f, --pattern-file [file...]`: Files containing path filter regexp patterns.
 * `userAgent: --ua, --user-agent [val]`: Set the user agent header. 
+* `include: --include [path]`: Force include a path.
+* `exclude: --exclude [path]`: Force exclude a path.
 
 ### Info
 
