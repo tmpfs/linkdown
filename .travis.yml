@@ -16,6 +16,7 @@ before_install:
   - export NU_VALIDATOR_JAR=$PWD/vnu/dist/vnu.jar
 script: npm run cover
 node_js:
+  - '6.1.0'
   - '4.1'
   - '4.0'
   - '0.12'
