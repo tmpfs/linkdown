@@ -27,9 +27,9 @@ app.get('/', function(req, res) {
  *  Gzip encoding.
  */
 app.get('/gzip', function(req, res) {
-  res.set('Content-Type', 'text/plain');
+  res.set('Content-Type', 'text/html');
   res.set('Content-Encoding', 'gzip');
-  var text = "plain text";
+  var text = "<!doctype html><html><head><title>gzip</title></head></html>";
   zlib.gzip(text, function (_, result) {
     res.end(result);
   });

@@ -68,6 +68,15 @@ describe('validate:', function() {
     });
   });
 
+  it('should handle validation of mock server w/gzip', function(done) {
+    var cli = linkdown(pkg, pkg.name)
+      , args = argv(['validate', process.env.URL + '/gzip']);
+    cli.parse(args, function complete(res) {
+      expect(res.errors.list.length).to.eql(0);
+      done(); 
+    });
+  });
+
   it('should validate mock server w/ --json', function(done) {
     var cli = linkdown(pkg, pkg.name)
       , file = 'target/validate-json.log'

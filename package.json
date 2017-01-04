@@ -39,7 +39,7 @@
     "cli-mid-manual": "~1.0.15",
     "merge": "~1.2.0",
     "ms": "~0.7.1",
-    "nenv": "~0.5.3",
+    "nenv": "~0.5.4",
     "pretty-bytes": "~3.0.1",
     "simplecrawler": "~0.7.0",
     "stream-lines": "~1.2.0",
@@ -51,9 +51,9 @@
   },
   "devDependencies": {
     "chai": "~3.5.0",
-    "coveralls": "~2.11.9",
+    "coveralls": "~2.11.15",
     "express": "~5.0.0-alpha.2",
-    "istanbul": "~0.4.4",
+    "istanbul": "~0.4.5",
     "jade": "~1.11.0",
     "mocha": "~2.5.3"
   },
