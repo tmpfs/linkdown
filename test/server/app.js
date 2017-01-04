@@ -1,5 +1,6 @@
 var path = require('path')
   , express = require('express')
+  , zlib = require('zlib')
   , app = express()
   , wildcard = require('./wildcard')
   , errorView = require('./error-view');
@@ -20,6 +21,18 @@ app.locals.pretty = true;
  */
 app.get('/', function(req, res) {
   res.render('index');
+});
+
+/**
+ *  Gzip encoding.
+ */
+app.get('/gzip', function(req, res) {
+  res.set('Content-Type', 'text/plain');
+  res.set('Content-Encoding', 'gzip');
+  var text = "plain text";
+  zlib.gzip(text, function (_, result) {
+    res.end(result);
+  });
 });
 
 /**
