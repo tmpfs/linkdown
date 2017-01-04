@@ -11,6 +11,7 @@ describe('ls:', function() {
     var cli = linkdown(pkg, pkg.name)
       , file = 'test/output.log'
       , args = argv(['ls', process.env.URL, '--json', '-o=' + file]);
+
     cli.program.on('finish', function complete(/*res*/) {
       expect(fs.existsSync(file)).to.eql(true);
       var contents = '' + fs.readFileSync(file)
