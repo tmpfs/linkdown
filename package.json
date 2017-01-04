@@ -52,10 +52,10 @@
   "devDependencies": {
     "chai": "~3.5.0",
     "coveralls": "~2.11.15",
-    "express": "~5.0.0-alpha.2",
+    "express": "~4.14.0",
     "istanbul": "~0.4.5",
     "jade": "~1.11.0",
-    "mocha": "~2.5.3"
+    "mocha": "~3.2.0"
   },
   "engine": [
     "node >= 0.12.x"
